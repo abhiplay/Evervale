@@ -63,6 +63,15 @@ func _initialize() -> void:
 			all_inside = false
 	check(all_inside, "after a few seconds every mote is still over the picture")
 
+	print("The logo")
+	screen._layout()
+	var logo: Rect2 = screen._logo_rect
+	check(screen._logo_texture != null, "the logo is on the title screen")
+	check(logo.position.y >= 16.0, "the logo keeps room above it (%.0f px from the top)" % logo.position.y)
+	check(absf((logo.position.x + logo.size.x / 2.0) - screen.size.x / 2.0) < 1.0, "the logo is centred across the top")
+	check(logo.end.y < screen.size.y * 0.5, "the logo stays in the top half of the screen")
+	check(screen.get_children().all(func(c): return not (c is TextureRect)), "the logo is drawn by the screen, so the fog and dust can pass in front of it")
+
 	print("The menu")
 	var buttons: Dictionary = constants["BUTTONS"]
 	check(screen._buttons.size() == buttons.size(), "all %d menu buttons are still there" % buttons.size())

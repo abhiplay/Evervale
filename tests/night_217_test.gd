@@ -50,76 +50,50 @@ func _initialize() -> void:
 	room._unhandled_input(_interact_event())
 	var saw_caption := false
 	var saw_tint := false
+	var heard_static := false
+	var saw_oliver := false
 	for i in MAX_FRAMES:
-		if save.state.world_state.get("night_217_stage", "") == "downstairs":
+		if save.state.world_state.get("radio_217_heard", false) and not room.scripted:
 			break
+		var sound = room.get_node_or_null("RadioStatic")
+		if sound and sound.playing:
+			heard_static = true
+		for child in room.get_children():
+			if child.is_in_group("figures"):
+				saw_oliver = true
+		if room.scene_dialogue.is_open:
+			var text: String = room.scene_dialogue._text_label.text
+			if said.is_empty() or said[-1] != text:
+				said.append(text)
+			if i % 4 == 0:
+				room.scene_dialogue.advance()
 		var caption = room.find_child("NightCaption", true, false)
 		if caption and caption.visible:
 			saw_caption = true
 		if room.has_node("NightTint"):
 			saw_tint = true
-		if room.scene_dialogue.is_open and i % 4 == 0:
-			room.scene_dialogue.advance()
 		await process_frame
 	check(saw_caption, "the 2:17 AM card shows")
 	check(saw_tint, "the bedroom is dark")
-	check(save.state.world_state.get("night_217_stage", "") == "downstairs", "Amelia goes down the stairs")
-
-	print("Downstairs")
-	var house = null
-	for i in 600:
-		if current_scene != null and current_scene.scene_file_path == "res://scenes/HomeFloor1.tscn":
-			house = current_scene
-			break
-		await process_frame
-	check(house != null, "the ground floor opens")
-	if room and is_instance_valid(room) and room.is_inside_tree():
-		_close(room)
-	var heard_static := false
-	var saw_oliver := false
-	var dark := false
-	for i in MAX_FRAMES:
-		if save.state.world_state.get("radio_217_heard", false) and not house.scripted:
-			break
-		if house.has_node("NightTint"):
-			dark = true
-		var sound = house.get_node_or_null("RadioStatic")
-		if sound and sound.playing:
-			heard_static = true
-		for child in house.get_children():
-			if child.is_in_group("figures"):
-				saw_oliver = true
-		if house.scene_dialogue.is_open:
-			var text: String = house.scene_dialogue._text_label.text
-			if said.is_empty() or said[-1] != text:
-				said.append(text)
-			if i % 4 == 0:
-				house.scene_dialogue.advance()
-		await process_frame
-	check(dark, "the ground floor is dark too")
-	check(heard_static, "the radio plays static")
+	check(heard_static, "the radio on the wall plays static")
 	check(said.has("If you're hearing this, don't trust the people who welcomed you."), "the radio delivers the warning")
-	check(saw_oliver, "Oliver comes down the stairs")
-	check(house.player.position.distance_to(Vector2(data.amelia_walks_to[0], data.amelia_walks_to[1])) < 40, "Amelia walks to the radio")
+	check(saw_oliver, "Oliver comes over")
+	check(room.player.position.distance_to(Vector2(data.amelia_walks_to[0], data.amelia_walks_to[1])) < 40, "Amelia walks to the radio")
 
 	print("Morning")
 	check(save.state.world_state.get("radio_217_heard", false), "the radio's warning is saved")
+	check(save.state.world_state.get("night_217_stage", "") == "done", "the night is over")
 	check(save.state.completed_missions.has("M05"), "the night completes Mission 5")
 	check(int(save.state.day) == 2, "it is day 2")
-	check(not house.has_node("NightTint") or house.get_node("NightTint").is_queued_for_deletion(), "the night tint is gone")
-	check(not house.scripted, "Amelia can move again")
+	check(not room.has_node("NightTint") or room.get_node("NightTint").is_queued_for_deletion(), "the night tint is gone")
+	check(not room.scripted, "Amelia can move again")
 	check(hud.objective_panel.objective_title == "End of Act I", "the objective says Act I is over")
-	house.player.position = Vector2(560, 800)
-	house._update_nearby()
-	var radio_lines: Array = house.nearby.get("lines", [])
-	_close(house)
-	house = await _open("res://scenes/HomeFloor1.tscn")
-	house.player.position = Vector2(560, 800)
-	house._update_nearby()
-	check(str(house.nearby.get("lines", [""])[0]).contains("silent"), "afterwards the radio is silent")
+	room.player.position = Vector2(390, 400)
+	room._update_nearby()
+	check(room.nearby.get("id", "") == "radio" and str(room.nearby.get("lines", [""])[0]).contains("silent"), "afterwards the radio by the wall is silent")
 	await _frames(20)
-	check(not house.scripted, "walking back in does not play the night again")
-	_close(house)
+	check(not room.scripted, "nothing plays again")
+	_close(room)
 	room = await _open("res://scenes/BedroomUpstairs.tscn")
 	check(not _has_bed(room), "the bed no longer offers Sleep")
 	_close(room)

@@ -1,10 +1,9 @@
 class_name Night217
 extends RefCounted
 ## Mission 5, "2:17 AM" (data/night_217.json). Once the box talk is over, the bed upstairs offers Sleep. Sleeping fades to
-## black and shows the time; Amelia wakes in the dark bedroom to static and goes down to the ground floor, where the
-## radio delivers the warning transmission. Oliver comes down after it. Then it is morning: radio_217_heard is saved,
-## which completes Mission 5, and the end of Act I is shown. The world_state flag night_217_stage keeps the place across
-## the change of floor: "downstairs" (the ground floor part still to play), "done".
+## black and shows the time; Amelia wakes in the dark bedroom to static, and the radio on the bedroom wall delivers the
+## warning transmission. Oliver wakes and comes over after it. Then it is morning: radio_217_heard is saved, which
+## completes Mission 5, and the end of Act I is shown. The world_state flag night_217_stage is "done" once it has played.
 ## It plays once: the bed only offers Sleep before radio_217_heard is set.
 
 const DATA_PATH := "res://data/night_217.json"
@@ -12,6 +11,8 @@ const STATIC_SOUND := "res://assets/audio/radio_static.wav"
 const NIGHT_TINT := Color(0.32, 0.36, 0.55)
 const OLIVER_ANIMATIONS := "res://data/oliver_animations.json"
 const HEARD_FLAG := "radio_217_heard"
+## How fast figures walk in the night scene, in pixels a second.
+const WALK_SPEED := 150.0
 
 
 ## True when Amelia can go to bed for the night: the box talk is over and the radio has not spoken yet.
@@ -20,16 +21,11 @@ static func sleep_available() -> bool:
 	return world.get("box_talk_done", false) == true and world.get(HEARD_FLAG, false) != true
 
 
-## True when the ground floor part should play as the scene opens.
-static func downstairs_pending() -> bool:
-	return SaveSystem.state.world_state.get("night_217_stage", "") == "downstairs"
-
-
 static func _data() -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string(DATA_PATH))
 
 
-## Upstairs: Amelia goes to bed, the time shows, she wakes to static, and goes down the stairs.
+## Upstairs: Amelia goes to bed, the time shows, she wakes to static, and the radio speaks from the bedroom wall.
 func bedroom(host: Node2D) -> void:
 	var data := _data()
 	host.scripted = true
@@ -45,13 +41,11 @@ func bedroom(host: Node2D) -> void:
 	await _fade(host, 0.0, 0.8)
 	for step in data.wake:
 		await host.scene_dialogue.say(step.say, step.lines)
-	SaveSystem.state.world_state["night_217_stage"] = "downstairs"
-	SaveSystem.save_game()
-	host._go_to("res://scenes/HomeFloor1.tscn", "from_bedroom")
+	await broadcast(host)
 
 
-## Downstairs: the radio speaks, Oliver comes down, and morning comes.
-func downstairs(host: Node2D) -> void:
+## The radio speaks from the wall, Oliver comes over, and morning comes.
+func broadcast(host: Node2D) -> void:
 	var data := _data()
 	host.scripted = true
 	_tint(host)
@@ -64,11 +58,11 @@ func downstairs(host: Node2D) -> void:
 	var sound := _static_player(host)
 	sound.volume_db = -14.0
 	var to: Array = data.amelia_walks_to
-	await SceneWalkers.walk_together(host, [[host.player, Vector2(to[0], to[1])]], 2.4)
+	await _walk_round(host, host.player, Vector2(to[0], to[1]))
 	if radio_prop:
 		SceneWalkers.face_point(host, host.player, radio_prop.position)
 	var oliver: Node2D = null
-	for step in data.downstairs:
+	for step in data.broadcast:
 		if step.get("oliver", false):
 			if glow:
 				glow.kill()
@@ -78,7 +72,7 @@ func downstairs(host: Node2D) -> void:
 			var enters: Array = data.oliver_enters_at
 			oliver.position = Vector2(enters[0], enters[1])
 			host.add_child(oliver)
-			await SceneWalkers.walk_together(host, [[oliver, host.player.position + Vector2(70, -10)]], 2.0)
+			await _walk_round(host, oliver, _free_beside(host, host.player.position))
 			SceneWalkers.face_each_other(host, host.player, oliver)
 			continue
 		if step.get("static", false):
@@ -95,12 +89,38 @@ func downstairs(host: Node2D) -> void:
 	var world: Dictionary = SaveSystem.state.world_state
 	world[HEARD_FLAG] = true
 	world["night_217_stage"] = "done"
+	# The radio on the wall is silent from now on: its look line changes with the flag.
+	for item in host.interactables:
+		if item.get("id", "") == "radio":
+			item.lines = data.radio_silent
 	SaveSystem.state.day = int(SaveSystem.state.get("day", 1)) + 1
 	SaveSystem.save_game()
 	MissionTracker.update()
 	await _end_card(host, data.end_card)
 	await _fade(host, 0.0, 1.0)
 	host.scripted = false
+
+
+## Walks a figure to the target round the furniture, along the click-to-walk way (ClickWalker.route), at walking pace.
+func _walk_round(host: Node2D, node: Node2D, target: Vector2) -> void:
+	var points: Array[Vector2] = [target]
+	if host.get("click_walker") != null:
+		var goals: Array[Vector2] = [target]
+		var way: Array[Vector2] = host.click_walker.route(node.position, goals)
+		if not way.is_empty():
+			points = way
+	for point in points:
+		var seconds: float = maxf(node.position.distance_to(point) / WALK_SPEED, 0.15)
+		await SceneWalkers.walk_together(host, [[node, point]], seconds)
+
+
+## The first spot beside Amelia, right, left, then below, where a figure's feet fit; right of her when none does.
+func _free_beside(host: Node2D, amelia: Vector2) -> Vector2:
+	for offset in [Vector2(70, 0), Vector2(-70, 0), Vector2(0, 60), Vector2(60, 50), Vector2(-60, 50)]:
+		var spot: Vector2 = amelia + offset
+		if host.get("click_walker") == null or host.click_walker.fits(spot):
+			return spot
+	return amelia + Vector2(70, 0)
 
 
 ## A dark blue night over the whole scene.

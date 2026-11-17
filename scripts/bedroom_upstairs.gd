@@ -9,6 +9,11 @@ extends "res://scripts/exterior_home.gd"
 const EMPTY_PICTURE := "res://assets/environments/bedroom_upstairs_empty.webp"
 const EMPTY_MASK := "res://data/walkmasks/bedroom_upstairs_empty.png"
 const FURNISHED_MASK := "res://data/walkmasks/bedroom_upstairs_furnished.png"
+## Once the house is settled, the radio moves here from the ground floor: on the floor against the wall, left of the
+## bedside table. Its size matches the rooms' scale.
+const RADIO_PROP := "res://assets/environments/furniture/radio_prop.png"
+const RADIO_POSITION := Vector2(385, 335)
+const RADIO_SCALE := 0.6
 
 
 func _init() -> void:
@@ -41,11 +46,29 @@ func _ready() -> void:
 		_empty_the_room()
 	else:
 		WalkMask.apply(self, FURNISHED_MASK)
+		if HomeFloor1.is_settled_now():
+			_place_radio()
 	# Amelia's look around the house, once Evelyn has left.
 	add_child(HouseInspection.new(self))
 	# The bed, once the box talk is over: Sleep starts the night (Mission 5, Night217).
 	if Night217.sleep_available():
 		interactables.append({"id": "bed", "pos": Vector2(720, 790), "label": "Sleep", "action": "sleep"})
+
+
+## The radio on the bedroom wall. Using it says a line, and after the night of 2:17 it is silent.
+func _place_radio() -> void:
+	var radio := Sprite2D.new()
+	radio.name = "RadioProp"
+	radio.texture = load(RADIO_PROP)
+	radio.position = RADIO_POSITION
+	radio.scale = Vector2(RADIO_SCALE, RADIO_SCALE)
+	# Above the picture, under the characters.
+	radio.z_index = -5
+	add_child(radio)
+	var lines := ["An old radio sits on the floor by the wall."]
+	if SaveSystem.state.world_state.get(Night217.HEARD_FLAG, false):
+		lines = Night217._data().radio_silent
+	interactables.append({"id": "radio", "pos": RADIO_POSITION + Vector2(0, 40), "label": "Look", "lines": lines})
 
 
 func _do_action(action: String) -> void:

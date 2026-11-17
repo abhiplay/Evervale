@@ -39,7 +39,7 @@ func _initialize() -> void:
 	print("The choice")
 	await create_timer(2.0).timeout
 	check(popup._stage == 3, "after a moment the choice is offered")
-	check(popup._choices.visible and not popup._hint.visible and not popup._icon.visible, "the choice replaces the reading")
+	check(popup._choices.visible and not popup._hint.visible and not popup._description.visible and popup._icon.visible, "the choice replaces the words, and the item keeps floating")
 	check(popup._buttons["open"]._glow.visible and not popup._buttons["leave"]._glow.visible, "only Open Box starts lit")
 	popup._choose("open")
 	check(chosen == ["open"], "the choice the player makes is reported")

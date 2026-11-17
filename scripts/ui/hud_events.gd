@@ -20,3 +20,5 @@ signal dialogue_changed(is_open: bool)
 
 ## True while a screen (the inventory) is open. Gameplay then takes no movement and no E.
 var screen_open := false
+## True while a conversation is on the full-screen stage (SceneDialogue, DialogueStage). The HUD steps aside then.
+var dialogue_stage := false

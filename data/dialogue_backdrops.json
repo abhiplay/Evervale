@@ -1,0 +1,4 @@
+{
+  "_note": "Paintings behind conversations (DialogueStage). Each entry: scene is a SCENE_ID (home_floor1, bedroom_upstairs, town_square, cafe, florist, bookstore, exterior_home, ...); zone, optional, is a data/home_events.json area id (living_room, kitchen, north_room, entry_hall, bedroom_bed, ...) for a painting of one part of a room; image is the painting, a res:// path, best at 1920x1080 or 960x540. A zone's painting is used when Amelia stands in that zone, else the scene's own (an entry with no zone), else the room's picture around her, close up and softened. Example: {\"scene\": \"home_floor1\", \"zone\": \"kitchen\", \"image\": \"res://assets/backdrops/home_kitchen.webp\"}. Add paintings here as they are made; no code change is needed.",
+  "backdrops": []
+}

@@ -1,9 +1,14 @@
 class_name SceneDialogue
 extends Control
-## The dialogue box for scripted scenes and for things that say a line when used. A speaker with
-## portrait art gets a portrait on the left, showing the expression each line asks for, and her mouth
-## moves for a moment when a line appears. Lines are strings or {"text", "emotion"}. E, Enter or a
-## click moves on. say() returns once the last line has been dismissed, so a scene script can wait.
+## The dialogue for scripted scenes and for things that say a line when used. Lines are strings or {"text", "emotion"}.
+## E, Enter or a click moves on. say() returns once the last line has been dismissed, so a scene script can wait.
+##
+## It has two looks. A conversation (any line in a scripted scene, or anyone but Amelia speaking) plays on the stage
+## (DialogueStage): the room close up behind the people talking, the speaker drawn large on their side, Amelia on the
+## right and everyone else on the left, the name and the words over a dark band at the bottom, and Hide and Skip in the
+## corner; the HUD steps aside. Amelia's own short remarks while exploring (looking round the house, petting the cat,
+## looking at things) stay in the small box at the bottom, with her portrait on its left. In both, the speaker's mouth
+## moves for a moment when a line appears.
 
 signal closed
 ## The box opened (true) or closed (false). The scene that owns the box passes this on to the HUD.
@@ -23,6 +28,22 @@ const PORTRAITS := {
 	"Oliver": "res://assets/portraits/oliver/",
 }
 const PORTRAIT_SCALE := 0.9
+## Which side of the stage each speaker stands on. Anyone not listed stands on the left.
+const STAGE_SIDES := {"Amelia": "right"}
+## The colour of each speaker's name on the stage. Anyone not listed gets the default.
+const NAME_COLOURS := {
+	"Amelia": Color("#e8c77a"),
+	"Oliver": Color("#9cc3e6"),
+	"Evelyn": Color("#a9d6a0"),
+	"Henry": Color("#e3a774"),
+	"Radio": Color("#c9b79a"),
+}
+const NAME_COLOUR := Color("#e8c77a")
+## On Skip, each line shows for this long before the next.
+const SKIP_SECONDS := 0.08
+## After the last line, the stage waits this long for the scene's next line before it goes down, so a conversation of
+## many speakers stays on one stage.
+const STAGE_GRACE := 0.2
 ## When a line appears, the talking expression shows for this long, then the line's own expression.
 const TALK_SECONDS := 1.2
 const TALK_FRAME := "talk_02"
@@ -37,11 +58,25 @@ var _portrait: TextureRect
 var _portrait_folder := ""
 var _emotion := "neutral"
 var _talk_left := 0.0
+var _speaker := ""
 var _textures := {}
+## The full-screen stage for conversations, behind this box in the scene's UI layer.
+var stage: DialogueStage
+## True while the lines are on the stage rather than in the box.
+var stage_mode := false
+var _hide_button: Button
+var _skip_button: Button
+var _ui_hidden := false
+var _skipping := false
+var _skip_left := 0.0
+var _grace_left := 0.0
+var _art: TextureRect
+var _box_size := Vector2.ZERO
 
 
 func _ready() -> void:
 	var box := ART_SIZE * (WIDTH / ART_SIZE.x)
+	_box_size = box
 	size = box
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	var art := TextureRect.new()
@@ -51,6 +86,7 @@ func _ready() -> void:
 	art.size = box
 	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(art)
+	_art = art
 	_portrait = TextureRect.new()
 	_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -87,7 +123,36 @@ func _ready() -> void:
 	_text_label.size = Vector2(TEXT_RECT.size.x * box.x, TEXT_RECT.size.y * box.y)
 	_text_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_text_label)
+	_hide_button = _stage_button(DialogueIcon.Kind.HIDE, _hide_words)
+	_skip_button = _stage_button(DialogueIcon.Kind.SKIP, _skip_talk)
 	visible = false
+	stage = DialogueStage.new()
+	stage.name = "DialogueStage"
+	_attach_stage.call_deferred()
+
+
+## The stage goes first in this box's layer, under the scene's fade, so a fade to black covers it too.
+func _attach_stage() -> void:
+	var layer := get_parent()
+	if layer == null or stage.get_parent() != null:
+		return
+	layer.add_child(stage)
+	layer.move_child(stage, 0)
+
+
+## A round Hide or Skip button for the stage's corner, hidden until a conversation is on the stage.
+func _stage_button(kind: DialogueIcon.Kind, action: Callable) -> Button:
+	var button := Button.new()
+	button.flat = true
+	button.focus_mode = Control.FOCUS_NONE
+	button.size = Vector2(34, 34)
+	button.visible = false
+	button.pressed.connect(action)
+	var icon := DialogueIcon.new(kind)
+	icon.size = button.size
+	button.add_child(icon)
+	add_child(button)
+	return button
 
 
 ## Shows the lines one at a time, with the speaker's name (or no name if speaker is empty).
@@ -95,29 +160,136 @@ func say(speaker: String, lines: Array) -> void:
 	if lines.is_empty():
 		return
 	_queue.clear()
+	_portrait_folder = PORTRAITS.get(speaker, "")
+	_speaker = speaker
+	stage_mode = _wants_stage(speaker)
+	if stage_mode:
+		_layout_stage(speaker)
+	else:
+		_layout_box()
+	# The pages are worked out for the text area of the look in use.
 	for line in lines:
 		_queue_pages(_as_entry(line))
-	_portrait_folder = PORTRAITS.get(speaker, "")
 	is_open = true
 	visible = true
+	_ui_hidden = false
 	talk_changed.emit(true)
-	var view := get_viewport().get_visible_rect().size
-	position = Vector2((view.x - size.x) / 2.0, view.y - size.y - 12.0)
 	_speaker_label.text = speaker
 	_speaker_label.visible = speaker != ""
 	_show(_queue.pop_front())
 	await closed
 
 
+## A conversation plays on the stage: any line while the scene is scripted, or anyone but Amelia speaking. Amelia's own
+## remarks while exploring stay in the box.
+func _wants_stage(speaker: String) -> bool:
+	var host := _host()
+	# Without a scene around it (a box on its own), there is no room to put on the stage.
+	if host == null:
+		return false
+	if host.get("scripted") == true:
+		return true
+	return speaker != "" and speaker != "Amelia"
+
+
+## The scene this box belongs to (the one with the player in it), or null.
+func _host() -> Node:
+	var node := get_parent()
+	while node != null and node.get("scripted") == null:
+		node = node.get_parent()
+	return node
+
+
+## The box at the bottom of the screen, with the small portrait on its left.
+func _layout_box() -> void:
+	if stage.visible:
+		_close_stage()
+	var view := get_viewport().get_visible_rect().size
+	size = _box_size
+	position = Vector2((view.x - size.x) / 2.0, view.y - size.y - 12.0)
+	_art.visible = true
+	_speaker_label.position = Vector2(NAME_RECT.position.x * size.x, NAME_RECT.position.y * size.y)
+	_speaker_label.size = Vector2(NAME_RECT.size.x * size.x, NAME_RECT.size.y * size.y)
+	_speaker_label.add_theme_color_override("font_color", NAME_COLOUR)
+	_text_label.position = Vector2(TEXT_RECT.position.x * size.x, TEXT_RECT.position.y * size.y)
+	_text_label.size = Vector2(TEXT_RECT.size.x * size.x, TEXT_RECT.size.y * size.y)
+	_hide_button.visible = false
+	_skip_button.visible = false
+
+
+## The whole screen: the stage behind, the name and words over its dark band, Hide and Skip in the corner.
+func _layout_stage(speaker: String) -> void:
+	var view := get_viewport().get_visible_rect().size
+	position = Vector2.ZERO
+	size = view
+	_art.visible = false
+	_portrait.visible = false
+	_speaker_label.position = Vector2(view.x * 0.2, view.y * 0.735)
+	_speaker_label.size = Vector2(view.x * 0.6, 34)
+	_speaker_label.add_theme_color_override("font_color", NAME_COLOURS.get(speaker, NAME_COLOUR))
+	_text_label.position = Vector2(view.x * 0.2, view.y * 0.80)
+	_text_label.size = Vector2(view.x * 0.6, view.y * 0.15)
+	_skip_button.position = Vector2(view.x - 48, view.y - 46)
+	_hide_button.position = Vector2(view.x - 90, view.y - 46)
+	_hide_button.visible = true
+	_skip_button.visible = true
+	_grace_left = 0.0
+	var host := _host()
+	if stage.get_parent() == null:
+		_attach_stage()
+	stage.open(host)
+	_set_stage_flag(true)
+
+
+## Tells the HUD whether a conversation is on the stage (HudEvents.dialogue_stage). Looked up at run time: this script is
+## also built by tests before the autoloads exist.
+func _set_stage_flag(on: bool) -> void:
+	var events := get_node_or_null("/root/HudEvents")
+	if events != null:
+		events.dialogue_stage = on
+
+
+func _close_stage() -> void:
+	stage.close()
+	_skipping = false
+	_set_stage_flag(false)
+
+
+## Hide: the words and the speaker step aside to show the room; the next click or E brings them back.
+func _hide_words() -> void:
+	_ui_hidden = true
+	_set_words_visible(false)
+
+
+func _set_words_visible(on: bool) -> void:
+	_speaker_label.visible = on and _speaker_label.text != ""
+	_text_label.visible = on
+	_hide_button.visible = on
+	_skip_button.visible = on
+	stage.figure.visible = on and stage.figure.texture != null and _portrait_folder != ""
+
+
+## Skip: the rest of the conversation goes by quickly, line after line, until it ends.
+func _skip_talk() -> void:
+	_skipping = true
+	_skip_left = 0.0
+
+
 ## Moves on to the next line, or closes the box after the last one.
 func advance() -> void:
 	if not is_open:
+		return
+	if _ui_hidden:
+		_ui_hidden = false
+		_set_words_visible(true)
 		return
 	if _queue.is_empty():
 		is_open = false
 		visible = false
 		_portrait.visible = false
 		_talk_left = 0.0
+		# On the stage, the room stays up for a moment in case the scene's next line follows (see _process).
+		_grace_left = STAGE_GRACE
 		talk_changed.emit(false)
 		closed.emit()
 		return
@@ -125,11 +297,31 @@ func advance() -> void:
 
 
 func _process(delta: float) -> void:
-	if _talk_left <= 0.0 or not _portrait.visible:
+	if _skipping and is_open:
+		_skip_left -= delta
+		if _skip_left <= 0.0:
+			_skip_left = SKIP_SECONDS
+			advance()
+	_follow_stage(delta)
+	var showing := _portrait.visible or (stage_mode and stage.figure.visible)
+	if _talk_left <= 0.0 or not showing:
 		return
 	_talk_left -= delta
 	if _talk_left <= 0.0:
 		_refresh_portrait()
+
+
+## Takes the stage down once a conversation is over: no line open, and the scene no longer scripted, for a moment.
+func _follow_stage(delta: float) -> void:
+	if is_open or stage == null or not stage.visible or stage.closing:
+		return
+	var host := _host()
+	if host != null and host.get("scripted") == true and is_instance_valid(host) and not host.get("transitioning"):
+		_grace_left = STAGE_GRACE
+		return
+	_grace_left -= delta
+	if _grace_left <= 0.0:
+		_close_stage()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -144,6 +336,7 @@ func _exit_tree() -> void:
 	# A scene left mid-line takes its box with it, so the HUD must not stay hidden.
 	if is_open:
 		talk_changed.emit(false)
+	_set_stage_flag(false)
 
 
 func _as_entry(line) -> Dictionary:
@@ -228,8 +421,13 @@ func _sentences(text: String) -> Array:
 func _show(entry: Dictionary) -> void:
 	_text_label.text = entry.text
 	_emotion = entry.emotion
-	_portrait.visible = _portrait_folder != ""
-	_talk_left = TALK_SECONDS if _portrait.visible else 0.0
+	var has_art := _portrait_folder != ""
+	_talk_left = TALK_SECONDS if has_art else 0.0
+	if stage_mode:
+		_portrait.visible = false
+		stage.show_speaker(_texture(TALK_FRAME) if has_art else null, STAGE_SIDES.get(_speaker, "left"))
+		return
+	_portrait.visible = has_art
 	if _portrait.visible:
 		_refresh_portrait()
 
@@ -238,6 +436,9 @@ func _refresh_portrait() -> void:
 	var frame := _emotion
 	if _talk_left > 0.0:
 		frame = TALK_FRAME
+	if stage_mode:
+		stage.set_speaker_texture(_texture(frame))
+		return
 	_portrait.texture = _texture(frame)
 
 

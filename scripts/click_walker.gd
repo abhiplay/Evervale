@@ -48,26 +48,13 @@ func invalidate() -> void:
 ## Sets off for the target. via, when given, is passed through first (the road in front of a place on the map).
 ## Returns false when there is no way there.
 func go_to(target: Vector2, interact_on_arrival: bool = false, via: Vector2 = Vector2.INF) -> bool:
-	_ensure_grid()
-	var start := _nearest_free(_cell_of(_body.position))
-	if start.x < 0:
+	var goals: Array[Vector2] = []
+	if via != Vector2.INF:
+		goals.append(via)
+	goals.append(target)
+	_path = route(_body.position, goals)
+	if _path.is_empty() and _body.position.distance_to(target) > ARRIVE:
 		return false
-	var points: Array[Vector2] = []
-	var from := start
-	for goal in ([via, target] if via != Vector2.INF else [target]):
-		var end := _nearest_free(_cell_of(goal))
-		if end.x < 0:
-			return false
-		var ids: Array[Vector2i] = _grid.get_id_path(from, end)
-		if ids.is_empty() and from != end:
-			return false
-		for id in ids:
-			points.append(_centre(id))
-		from = end
-	# The last point is the free spot nearest the target itself, not just the centre of its cell.
-	if not points.is_empty() and _fits(target):
-		points[points.size() - 1] = target
-	_path = _straightened(points)
 	_interact_on_arrival = interact_on_arrival
 	_stuck_time = 0.0
 	_last_position = _body.position
@@ -76,6 +63,36 @@ func go_to(target: Vector2, interact_on_arrival: bool = false, via: Vector2 = Ve
 	visible = true
 	queue_redraw()
 	return not _path.is_empty()
+
+
+## The way from one spot through each goal in turn, as straight-line points (the start left out), without walking it.
+## Scripted scenes use it to walk figures round the furniture (Night217). Empty when there is no way.
+func route(from: Vector2, goals: Array[Vector2]) -> Array[Vector2]:
+	_ensure_grid()
+	var start := _nearest_free(_cell_of(from))
+	if start.x < 0:
+		return []
+	var points: Array[Vector2] = [from]
+	var at := start
+	for goal in goals:
+		var end := _nearest_free(_cell_of(goal))
+		if end.x < 0:
+			return []
+		var ids: Array[Vector2i] = _grid.get_id_path(at, end)
+		if ids.is_empty() and at != end:
+			return []
+		for id in ids:
+			points.append(_centre(id))
+		at = end
+	# The last point is the target itself when the feet fit there, not just the centre of its cell.
+	if points.size() > 1 and _fits(goals[goals.size() - 1]):
+		points[points.size() - 1] = goals[goals.size() - 1]
+	return _straightened(points)
+
+
+## True when the walking character's feet fit at this spot without touching a solid.
+func fits(spot: Vector2) -> bool:
+	return _fits(spot)
 
 
 func cancel() -> void:
@@ -215,7 +232,7 @@ func _nearest_free(cell: Vector2i) -> Vector2i:
 ## walks in straight lines instead of grid steps.
 func _straightened(points: Array[Vector2]) -> Array[Vector2]:
 	if points.size() <= 2:
-		return points
+		return points.slice(1)
 	var result: Array[Vector2] = [points[0]]
 	var anchor := points[0]
 	for i in range(1, points.size() - 1):
@@ -223,7 +240,7 @@ func _straightened(points: Array[Vector2]) -> Array[Vector2]:
 			result.append(points[i])
 			anchor = points[i]
 	result.append(points[points.size() - 1])
-	# The first point is the cell she starts in; she is already there.
+	# The first point is where she starts; she is already there.
 	result.remove_at(0)
 	return result
 

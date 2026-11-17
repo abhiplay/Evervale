@@ -1,6 +1,6 @@
 extends SceneTree
 ## Checks click to walk (ClickWalker): a click on something usable walks Amelia round the furniture to it and uses it
-## (the radio in the settled house, Henry in the Town Square), a plain click walks to the spot, the keys cancel a walk at
+## (the radio on the upstairs bedroom wall once settled, Henry in the Town Square), a plain click walks to the spot, the keys cancel a walk at
 ## once, a click inside a solid walks to the nearest free floor, and a click on a place on the town map walks to its
 ## entrance and goes in. Frame limits only. Run: Godot --headless --path . -s res://tests/click_walk_test.gd
 
@@ -20,12 +20,12 @@ func _initialize() -> void:
 	await process_frame
 	save = root.get_node("/root/SaveSystem")
 
-	print("Settled house: walk round the furniture to the radio and look at it")
+	print("Settled house: walk round the furniture to the radio on the bedroom wall and look at it")
 	_settled_state()
-	var house = await _open("res://scenes/HomeFloor1.tscn")
-	house.player.position = Vector2(725, 880)
-	var target: Dictionary = house.click_target(Vector2(480, 722))
-	check(target.interact and target.pos == Vector2(500, 790), "a click on the radio targets the radio, to use it")
+	var house = await _open("res://scenes/BedroomUpstairs.tscn")
+	house.player.position = Vector2(300, 780)
+	var target: Dictionary = house.click_target(Vector2(385, 335))
+	check(target.interact and target.pos == Vector2(385, 375), "a click on the radio targets the radio, to use it")
 	check(house.click_walker.go_to(target.pos, target.interact), "there is a way to the radio")
 	check(house.click_walker.visible, "a ring marks where she is going")
 	var arrived: bool = await _until(func(): return not house.click_walker.is_walking(), MAX_FRAMES)

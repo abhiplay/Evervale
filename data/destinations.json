@@ -1,0 +1,8 @@
+{
+  "_note": "Where the protagonist can be sent next (a mission objective step names one with \"destination\"). A destination is reached in the scenes listed under reached_in: the marker is hidden there. Elsewhere the marker floats at the nearest way in: the world map zone (world: a place id in locations.json), the entrance to its building (entrance_scene and exit_scene, a door in that scene), or the gate of the scene when only the world map leads to it. The label is the name shown on the marker.",
+  "town_square": {"name": "Town Square", "reached_in": ["town_square"], "world": "town_square"},
+  "home": {"name": "Home", "reached_in": ["home_floor1", "bedroom_upstairs"], "world": "home", "entrance_scene": "exterior_home", "door": true},
+  "cafe": {"name": "Café", "reached_in": ["cafe"], "entrance_scene": "town_square", "exit_scene": "res://scenes/Cafe.tscn"},
+  "bookshop": {"name": "Bookshop", "reached_in": ["bookstore"], "entrance_scene": "town_square", "exit_scene": "res://scenes/Bookstore.tscn"},
+  "florist": {"name": "Florist", "reached_in": ["florist"], "entrance_scene": "town_square", "exit_scene": "res://scenes/Florist.tscn"}
+}

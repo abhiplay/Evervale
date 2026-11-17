@@ -1,10 +1,11 @@
 class_name TownSquare
 extends "res://scripts/exterior_home.gd"
 ## The Town square: the town courtyard in front of the bookshop, the café and the florist.
-## The shop doors walk into their shops. Henry (until First Steps is done; then he is in his café) and Rose are
-## here (data/people.json), the Town banner on the right is only a sign, and the kerb at the bottom goes
-## back to the world map. Talking to a resident is remembered (MissionTracker), so meeting
-## Henry completes First Steps.
+## The square is laid out in scenes/TownSquare.tscn, so it can be seen and edited in the 2D tab: the picture, the street
+## props (nodes marked "furniture"), the solids (StaticBody2D nodes) and the spawn and exit markers. The shop doors walk
+## into their shops. Henry (until First Steps is done; then he is in his café) and Rose are here (data/people.json), the
+## Town banner is one of the street props, and the kerb at the bottom goes back to the world map. Talking to a resident
+## is remembered (MissionTracker), so meeting Henry completes First Steps.
 
 var dialogue_open := false
 var dialogue_panel: Control
@@ -23,30 +24,21 @@ const BUTTON_TOUCH_SIZE := 110.0
 
 
 func _init() -> void:
-	PICTURE_PATH = "res://assets/environments/town_front.webp"
-	COLLISION_DATA = "res://data/town_front_collision.json"
 	IMAGE_SIZE = Vector2(1671, 941)
 	SPAWN_DEFAULT = Vector2(760, 640)
 	SPAWNS = {
 		"from_map": Vector2(760, 640),
-		"from_bookstore": Vector2(503, 520),
-		"from_cafe": Vector2(900, 520),
-		"from_florist": Vector2(1210, 520),
+		"from_bookstore": Vector2(333, 500),
+		"from_cafe": Vector2(652, 500),
+		"from_florist": Vector2(881, 505),
 	}
-	# The bookstore door: walking into it goes inside.
+	# The shop doors: walking into one goes inside. The Evervale Emporium's door is not open yet (see _ready).
 	EXITS = [
-		{"rect": Rect2(485, 500, 40, 20), "scene": "res://scenes/Bookstore.tscn", "spawn": "from_town"},
-		{"rect": Rect2(880, 500, 40, 20), "scene": "res://scenes/Cafe.tscn", "spawn": "from_town"},
-		{"rect": Rect2(1190, 500, 40, 20), "scene": "res://scenes/Florist.tscn", "spawn": "from_town"},
+		{"rect": Rect2(300, 466, 66, 16), "scene": "res://scenes/Bookstore.tscn", "spawn": "from_town"},
+		{"rect": Rect2(622, 466, 58, 16), "scene": "res://scenes/Cafe.tscn", "spawn": "from_town"},
+		{"rect": Rect2(862, 470, 38, 16), "scene": "res://scenes/Florist.tscn", "spawn": "from_town"},
 	]
 	GATE_RECT = Rect2(680, 700, 140, 45)
-	# The tree and the two lamp posts are cut out, so the character can walk behind them and they
-	# are drawn over her. Their picture stays underneath and matches exactly.
-	OCCLUDERS = [
-		{"rect": Rect2(935, 479, 194, 241), "image": "res://assets/environments/furniture/town_tree.png"},
-		{"rect": Rect2(1473, 315, 31, 266), "image": "res://assets/environments/furniture/town_lamp_right.png"},
-		{"rect": Rect2(223, 288, 30, 268), "image": "res://assets/environments/furniture/town_lamp_left.png"},
-	]
 	HAS_DOOR = false
 	MAP_PLACE = "town_square"
 	SCENE_ID = "town_square"
@@ -55,15 +47,39 @@ func _init() -> void:
 func _ready() -> void:
 	# Henry and Rose come from data/people.json (ScenePeople, added by super()); the noticeboard is the square's own.
 	super()
-	interactables.append({"id": "noticeboard", "pos": Vector2(670, 560), "label": "Noticeboard", "lines": [
+	interactables.append({"id": "noticeboard", "pos": Vector2(565, 560), "label": "Noticeboard", "lines": [
 		"Lantern Festival is on next month. Volunteers are needed for the stalls.",
 		"A lost cat poster, a bake sale and an old photo of the river."]})
+	# The Evervale Emporium (the grocery store) is on the right of the square. Its door is not built yet, so it says so.
+	interactables.append({"id": "emporium_door", "pos": Vector2(1312, 505), "label": "Evervale Emporium", "lines": [
+		"The Evervale Emporium is still being stocked. Its doors open soon."]})
 	_build_town_ui()
 
 	SaveSystem.state.current_location = "town_square"
 	if not ("town_square" in SaveSystem.state.discovered_locations):
 		SaveSystem.state.discovered_locations.append("town_square")
 	SaveSystem.save_game()
+
+
+## The street props are in the scene. Each one is moved into the group sorted with the character, by its base line, and
+## gets a soft shadow on the pavement under that base.
+func _build_ground() -> void:
+	super._build_ground()
+	var props: Array = []
+	for child in get_children():
+		if child.has_meta("furniture"):
+			props.append(child)
+	for prop in props:
+		var base: Vector2 = prop.position
+		remove_child(prop)
+		_depth_root.add_child(prop)
+		var shadow := Sprite2D.new()
+		shadow.texture = _shadow_texture()
+		shadow.scale = Vector2(prop.texture.get_width() * 0.9 / shadow.texture.get_width(), 0.4)
+		shadow.position = base
+		shadow.modulate = Color(0, 0, 0, 0.45)
+		shadow.z_index = -1
+		_depth_root.add_child(shadow)
 
 
 func _physics_process(delta: float) -> void:

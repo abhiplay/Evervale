@@ -1,0 +1,16 @@
+{
+	"props": [
+		{"image": "tree_planter_2", "base": [70, 730], "solid": [30, 712, 80, 18]},
+		{"image": "food_cart", "base": [212, 689], "solid": [165, 672, 100, 17]},
+		{"image": "lamp_post", "base": [424, 700], "solid": [416, 692, 16, 8]},
+		{"image": "bench_1", "base": [518.5, 700], "solid": [462, 690, 114, 10]},
+		{"image": "sandwich_board", "base": [565, 603], "solid": [530, 595, 70, 8]},
+		{"image": "flowerbox", "base": [1008.5, 596], "solid": [945, 586, 127, 10]},
+		{"image": "cafe_table_set", "base": [1149.5, 696], "solid": [1110, 684, 80, 12]},
+		{"image": "bench_2", "base": [1003, 704], "solid": [945, 694, 116, 10]},
+		{"image": "tree_planter_1", "base": [1455, 706], "solid": [1405, 688, 100, 18]},
+		{"image": "post_box", "base": [1251.5, 706], "solid": [1228, 698, 46, 8]},
+		{"image": "bicycle", "base": [1485, 730], "solid": null},
+		{"image": "town_lamp_post", "base": [1611.5, 727], "solid": [1570, 720, 20, 8]}
+	]
+}

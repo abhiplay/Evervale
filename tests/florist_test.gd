@@ -21,7 +21,7 @@ func _initialize() -> void:
 	for i in 3:
 		await process_frame
 	town.set_physics_process(false)
-	town.player.position = Vector2(1210, 508)
+	town.player.position = Vector2(881, 478)
 	town._physics_process(0.0)
 	check(town.transitioning, "walking into the florist door goes inside")
 	check(save.state.pending_spawn == "from_town", "the florist is entered from the town")

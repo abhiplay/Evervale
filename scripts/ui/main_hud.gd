@@ -16,6 +16,7 @@ var prompt: InteractionPrompt
 var notifications: NotificationSystem
 var inventory: InventoryScreen
 var viewer: ItemViewer
+var floor_map: FloorMap
 var _corners: Control
 
 
@@ -66,6 +67,8 @@ func _ready() -> void:
 	screens.add_child(inventory)
 	viewer = ItemViewer.new()
 	screens.add_child(viewer)
+	floor_map = FloorMap.new()
+	screens.add_child(floor_map)
 
 	HudEvents.location_changed.connect(_on_location_changed)
 	HudEvents.objective_changed.connect(objective_panel.show_objective)
@@ -84,7 +87,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var scene := get_tree().current_scene
-	_corners.visible = scene != null and scene.scene_file_path != TITLE_SCENE
+	# The HUD steps aside while a conversation is on the full-screen stage.
+	_corners.visible = scene != null and scene.scene_file_path != TITLE_SCENE and not HudEvents.dialogue_stage
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -121,13 +125,33 @@ func _on_interaction_changed(text: String) -> void:
 	prompt.prompt_text = text
 
 
-## The inventory opens for its own button, and for the popup's "View in Inventory". The other screens are not built yet.
+## The inventory opens for its own button, and for the popup's "View in Inventory". The map opens indoors only; the other
+## screens are not built yet.
 func _on_screen_requested(screen_id: String) -> void:
 	if screen_id == "inventory":
 		if not inventory.visible:
 			inventory.show_inventory()
+	elif screen_id == "map":
+		_on_map_requested()
 	else:
 		notifications.show_text("Coming soon")
+
+
+## The Map button: closes the map if it is open. Inside a building it opens that building's plan, with the room the
+## protagonist is in. Anywhere else there is no plan, and the notice says so.
+func _on_map_requested() -> void:
+	if floor_map.visible:
+		floor_map.close()
+		return
+	if HudEvents.screen_open:
+		return
+	var scene := get_tree().current_scene
+	var scene_id: String = str(scene.get("SCENE_ID")) if scene != null and scene.get("SCENE_ID") != null else ""
+	var plan := FloorPlan.for_scene(scene_id)
+	if plan.is_empty():
+		notifications.show_text("Coming soon")
+		return
+	floor_map.show_plan(plan, FloorPlan.room_id_for_scene(scene_id))
 
 
 func _on_slot_activated(_slot_index: int) -> void:

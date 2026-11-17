@@ -1,0 +1,43 @@
+{
+  "_note": "The indoor map (the Map button, inside a building only). Each plan is one place, with its rooms and the links between them. A room is a scene (scene: the SCENE_ID of the scene that is the room), and its box is drawn on a 560 x 340 plan. The room the protagonist is in gets the pin. A room with \"locked\": true is drawn red and cannot be entered; locks, the tricks or events that open them and the clues found there are added later, with the \"unlock\" condition (a world_state flag). A link is a door (kind \"door\") or stairs (kind \"stairs\") at a point on the plan; \"to\" is a room id, or \"outside\" for a door out of the building. A link into a locked room is drawn red.",
+  "plans": {
+    "home": {
+      "name": "Home",
+      "rooms": [
+        {"id": "ground_floor", "name": "Ground floor", "scene": "home_floor1", "box": [40, 120, 380, 190], "locked": false, "unlock": ""},
+        {"id": "bedroom", "name": "Upstairs bedroom", "scene": "bedroom_upstairs", "box": [300, 10, 220, 100], "locked": false, "unlock": ""}
+      ],
+      "links": [
+        {"from": "ground_floor", "to": "bedroom", "kind": "stairs", "label": "Stairs", "at": [372, 115]},
+        {"from": "ground_floor", "to": "outside", "kind": "door", "label": "Front door", "at": [230, 312]}
+      ]
+    },
+    "cafe": {
+      "name": "Café",
+      "rooms": [
+        {"id": "cafe", "name": "Café", "scene": "cafe", "box": [120, 100, 320, 170], "locked": false, "unlock": ""}
+      ],
+      "links": [
+        {"from": "cafe", "to": "outside", "kind": "door", "label": "Town Square", "at": [280, 282]}
+      ]
+    },
+    "bookshop": {
+      "name": "Bookshop",
+      "rooms": [
+        {"id": "bookshop", "name": "Bookshop", "scene": "bookstore", "box": [120, 100, 320, 170], "locked": false, "unlock": ""}
+      ],
+      "links": [
+        {"from": "bookshop", "to": "outside", "kind": "door", "label": "Town Square", "at": [280, 282]}
+      ]
+    },
+    "florist": {
+      "name": "Florist",
+      "rooms": [
+        {"id": "florist", "name": "Florist", "scene": "florist", "box": [120, 100, 320, 170], "locked": false, "unlock": ""}
+      ],
+      "links": [
+        {"from": "florist", "to": "outside", "kind": "door", "label": "Town Square", "at": [280, 282]}
+      ]
+    }
+  }
+}

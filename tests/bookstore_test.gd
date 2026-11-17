@@ -22,10 +22,10 @@ func _initialize() -> void:
 	for i in 3:
 		await process_frame
 	town.set_physics_process(false)
-	town.player.position = Vector2(503, 540)
+	town.player.position = Vector2(333, 540)
 	town._physics_process(0.0)
 	check(not town.transitioning, "standing in front of the bookstore does not go in by itself")
-	town.player.position = Vector2(503, 508)
+	town.player.position = Vector2(333, 474)
 	town._physics_process(0.0)
 	check(town.transitioning, "walking into the bookstore door goes inside")
 	check(save.state.pending_spawn == "from_town", "the bookstore is entered from the town")

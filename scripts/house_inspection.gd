@@ -233,7 +233,7 @@ func _sync_markers() -> void:
 		elif not wanted and _markers.has(area.id):
 			var marker: Node2D = _markers[area.id]
 			_markers.erase(area.id)
-			marker.queue_free()
+			_remove_marker(marker)
 	# Once the board can be opened, it keeps its mark until the box has been taken out from under it.
 	var plank: Dictionary = _data.plank
 	var board_wanted: bool = _task() == "done" and _board_ready() and not _box_opened() and plank.scene == _host.SCENE_ID
@@ -242,7 +242,14 @@ func _sync_markers() -> void:
 	elif not board_wanted and _markers.has("plank"):
 		var board: Node2D = _markers["plank"]
 		_markers.erase("plank")
-		board.queue_free()
+		_remove_marker(board)
+
+
+## Takes a mark away together with the sparkle that goes with it.
+func _remove_marker(marker: Node2D) -> void:
+	if marker.has_meta("glint"):
+		marker.get_meta("glint").queue_free()
+	marker.queue_free()
 
 
 ## A question mark in a gold ring, floating just inside the place's top edge, bobbing gently up and down.
@@ -257,6 +264,11 @@ func _add_marker(area: Dictionary) -> Node2D:
 	marker.draw.connect(_draw_marker.bind(marker))
 	_host.add_child(marker)
 	marker.queue_redraw()
+	# The sparkle sits on the place itself, not on the bobbing mark, so it flickers where the thing is.
+	var glint := Glint.new()
+	glint.position = rect.get_center()
+	_host.add_child(glint)
+	marker.set_meta("glint", glint)
 	var bob := marker.create_tween().set_loops()
 	bob.tween_property(marker, "position", base + Vector2(0, -MARKER_BOB), 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	bob.tween_property(marker, "position", base, 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

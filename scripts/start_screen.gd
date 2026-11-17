@@ -18,6 +18,12 @@ const AMBIENT_VOLUME := 0.2
 ## The video fades in from black at its start and out to black at its end, so the loop joins without a cut. The fade is
 ## long and eased, so it lingers and feels slow rather than a cut. In seconds.
 const FADE_SECONDS := 2.5
+## The Evervale logo, at the top centre of the screen, with room above it.
+const LOGO := "res://assets/ui/evervale_logo.webp"
+## How far the logo sits below the top edge, as a share of the window height, and how big it may be.
+const LOGO_TOP_SHARE := 0.05
+const LOGO_MAX_WIDTH_SHARE := 0.42
+const LOGO_MAX_HEIGHT_SHARE := 0.28
 ## Dust motes that drift over the video and under the menu.
 const PARTICLE_COUNT := 48
 ## Soft mist bands that drift along the floor of the picture, over the video and under the menu.
@@ -68,6 +74,9 @@ var _ambient: AudioStreamPlayer
 var _motes: Array = []
 var _time := 0.0
 var _rng := RandomNumberGenerator.new()
+## The logo is drawn by this screen, between the video and the fog and dust, so the mist and the motes pass in front of it.
+var _logo_texture: Texture2D
+var _logo_rect := Rect2()
 ## The mist bands along the floor: each has a place, a size, a drift and an opacity. They share one soft texture.
 var _fog_blobs: Array = []
 var _fog_texture: Texture2D
@@ -83,6 +92,7 @@ func _ready() -> void:
 	_build_media()
 	_build_motes()
 	_build_fog()
+	_build_logo()
 	resized.connect(_layout)
 	_layout()
 	_buttons["new_game"].grab_focus.call_deferred()
@@ -232,6 +242,17 @@ func _process(delta: float) -> void:
 
 
 ## The dust motes over the picture, under the menu. Each twinkles, and they all fade out with the video's black.
+## The logo, blended into the picture: it fades with the video, has a soft dark shadow that lifts it off the forest, and a faint
+## warm glow around its edge.
+func _draw_logo(share: float) -> void:
+	if _logo_texture == null or share <= 0.0:
+		return
+	var shadow := Rect2(_logo_rect.position + Vector2(0, 5), _logo_rect.size)
+	draw_texture_rect(_logo_texture, shadow.grow(3.0), false, Color(0, 0, 0, 0.5 * share))
+	draw_texture_rect(_logo_texture, _logo_rect.grow(5.0), false, Color(1.0, 0.8, 0.5, 0.14 * share))
+	draw_texture_rect(_logo_texture, _logo_rect, false, Color(1, 1, 1, share))
+
+
 func _build_fog() -> void:
 	var gradient := Gradient.new()
 	gradient.set_color(0, Color(1, 1, 1, 1))
@@ -292,7 +313,23 @@ func _plate(key: String, art: Rect2) -> Rect2:
 	return _to_window(BUTTONS[key].grow_individual(PLATE_GROW.x, PLATE_GROW.y, PLATE_GROW.x, PLATE_GROW.y), art)
 
 
+## The logo picture, added above the background and the menu's plates have no room at the top centre, so it sits clear.
+func _build_logo() -> void:
+	_logo_texture = load(LOGO)
+
+
+## The logo at the top centre, as large as its share of the window allows, keeping its shape.
+func _place_logo() -> void:
+	if _logo_texture == null:
+		return
+	var aspect: float = _logo_texture.get_width() / float(_logo_texture.get_height())
+	var width := minf(size.x * LOGO_MAX_WIDTH_SHARE, size.y * LOGO_MAX_HEIGHT_SHARE * aspect)
+	var height := width / aspect
+	_logo_rect = Rect2(Vector2((size.x - width) / 2.0, size.y * LOGO_TOP_SHARE), Vector2(width, height))
+
+
 func _layout() -> void:
+	_place_logo()
 	var art := _art_rect()
 	for key in BUTTONS:
 		var rect := _plate(key, art)
@@ -310,6 +347,7 @@ func _draw() -> void:
 	var fade := _fade_alpha()
 	if fade > 0.0:
 		draw_rect(art, Color(0, 0, 0, fade))
+	_draw_logo(1.0 - fade)
 	_draw_fog(art, 1.0 - fade)
 	_draw_motes(art, k, 1.0 - fade)
 	for key in BUTTONS:

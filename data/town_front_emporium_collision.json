@@ -1,0 +1,176 @@
+{
+ "_note": "Solid areas of assets/environments/town/town_front_emporium.webp, in picture pixels, measured from the picture. The shop fronts and their shelves, the trees at the sides and the road beyond the kerb are solid; the pavement is walkable. The doors (bookstore x 300-365, cafe x 622-680, florist x 862-900, emporium x 1270-1355) are open, and the gate to the map is the gap in the road at x 680-820.",
+ "solids": [
+  {
+   "id": "building_facade",
+   "rect": [
+    0,
+    0,
+    1671,
+    240
+   ]
+  },
+  {
+   "id": "left_trees_and_railing",
+   "rect": [
+    0,
+    240,
+    160,
+    230
+   ]
+  },
+  {
+   "id": "right_trees_and_railing",
+   "rect": [
+    1530,
+    240,
+    141,
+    230
+   ]
+  },
+  {
+   "id": "bookstore_sign_band",
+   "rect": [
+    160,
+    240,
+    330,
+    90
+   ]
+  },
+  {
+   "id": "bookstore_shelves_left",
+   "rect": [
+    160,
+    330,
+    140,
+    135
+   ]
+  },
+  {
+   "id": "bookstore_shelves_right",
+   "rect": [
+    365,
+    330,
+    125,
+    135
+   ]
+  },
+  {
+   "id": "cafe_sign_band",
+   "rect": [
+    490,
+    240,
+    330,
+    90
+   ]
+  },
+  {
+   "id": "cafe_window_left",
+   "rect": [
+    490,
+    330,
+    130,
+    135
+   ]
+  },
+  {
+   "id": "cafe_window_right",
+   "rect": [
+    680,
+    330,
+    140,
+    135
+   ]
+  },
+  {
+   "id": "florist_sign_band",
+   "rect": [
+    820,
+    240,
+    290,
+    90
+   ]
+  },
+  {
+   "id": "florist_pillar",
+   "rect": [
+    820,
+    330,
+    42,
+    135
+   ]
+  },
+  {
+   "id": "florist_window_and_stand",
+   "rect": [
+    900,
+    330,
+    210,
+    120
+   ]
+  },
+  {
+   "id": "emporium_sign_band",
+   "rect": [
+    1115,
+    240,
+    415,
+    95
+   ]
+  },
+  {
+   "id": "emporium_window_left",
+   "rect": [
+    1115,
+    335,
+    155,
+    150
+   ]
+  },
+  {
+   "id": "emporium_window_right",
+   "rect": [
+    1355,
+    335,
+    175,
+    150
+   ]
+  },
+  {
+   "id": "emporium_crates_left",
+   "rect": [
+    1160,
+    455,
+    110,
+    35
+   ]
+  },
+  {
+   "id": "emporium_crates_right",
+   "rect": [
+    1355,
+    455,
+    125,
+    35
+   ]
+  },
+  {
+   "id": "road_left_of_gate",
+   "rect": [
+    0,
+    735,
+    680,
+    206
+   ]
+  },
+  {
+   "id": "road_right_of_gate",
+   "rect": [
+    820,
+    735,
+    851,
+    206
+   ]
+  }
+ ]
+}

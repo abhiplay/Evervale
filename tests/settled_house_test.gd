@@ -1,7 +1,7 @@
 extends SceneTree
 ## Checks the settled ground floor: before the box talk is over the floor is bare (the loose board and the baked radio);
-## after it, the furnished picture, its solids and the radio prop replace them, the pets move to their settled spots, and
-## the radio can still be looked at. The box talk ends with a fade into the settled house, and Amelia is moved off the
+## after it, the furnished picture and its solids replace them, the pets move to their settled spots, and the radio has
+## moved upstairs to the bedroom wall (see radio_bedroom_test). The box talk ends with a fade into the settled house, and Amelia is moved off the
 ## dining table that now stands over the loose board. Run: Godot --headless --path . -s res://tests/settled_house_test.gd
 
 const HOUSE := "res://scenes/HomeFloor1.tscn"
@@ -44,10 +44,12 @@ func _initialize() -> void:
 	check(_bodies(house) == 1 and house.has_node("WalkMaskSolids"), "the settled floor's solids come from its walk mask")
 	check(_solid_at(house, Vector2(450, 850)), "the pouf is solid")
 	check(not _solid_at(house, Vector2(414, 818)), "the pouf's round edge leaves its corner walkable")
-	check(house.has_node("RadioProp") and house.get_node("RadioProp").position == house.RADIO_POSITION, "the radio sits on the coffee table as a prop")
-	house.player.position = Vector2(560, 800)
-	house._update_nearby()
-	check(house.nearby.get("id", "") == "radio", "the radio can still be looked at")
+	check(not house.has_node("RadioProp"), "the radio has moved upstairs, so the coffee table is bare")
+	var downstairs_radio := false
+	for item in house.interactables:
+		if item.get("id", "") == "radio":
+			downstairs_radio = true
+	check(not downstairs_radio, "the radio can no longer be looked at on the ground floor")
 	var pets = _pets(house)
 	for pet in pets_data.pets:
 		check(pets.pets[pet.id].position == Vector2(pet.settled_pos[0], pet.settled_pos[1]), "%s is at its settled spot" % pet.name)

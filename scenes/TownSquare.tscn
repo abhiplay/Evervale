@@ -1,235 +1,425 @@
 [gd_scene format=3 uid="uid://dod584e62kfhg"]
 
 [ext_resource type="Script" uid="uid://dji14dl12rf7f" path="res://scripts/town_square.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://bp1icud4xhyw0" path="res://assets/environments/town_front.webp" id="t_0"]
-[ext_resource type="Texture2D" uid="uid://wyg35dwweq1t" path="res://assets/environments/furniture/town_tree.png" id="t_1"]
-[ext_resource type="Texture2D" uid="uid://deammijfy2mn1" path="res://assets/environments/furniture/town_lamp_right.png" id="t_2"]
-[ext_resource type="Texture2D" uid="uid://budk45bo541r7" path="res://assets/environments/furniture/town_lamp_left.png" id="t_3"]
+[ext_resource type="Texture2D" uid="uid://bxobqui224sca" path="res://assets/environments/town/town_front_emporium.webp" id="tex_0"]
+[ext_resource type="Texture2D" uid="uid://ycgxk8ch23cl" path="res://assets/environments/town/props/tree_planter_2.png" id="tex_1"]
+[ext_resource type="Texture2D" uid="uid://wf1fl2xv258q" path="res://assets/environments/town/props/food_cart.png" id="tex_2"]
+[ext_resource type="Texture2D" uid="uid://drlvoutrqrrjs" path="res://assets/environments/town/props/lamp_post.png" id="tex_3"]
+[ext_resource type="Texture2D" uid="uid://c87rpnxjxedq0" path="res://assets/environments/town/props/bench_1.png" id="tex_4"]
+[ext_resource type="Texture2D" uid="uid://dsnosnlddt3yy" path="res://assets/environments/town/props/sandwich_board.png" id="tex_5"]
+[ext_resource type="Texture2D" uid="uid://dlvh125m0ufn3" path="res://assets/environments/town/props/flowerbox.png" id="tex_6"]
+[ext_resource type="Texture2D" uid="uid://cfa18wg8q52ox" path="res://assets/environments/town/props/cafe_table_set.png" id="tex_7"]
+[ext_resource type="Texture2D" uid="uid://cd0wodu12jxm5" path="res://assets/environments/town/props/bench_2.png" id="tex_8"]
+[ext_resource type="Texture2D" uid="uid://bdmco6em3b7o3" path="res://assets/environments/town/props/tree_planter_1.png" id="tex_9"]
+[ext_resource type="Texture2D" uid="uid://drw1dgtwyho33" path="res://assets/environments/town/props/post_box.png" id="tex_10"]
+[ext_resource type="Texture2D" uid="uid://brl8h1oylx17c" path="res://assets/environments/town/props/bicycle.png" id="tex_11"]
+[ext_resource type="Texture2D" uid="uid://b7x8v1nbp0pqk" path="res://assets/environments/town/props/town_lamp_post.png" id="tex_12"]
 
 [sub_resource type="RectangleShape2D" id="shape_0"]
-size = Vector2(1652, 464)
+size = Vector2(63, 40)
+
+[sub_resource type="RectangleShape2D" id="shape_1"]
+size = Vector2(115, 70)
 
 [sub_resource type="RectangleShape2D" id="shape_2"]
-size = Vector2(108, 132)
+size = Vector2(36, 31)
 
 [sub_resource type="RectangleShape2D" id="shape_3"]
-size = Vector2(44, 40)
+size = Vector2(127, 54)
 
 [sub_resource type="RectangleShape2D" id="shape_4"]
-size = Vector2(128, 28)
+size = Vector2(90, 57)
 
 [sub_resource type="RectangleShape2D" id="shape_5"]
-size = Vector2(113, 28)
+size = Vector2(127, 45)
 
 [sub_resource type="RectangleShape2D" id="shape_6"]
-size = Vector2(116, 28)
+size = Vector2(134, 53)
+
+[sub_resource type="RectangleShape2D" id="shape_7"]
+size = Vector2(129, 51)
+
+[sub_resource type="RectangleShape2D" id="shape_8"]
+size = Vector2(100, 58)
+
+[sub_resource type="RectangleShape2D" id="shape_9"]
+size = Vector2(53, 50)
 
 [sub_resource type="RectangleShape2D" id="shape_10"]
-size = Vector2(40, 88)
+size = Vector2(29, 26)
 
 [sub_resource type="RectangleShape2D" id="shape_11"]
-size = Vector2(24, 88)
+size = Vector2(1671, 271)
 
 [sub_resource type="RectangleShape2D" id="shape_12"]
-size = Vector2(40, 76)
+size = Vector2(100, 228)
 
 [sub_resource type="RectangleShape2D" id="shape_13"]
-size = Vector2(104, 84)
+size = Vector2(69, 262)
 
 [sub_resource type="RectangleShape2D" id="shape_14"]
-size = Vector2(24, 88)
+size = Vector2(330, 90)
 
 [sub_resource type="RectangleShape2D" id="shape_15"]
-size = Vector2(116, 72)
+size = Vector2(140, 135)
 
 [sub_resource type="RectangleShape2D" id="shape_16"]
-size = Vector2(116, 72)
+size = Vector2(125, 135)
+
+[sub_resource type="RectangleShape2D" id="shape_17"]
+size = Vector2(330, 90)
 
 [sub_resource type="RectangleShape2D" id="shape_18"]
-size = Vector2(80, 52)
+size = Vector2(130, 135)
+
+[sub_resource type="RectangleShape2D" id="shape_19"]
+size = Vector2(140, 135)
+
+[sub_resource type="RectangleShape2D" id="shape_20"]
+size = Vector2(290, 90)
+
+[sub_resource type="RectangleShape2D" id="shape_21"]
+size = Vector2(42, 135)
 
 [sub_resource type="RectangleShape2D" id="shape_22"]
-size = Vector2(24, 12)
+size = Vector2(180, 136)
 
-[node name="TownSquare" type="Node2D" unique_id=1648504454]
+[sub_resource type="RectangleShape2D" id="shape_23"]
+size = Vector2(415, 95)
+
+[sub_resource type="RectangleShape2D" id="shape_24"]
+size = Vector2(155, 150)
+
+[sub_resource type="RectangleShape2D" id="shape_25"]
+size = Vector2(175, 150)
+
+[sub_resource type="RectangleShape2D" id="shape_26"]
+size = Vector2(110, 35)
+
+[sub_resource type="RectangleShape2D" id="shape_27"]
+size = Vector2(125, 35)
+
+[sub_resource type="RectangleShape2D" id="shape_28"]
+size = Vector2(680, 206)
+
+[sub_resource type="RectangleShape2D" id="shape_29"]
+size = Vector2(851, 206)
+
+[node name="TownSquare" type="Node2D" unique_id=1446929213]
 script = ExtResource("1_script")
 metadata/static_scene = true
 
-[node name="Sprite_0" type="Sprite2D" parent="." unique_id=1805405999]
+[node name="Picture" type="Sprite2D" parent="." unique_id=1499887126]
 z_index = -10
-texture = ExtResource("t_0")
+texture = ExtResource("tex_0")
 centered = false
 
-[node name="Sprite_1" type="Sprite2D" parent="." unique_id=220088403]
-visible = false
-z_index = 6
-position = Vector2(935, 479)
-texture = ExtResource("t_1")
+[node name="Prop_tree_planter_2" type="Sprite2D" parent="." unique_id=1109109405]
+position = Vector2(58, 624)
+texture = ExtResource("tex_1")
 centered = false
-metadata/rect = Rect2(935, 479, 194, 241)
-metadata/origin = Vector2(0, 0)
-metadata/cutout = true
+offset = Vector2(-70, -200)
+metadata/furniture = true
 
-[node name="Sprite_2" type="Sprite2D" parent="." unique_id=23515115]
-visible = false
-z_index = 6
-position = Vector2(1473, 315)
-texture = ExtResource("t_2")
-centered = false
-metadata/rect = Rect2(1473, 315, 31, 266)
-metadata/origin = Vector2(0, 0)
-metadata/cutout = true
+[node name="Solid_tree_planter_2_base" type="StaticBody2D" parent="." unique_id=2073230197]
+position = Vector2(70, 721)
 
-[node name="Sprite_3" type="Sprite2D" parent="." unique_id=31336071]
-visible = false
-z_index = 6
-position = Vector2(223, 288)
-texture = ExtResource("t_3")
-centered = false
-metadata/rect = Rect2(223, 288, 30, 268)
-metadata/origin = Vector2(0, 0)
-metadata/cutout = true
-
-[node name="Body_4" type="StaticBody2D" parent="." unique_id=1614674962]
-position = Vector2(834, 240)
-
-[node name="Shape" type="CollisionShape2D" parent="Body_4" unique_id=958028426]
+[node name="Shape" type="CollisionShape2D" parent="Solid_tree_planter_2_base" unique_id=906846754]
+position = Vector2(-12.5, -120)
 shape = SubResource("shape_0")
 
-[node name="Body_6" type="StaticBody2D" parent="." unique_id=2133925091]
-position = Vector2(318, 538)
+[node name="Prop_food_cart" type="Sprite2D" parent="." unique_id=409875219]
+position = Vector2(212, 689)
+texture = ExtResource("tex_2")
+centered = false
+offset = Vector2(-66, -169)
+metadata/furniture = true
 
-[node name="Shape_3" type="CollisionShape2D" parent="Body_6" unique_id=916628253]
+[node name="Solid_food_cart_base" type="StaticBody2D" parent="." unique_id=1698807717]
+position = Vector2(215, 680.5)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_food_cart_base" unique_id=24170671]
+position = Vector2(-1.5, -27.5)
+shape = SubResource("shape_1")
+
+[node name="Prop_lamp_post" type="Sprite2D" parent="." unique_id=1178279456]
+position = Vector2(424, 700)
+texture = ExtResource("tex_3")
+centered = false
+offset = Vector2(-24, -246)
+metadata/furniture = true
+
+[node name="Solid_lamp_post_base" type="StaticBody2D" parent="." unique_id=422848363]
+position = Vector2(424, 696)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_lamp_post_base" unique_id=1619511814]
+position = Vector2(-1, -11.5)
 shape = SubResource("shape_2")
 
-[node name="Body_7" type="StaticBody2D" parent="." unique_id=2089685237]
-position = Vector2(670, 492)
+[node name="Prop_bench_1" type="Sprite2D" parent="." unique_id=1544651727]
+position = Vector2(518.5, 700)
+texture = ExtResource("tex_4")
+centered = false
+offset = Vector2(-63.5, -85)
+metadata/furniture = true
 
-[node name="Shape_4" type="CollisionShape2D" parent="Body_7" unique_id=724470483]
+[node name="Solid_bench_1_base" type="StaticBody2D" parent="." unique_id=811366986]
+position = Vector2(519, 695)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_bench_1_base" unique_id=1113316417]
+position = Vector2(0.5, -22)
 shape = SubResource("shape_3")
 
-[node name="Body_8" type="StaticBody2D" parent="." unique_id=188355823]
-position = Vector2(784, 486)
+[node name="Prop_sandwich_board" type="Sprite2D" parent="." unique_id=2100278463]
+position = Vector2(565, 603)
+texture = ExtResource("tex_5")
+centered = false
+offset = Vector2(-45, -118)
+metadata/furniture = true
 
-[node name="Shape_5" type="CollisionShape2D" parent="Body_8" unique_id=769813193]
+[node name="Solid_sandwich_board_base" type="StaticBody2D" parent="." unique_id=199868621]
+position = Vector2(565, 599)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_sandwich_board_base" unique_id=2125084003]
+position = Vector2(0, -24.5)
 shape = SubResource("shape_4")
 
-[node name="Body_9" type="StaticBody2D" parent="." unique_id=325727403]
-position = Vector2(1010, 486)
+[node name="Prop_flowerbox" type="Sprite2D" parent="." unique_id=1678461559]
+position = Vector2(1008.5, 596)
+texture = ExtResource("tex_6")
+centered = false
+offset = Vector2(-68.5, -101)
+metadata/furniture = true
 
-[node name="Shape_6" type="CollisionShape2D" parent="Body_9" unique_id=251377706]
-position = Vector2(6.5, 0)
+[node name="Solid_flowerbox_base" type="StaticBody2D" parent="." unique_id=1420890101]
+position = Vector2(1008.5, 591)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_flowerbox_base" unique_id=345997674]
+position = Vector2(0, -17.5)
 shape = SubResource("shape_5")
 
-[node name="Body_10" type="StaticBody2D" parent="." unique_id=421346846]
-position = Vector2(1410, 486)
+[node name="Prop_cafe_table_set" type="Sprite2D" parent="." unique_id=2084318595]
+position = Vector2(1182, 696)
+texture = ExtResource("tex_7")
+centered = false
+offset = Vector2(-69.5, -96)
+metadata/furniture = true
 
-[node name="Shape_7" type="CollisionShape2D" parent="Body_10" unique_id=1079426262]
+[node name="Solid_cafe_table_set_base" type="StaticBody2D" parent="." unique_id=786999032]
+position = Vector2(1150, 690)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_cafe_table_set_base" unique_id=708209580]
+position = Vector2(34, -20.5)
 shape = SubResource("shape_6")
 
-[node name="Body_11" type="StaticBody2D" parent="." unique_id=2025293888]
-position = Vector2(1630, 702)
+[node name="Prop_bench_2" type="Sprite2D" parent="." unique_id=1159254644]
+position = Vector2(1003, 704)
+texture = ExtResource("tex_8")
+centered = false
+offset = Vector2(-63, -84)
+metadata/furniture = true
 
-[node name="Body_13" type="StaticBody2D" parent="." unique_id=614510351]
+[node name="Solid_bench_2_base" type="StaticBody2D" parent="." unique_id=919079143]
+position = Vector2(1003, 699)
 
-[node name="Shape_10" type="CollisionPolygon2D" parent="Body_13" unique_id=1282153185]
-polygon = PackedVector2Array(252, 288, 250, 551, 247, 555, 227, 555, 223, 288)
+[node name="Shape" type="CollisionShape2D" parent="Solid_bench_2_base" unique_id=902106801]
+position = Vector2(-1.5, -20.5)
+shape = SubResource("shape_7")
 
-[node name="Body_14" type="StaticBody2D" parent="." unique_id=1976362402]
+[node name="Prop_tree_planter_1" type="Sprite2D" parent="." unique_id=1527970598]
+position = Vector2(1455, 706)
+texture = ExtResource("tex_9")
+centered = false
+offset = Vector2(-95.5, -236)
+metadata/furniture = true
 
-[node name="Shape_11" type="CollisionPolygon2D" parent="Body_14" unique_id=125419590]
-polygon = PackedVector2Array(1497, 580, 1480, 580, 1473, 575, 1475, 315, 1503, 315, 1503, 576)
+[node name="Solid_tree_planter_1_base" type="StaticBody2D" parent="." unique_id=2097580508]
+position = Vector2(1455, 697)
 
-[node name="Body_16" type="StaticBody2D" parent="." unique_id=321220997]
-position = Vector2(1140, 656)
+[node name="Shape" type="CollisionShape2D" parent="Solid_tree_planter_1_base" unique_id=1100198098]
+position = Vector2(0, -20)
+shape = SubResource("shape_8")
 
-[node name="Shape_13" type="CollisionShape2D" parent="Body_16" unique_id=1266898156]
+[node name="Prop_post_box" type="Sprite2D" parent="." unique_id=1657609593]
+position = Vector2(1326, 706)
+texture = ExtResource("tex_10")
+centered = false
+offset = Vector2(-26.5, -120)
+metadata/furniture = true
+
+[node name="Solid_post_box_base" type="StaticBody2D" parent="." unique_id=200501882]
+position = Vector2(1324, 702)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_post_box_base" unique_id=2086020706]
+position = Vector2(2, -24)
+shape = SubResource("shape_9")
+
+[node name="Prop_bicycle" type="Sprite2D" parent="." unique_id=2027892676]
+position = Vector2(1485, 730)
+texture = ExtResource("tex_11")
+centered = false
+offset = Vector2(-65, -81)
+metadata/furniture = true
+
+[node name="Prop_town_lamp_post" type="Sprite2D" parent="." unique_id=1041839013]
+position = Vector2(1600, 603)
+texture = ExtResource("tex_12")
+centered = false
+offset = Vector2(-46.5, -207)
+metadata/furniture = true
+
+[node name="Solid_town_lamp_post_base" type="StaticBody2D" parent="." unique_id=713376905]
+position = Vector2(1571, 594)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_town_lamp_post_base" unique_id=1276364547]
+position = Vector2(1.5, -5)
 shape = SubResource("shape_10")
 
-[node name="Body_17" type="StaticBody2D" parent="." unique_id=1409528598]
-position = Vector2(864, 668)
+[node name="Solid_building_facade" type="StaticBody2D" parent="." unique_id=1421874603]
+position = Vector2(835.5, 120)
 
-[node name="Shape_14" type="CollisionShape2D" parent="Body_17" unique_id=2078314710]
-position = Vector2(3, 3)
+[node name="Shape" type="CollisionShape2D" parent="Solid_building_facade" unique_id=1539874868]
+position = Vector2(0, 15.5)
 shape = SubResource("shape_11")
 
-[node name="Body_18" type="StaticBody2D" parent="." unique_id=1666980612]
-position = Vector2(1180, 662)
+[node name="Solid_left_trees_and_railing" type="StaticBody2D" parent="." unique_id=5092290]
+position = Vector2(80, 355)
 
-[node name="Shape_15" type="CollisionShape2D" parent="Body_18" unique_id=2041923637]
+[node name="Shape" type="CollisionShape2D" parent="Solid_left_trees_and_railing" unique_id=2144500763]
+position = Vector2(-30, -1)
 shape = SubResource("shape_12")
 
-[node name="Body_19" type="StaticBody2D" parent="." unique_id=1381516178]
-position = Vector2(412, 670)
+[node name="Solid_right_trees_and_railing" type="StaticBody2D" parent="." unique_id=1355304550]
+position = Vector2(1600.5, 355)
 
-[node name="Shape_16" type="CollisionShape2D" parent="Body_19" unique_id=947680451]
+[node name="Shape" type="CollisionShape2D" parent="Solid_right_trees_and_railing" unique_id=476166809]
+position = Vector2(36, 16)
 shape = SubResource("shape_13")
 
-[node name="Body_20" type="StaticBody2D" parent="." unique_id=1026455094]
-position = Vector2(504, 672)
+[node name="Solid_bookstore_sign_band" type="StaticBody2D" parent="." unique_id=709241880]
+position = Vector2(325, 285)
 
-[node name="Shape_17" type="CollisionShape2D" parent="Body_20" unique_id=2061350140]
+[node name="Shape" type="CollisionShape2D" parent="Solid_bookstore_sign_band" unique_id=2113583014]
 shape = SubResource("shape_14")
 
-[node name="Body_21" type="StaticBody2D" parent="." unique_id=772793404]
-position = Vector2(602, 664)
+[node name="Solid_bookstore_shelves_left" type="StaticBody2D" parent="." unique_id=1053929206]
+position = Vector2(230, 397.5)
 
-[node name="Shape_18" type="CollisionShape2D" parent="Body_21" unique_id=1871780010]
+[node name="Shape" type="CollisionShape2D" parent="Solid_bookstore_shelves_left" unique_id=1183552826]
 shape = SubResource("shape_15")
 
-[node name="Body_22" type="StaticBody2D" parent="." unique_id=1343257168]
-position = Vector2(1282, 664)
+[node name="Solid_bookstore_shelves_right" type="StaticBody2D" parent="." unique_id=984624292]
+position = Vector2(427.5, 397.5)
 
-[node name="Shape_19" type="CollisionShape2D" parent="Body_22" unique_id=1323049740]
+[node name="Shape" type="CollisionShape2D" parent="Solid_bookstore_shelves_right" unique_id=802786976]
 shape = SubResource("shape_16")
 
-[node name="Body_24" type="StaticBody2D" parent="." unique_id=1301538249]
-position = Vector2(1040, 694)
+[node name="Solid_cafe_sign_band" type="StaticBody2D" parent="." unique_id=667332595]
+position = Vector2(655, 285)
 
-[node name="Shape_21" type="CollisionShape2D" parent="Body_24" unique_id=936736811]
+[node name="Shape" type="CollisionShape2D" parent="Solid_cafe_sign_band" unique_id=953646060]
+shape = SubResource("shape_17")
+
+[node name="Solid_cafe_window_left" type="StaticBody2D" parent="." unique_id=116243020]
+position = Vector2(555, 397.5)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_cafe_window_left" unique_id=1672357196]
 shape = SubResource("shape_18")
 
-[node name="Body_28" type="StaticBody2D" parent="." unique_id=839193649]
-position = Vector2(1188, 706)
+[node name="Solid_cafe_window_right" type="StaticBody2D" parent="." unique_id=374443579]
+position = Vector2(750, 397.5)
 
-[node name="Shape_25" type="CollisionShape2D" parent="Body_28" unique_id=1859225514]
+[node name="Shape" type="CollisionShape2D" parent="Solid_cafe_window_right" unique_id=379223834]
+shape = SubResource("shape_19")
+
+[node name="Solid_florist_sign_band" type="StaticBody2D" parent="." unique_id=1601634680]
+position = Vector2(965, 285)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_florist_sign_band" unique_id=1183960929]
+shape = SubResource("shape_20")
+
+[node name="Solid_florist_pillar" type="StaticBody2D" parent="." unique_id=1795429564]
+position = Vector2(841, 397.5)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_florist_pillar" unique_id=1381190499]
+shape = SubResource("shape_21")
+
+[node name="Solid_florist_window_and_stand" type="StaticBody2D" parent="." unique_id=1500750064]
+position = Vector2(1005, 390)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_florist_window_and_stand" unique_id=1896613518]
+position = Vector2(15, 8)
 shape = SubResource("shape_22")
 
-[node name="Spawn_from_bookstore" type="Marker2D" parent="." unique_id=1261568518]
-position = Vector2(510, 484)
+[node name="Solid_emporium_sign_band" type="StaticBody2D" parent="." unique_id=1050662509]
+position = Vector2(1322.5, 287.5)
 
-[node name="Spawn_from_cafe" type="Marker2D" parent="." unique_id=1026869554]
-position = Vector2(905, 484)
+[node name="Shape" type="CollisionShape2D" parent="Solid_emporium_sign_band" unique_id=1692573333]
+shape = SubResource("shape_23")
 
-[node name="Spawn_from_florist" type="Marker2D" parent="." unique_id=425925836]
-position = Vector2(1217, 483)
+[node name="Solid_emporium_window_left" type="StaticBody2D" parent="." unique_id=1508736095]
+position = Vector2(1192.5, 410)
 
-[node name="Spawn_from_map" type="Marker2D" parent="." unique_id=915200773]
+[node name="Shape" type="CollisionShape2D" parent="Solid_emporium_window_left" unique_id=459868855]
+shape = SubResource("shape_24")
+
+[node name="Solid_emporium_window_right" type="StaticBody2D" parent="." unique_id=206854784]
+position = Vector2(1442.5, 410)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_emporium_window_right" unique_id=1015911331]
+shape = SubResource("shape_25")
+
+[node name="Solid_emporium_crates_left" type="StaticBody2D" parent="." unique_id=74404523]
+position = Vector2(1215, 472.5)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_emporium_crates_left" unique_id=1219429263]
+shape = SubResource("shape_26")
+
+[node name="Solid_emporium_crates_right" type="StaticBody2D" parent="." unique_id=920252076]
+position = Vector2(1417.5, 472.5)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_emporium_crates_right" unique_id=1666964900]
+shape = SubResource("shape_27")
+
+[node name="Solid_road_left_of_gate" type="StaticBody2D" parent="." unique_id=1272993625]
+position = Vector2(340, 838)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_road_left_of_gate" unique_id=1015058522]
+shape = SubResource("shape_28")
+
+[node name="Solid_road_right_of_gate" type="StaticBody2D" parent="." unique_id=1943840804]
+position = Vector2(1245.5, 838)
+
+[node name="Shape" type="CollisionShape2D" parent="Solid_road_right_of_gate" unique_id=126114279]
+shape = SubResource("shape_29")
+
+[node name="Spawn_from_map" type="Marker2D" parent="." unique_id=1023360102]
 position = Vector2(760, 640)
 
-[node name="Spawn_default" type="Marker2D" parent="." unique_id=1432970396]
+[node name="Spawn_from_bookstore" type="Marker2D" parent="." unique_id=2015978322]
+position = Vector2(334, 481)
+
+[node name="Spawn_from_cafe" type="Marker2D" parent="." unique_id=930120688]
+position = Vector2(653, 480)
+
+[node name="Spawn_from_florist" type="Marker2D" parent="." unique_id=659597853]
+position = Vector2(898, 483)
+
+[node name="Spawn_default" type="Marker2D" parent="." unique_id=2082746157]
 position = Vector2(760, 640)
 
-[node name="Gate" type="Marker2D" parent="." unique_id=205915081]
-position = Vector2(803.00006, 787)
-scale = Vector2(3.935, 0.245)
-gizmo_extents = 197.3
-metadata/area = Rect2(680, 700, 140, 45)
+[node name="Exit_to_bookstore" type="Marker2D" parent="." unique_id=1419684480]
+position = Vector2(333, 474)
+metadata/exit_rect = Rect2(300, 466, 66, 16)
 
-[node name="Exit_0" type="Marker2D" parent="." unique_id=366839522]
-position = Vector2(503, 474)
-metadata/area = Rect2(485, 500, 40, 20)
-metadata/scene = "res://scenes/Bookstore.tscn"
-metadata/spawn = "from_town"
+[node name="Exit_to_cafe" type="Marker2D" parent="." unique_id=779114642]
+position = Vector2(652, 474)
+metadata/exit_rect = Rect2(622, 466, 58, 16)
 
-[node name="Exit_1" type="Marker2D" parent="." unique_id=1849256960]
-position = Vector2(899, 476)
-metadata/area = Rect2(880, 500, 40, 20)
-metadata/scene = "res://scenes/Cafe.tscn"
-metadata/spawn = "from_town"
+[node name="Exit_to_florist" type="Marker2D" parent="." unique_id=468972426]
+position = Vector2(895, 477)
+metadata/exit_rect = Rect2(862, 470, 38, 16)
 
-[node name="Exit_2" type="Marker2D" parent="." unique_id=857254227]
-position = Vector2(1211, 477)
-metadata/area = Rect2(1190, 500, 40, 20)
-metadata/scene = "res://scenes/Florist.tscn"
-metadata/spawn = "from_town"
+[node name="Gate" type="Marker2D" parent="." unique_id=404305834]
+position = Vector2(750, 722)
+metadata/gate_rect = Rect2(680, 700, 140, 45)

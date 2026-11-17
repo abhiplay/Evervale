@@ -35,6 +35,8 @@ func _ready() -> void:
 	_build_zones()
 	_build_player()
 	_build_ui()
+	# The destination of the current objective, on the map.
+	add_child(DestinationMarker.new(self, true))
 	_arrive_at(SaveSystem.state.current_location)
 	SaveSystem.save_game()
 	MissionTracker.update()

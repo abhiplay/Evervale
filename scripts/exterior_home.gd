@@ -88,6 +88,8 @@ func _ready() -> void:
 	HudEvents.location_changed.emit(UiData.location_name(MAP_PLACE), UiData.chapter_title())
 	# The people of this scene (data/people.json).
 	add_child(ScenePeople.new(self))
+	# The destination of the current objective, when this scene is on the way to it.
+	add_child(DestinationMarker.new(self, false))
 	# Walking into a place can complete a mission (the café), and the objective follows the mission that is on now.
 	MissionTracker.update()
 

@@ -1,6 +1,6 @@
 extends SceneTree
-## Checks: the bookstore floor can be walked from behind the left shelf run down to the floor
-## in front of it. Run: Godot --headless --path . -s res://tests/behind_shelf_test.gd
+## Checks: the bookstore floor can be walked from just below the back wall, past the left shelf run, down to the floor in front
+## of it. Run: Godot --headless --path . -s res://tests/behind_shelf_test.gd
 
 var failures: Array[String] = []
 
@@ -20,11 +20,12 @@ func _initialize() -> void:
 	for i in 3:
 		await process_frame
 	shop.set_physics_process(false)
-	shop.player.position = Vector2(400, 200)
+	# Just below the back wall, on the floor between the reading corner and the left shelf, walking straight down.
+	shop.player.position = Vector2(440, 280)
 	for i in 240:
 		shop.move_player(Vector2(0, 1), 0.0)
 		await physics_frame
-	check(shop.player.position.y > 380, "walking down from behind the shelf reaches the floor in front of it")
+	check(shop.player.position.y > 380, "walking down from behind the back wall reaches the floor in front of the shelves")
 	print("")
 	if failures.is_empty():
 		print("ALL CHECKS PASSED")
