@@ -1,0 +1,8 @@
+{
+  "_note": "The HUD's layout and words. quick_slots lists the item id each quick slot holds, in order ('' is empty). Chapter titles are placeholders until the story's chapter names are given.",
+  "quick_slots": ["flashlight", "", ""],
+  "quick_keys": ["Q", "", ""],
+  "chapters": {
+    "1": "The Arrival"
+  }
+}

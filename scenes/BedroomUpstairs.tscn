@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://bwra5jy63l051"]
+
+[ext_resource type="Script" uid="uid://5apj4fpp1l1r" path="res://scripts/bedroom_upstairs.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cmdxbw1rqxay" path="res://assets/environments/bedroom_upstairs.webp" id="t_0"]
+
+[sub_resource type="RectangleShape2D" id="shape_0"]
+size = Vector2(1432, 292)
+
+[sub_resource type="RectangleShape2D" id="shape_1"]
+size = Vector2(280, 368)
+
+[sub_resource type="RectangleShape2D" id="shape_2"]
+size = Vector2(320, 448)
+
+[sub_resource type="RectangleShape2D" id="shape_3"]
+size = Vector2(320, 32)
+
+[sub_resource type="RectangleShape2D" id="shape_4"]
+size = Vector2(96, 112)
+
+[sub_resource type="RectangleShape2D" id="shape_5"]
+size = Vector2(92, 112)
+
+[sub_resource type="RectangleShape2D" id="shape_6"]
+size = Vector2(288, 744)
+
+[sub_resource type="RectangleShape2D" id="shape_7"]
+size = Vector2(4, 560)
+
+[sub_resource type="RectangleShape2D" id="shape_8"]
+size = Vector2(64, 96)
+
+[sub_resource type="RectangleShape2D" id="shape_9"]
+size = Vector2(192, 408)
+
+[sub_resource type="RectangleShape2D" id="shape_10"]
+size = Vector2(404, 196)
+
+[sub_resource type="RectangleShape2D" id="shape_11"]
+size = Vector2(16, 144)
+
+[sub_resource type="RectangleShape2D" id="shape_12"]
+size = Vector2(164, 144)
+
+[sub_resource type="RectangleShape2D" id="shape_13"]
+size = Vector2(228, 144)
+
+[sub_resource type="RectangleShape2D" id="shape_14"]
+size = Vector2(140, 24)
+
+[node name="BedroomUpstairs" type="Node2D" unique_id=937940401]
+script = ExtResource("1_script")
+metadata/static_scene = true
+
+[node name="Sprite_0" type="Sprite2D" parent="." unique_id=1480607479]
+z_index = -10
+texture = ExtResource("t_0")
+centered = false
+
+[node name="Sprite_1" type="Sprite2D" parent="." unique_id=626580658]
+visible = false
+z_index = 6
+position = Vector2(560, 290)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(560, 290, 320, 460)
+metadata/rect = Rect2(560, 290, 320, 460)
+metadata/origin = Vector2(560, 290)
+metadata/cutout = false
+
+[node name="Sprite_2" type="Sprite2D" parent="." unique_id=1180086992]
+visible = false
+z_index = 6
+position = Vector2(465, 330)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(465, 330, 105, 110)
+metadata/rect = Rect2(465, 330, 105, 110)
+metadata/origin = Vector2(465, 330)
+metadata/cutout = false
+
+[node name="Sprite_3" type="Sprite2D" parent="." unique_id=380833282]
+visible = false
+z_index = 6
+position = Vector2(870, 330)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(870, 330, 105, 110)
+metadata/rect = Rect2(870, 330, 105, 110)
+metadata/origin = Vector2(870, 330)
+metadata/cutout = false
+
+[node name="Sprite_4" type="Sprite2D" parent="." unique_id=1083146499]
+visible = false
+z_index = 6
+position = Vector2(1150, 355)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(1150, 355, 115, 560)
+metadata/rect = Rect2(1150, 355, 115, 560)
+metadata/origin = Vector2(1150, 355)
+metadata/cutout = false
+
+[node name="Sprite_5" type="Sprite2D" parent="." unique_id=1715443613]
+visible = false
+z_index = 6
+position = Vector2(190, 200)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(190, 200, 100, 470)
+metadata/rect = Rect2(190, 200, 100, 470)
+metadata/origin = Vector2(190, 200)
+metadata/cutout = false
+
+[node name="Sprite_6" type="Sprite2D" parent="." unique_id=756876083]
+visible = false
+z_index = 6
+position = Vector2(290, 515)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(290, 515, 65, 95)
+metadata/rect = Rect2(290, 515, 65, 95)
+metadata/origin = Vector2(290, 515)
+metadata/cutout = false
+
+[node name="Sprite_7" type="Sprite2D" parent="." unique_id=908717420]
+visible = false
+z_index = 6
+position = Vector2(1120, 180)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(1120, 180, 135, 155)
+metadata/rect = Rect2(1120, 180, 135, 155)
+metadata/origin = Vector2(1120, 180)
+metadata/cutout = false
+
+[node name="Sprite_8" type="Sprite2D" parent="." unique_id=1856799891]
+visible = false
+z_index = 6
+position = Vector2(520, 880)
+texture = ExtResource("t_0")
+centered = false
+region_enabled = true
+region_rect = Rect2(520, 880, 405, 55)
+metadata/rect = Rect2(520, 880, 405, 55)
+metadata/origin = Vector2(520, 880)
+metadata/cutout = false
+
+[node name="Body_9" type="StaticBody2D" parent="." unique_id=721046864]
+position = Vector2(724, 154)
+
+[node name="Shape" type="CollisionShape2D" parent="Body_9" unique_id=997426428]
+shape = SubResource("shape_0")
+
+[node name="Body_10" type="StaticBody2D" parent="." unique_id=211398305]
+position = Vector2(148, 484)
+
+[node name="Shape_2" type="CollisionShape2D" parent="Body_10" unique_id=1056676071]
+shape = SubResource("shape_1")
+
+[node name="Body_11" type="StaticBody2D" parent="." unique_id=1768894459]
+position = Vector2(720, 524)
+
+[node name="Shape_3" type="CollisionShape2D" parent="Body_11" unique_id=1878617722]
+shape = SubResource("shape_2")
+
+[node name="Body_12" type="StaticBody2D" parent="." unique_id=929742997]
+position = Vector2(1280, 316)
+
+[node name="Shape_4" type="CollisionShape2D" parent="Body_12" unique_id=1157203173]
+shape = SubResource("shape_3")
+
+[node name="Body_13" type="StaticBody2D" parent="." unique_id=1902056700]
+position = Vector2(512, 384)
+
+[node name="Shape_5" type="CollisionShape2D" parent="Body_13" unique_id=504447861]
+shape = SubResource("shape_4")
+
+[node name="Body_14" type="StaticBody2D" parent="." unique_id=971007658]
+position = Vector2(926, 384)
+
+[node name="Shape_6" type="CollisionShape2D" parent="Body_14" unique_id=877994011]
+shape = SubResource("shape_5")
+
+[node name="Body_15" type="StaticBody2D" parent="." unique_id=2144475946]
+position = Vector2(1296, 704)
+
+[node name="Shape_7" type="CollisionShape2D" parent="Body_15" unique_id=1544642528]
+shape = SubResource("shape_6")
+
+[node name="Body_16" type="StaticBody2D" parent="." unique_id=655035287]
+position = Vector2(1150, 632)
+
+[node name="Shape_8" type="CollisionShape2D" parent="Body_16" unique_id=369307701]
+shape = SubResource("shape_7")
+
+[node name="Body_17" type="StaticBody2D" parent="." unique_id=823842441]
+position = Vector2(320, 560)
+
+[node name="Shape_9" type="CollisionShape2D" parent="Body_17" unique_id=1874310800]
+shape = SubResource("shape_8")
+
+[node name="Body_18" type="StaticBody2D" parent="." unique_id=1343677716]
+position = Vector2(104, 872)
+
+[node name="Shape_10" type="CollisionShape2D" parent="Body_18" unique_id=857572611]
+shape = SubResource("shape_9")
+
+[node name="Body_19" type="StaticBody2D" parent="." unique_id=1542227177]
+position = Vector2(722, 978)
+
+[node name="Shape_11" type="CollisionShape2D" parent="Body_19" unique_id=1252582518]
+shape = SubResource("shape_10")
+
+[node name="Body_20" type="StaticBody2D" parent="." unique_id=1822308049]
+position = Vector2(208, 1004)
+
+[node name="Shape_12" type="CollisionShape2D" parent="Body_20" unique_id=2066680480]
+shape = SubResource("shape_11")
+
+[node name="Body_21" type="StaticBody2D" parent="." unique_id=330261038]
+position = Vector2(438, 1004)
+
+[node name="Shape_13" type="CollisionShape2D" parent="Body_21" unique_id=1512536707]
+shape = SubResource("shape_12")
+
+[node name="Body_22" type="StaticBody2D" parent="." unique_id=216541023]
+position = Vector2(1038, 1004)
+
+[node name="Shape_14" type="CollisionShape2D" parent="Body_22" unique_id=382358733]
+shape = SubResource("shape_13")
+
+[node name="Body_23" type="StaticBody2D" parent="." unique_id=467503136]
+position = Vector2(286, 1064)
+
+[node name="Shape_15" type="CollisionShape2D" parent="Body_23" unique_id=587150831]
+shape = SubResource("shape_14")
+
+[node name="Spawn_from_stairs" type="Marker2D" parent="." unique_id=248125528]
+position = Vector2(300, 780)
+
+[node name="Spawn_default" type="Marker2D" parent="." unique_id=391245483]
+position = Vector2(300, 780)
+
+[node name="Exit_0" type="Marker2D" parent="." unique_id=1213732177]
+position = Vector2(282.5, 985)
+metadata/area = Rect2(215, 930, 135, 110)
+metadata/scene = "res://scenes/HomeFloor1.tscn"
+metadata/spawn = "from_bedroom"

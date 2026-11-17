@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://cu8le7ts0t2qs"]
+
+[ext_resource type="Script" uid="uid://blmt2gbxp2olj" path="res://scripts/florist.gd" id="1_florist"]
+[ext_resource type="Texture2D" uid="uid://bqg0vgsn6jghg" path="res://assets/environments/florist_interior.webp" id="2_pic"]
+[ext_resource type="Texture2D" uid="uid://0wedfirkka20" path="res://assets/environments/furniture/florist_worktable_placed.png" id="f_0"]
+[ext_resource type="Texture2D" uid="uid://k20r8h8ycl6w" path="res://assets/environments/furniture/florist_shelf_upper_placed.png" id="f_1"]
+[ext_resource type="Texture2D" uid="uid://cguv1oj1rbcou" path="res://assets/environments/furniture/florist_shelf_lower_placed.png" id="f_2"]
+[ext_resource type="Texture2D" uid="uid://wlkucunr6pen" path="res://assets/environments/furniture/florist_fridge_placed.png" id="f_3"]
+[ext_resource type="Texture2D" uid="uid://dkikhhoj3s737" path="res://assets/environments/furniture/florist_sign_placed.png" id="f_4"]
+[ext_resource type="Texture2D" uid="uid://c1n816siijvm2" path="res://assets/environments/furniture/florist_buckets_placed.png" id="f_5"]
+
+[sub_resource type="Gradient" id="shadow_gradient"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="shadow_tex"]
+gradient = SubResource("shadow_gradient")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_0"]
+size = Vector2(1652, 273)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_3"]
+size = Vector2(286, 85)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_4"]
+size = Vector2(216, 648)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_5"]
+size = Vector2(163, 651)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_11"]
+size = Vector2(4, 12)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_12"]
+size = Vector2(500, 232)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_13"]
+size = Vector2(551, 232)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_14"]
+size = Vector2(4, 228)
+
+[sub_resource type="RectangleShape2D" id="wall_solid_15"]
+size = Vector2(220, 28)
+
+[node name="Florist" type="Node2D" unique_id=583599807]
+script = ExtResource("1_florist")
+
+[node name="Picture" type="Sprite2D" parent="." unique_id=1957917614]
+z_index = -10
+texture = ExtResource("2_pic")
+centered = false
+
+[node name="Shadow_worktable" type="Sprite2D" parent="." unique_id=1060724587]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -1
+position = Vector2(369, 549.78)
+scale = Vector2(1.08, 0.876)
+texture = SubResource("shadow_tex")
+
+[node name="Prop_worktable" type="Sprite2D" parent="." unique_id=875964605]
+position = Vector2(249, 414)
+texture = ExtResource("f_0")
+centered = false
+
+[node name="Shadow_shelf_upper" type="Sprite2D" parent="." unique_id=1224383843]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -1
+position = Vector2(838, 422)
+scale = Vector2(1.35, 0.8)
+texture = SubResource("shadow_tex")
+
+[node name="Prop_shelf_upper" type="Sprite2D" parent="." unique_id=1865314215]
+position = Vector2(688, 298)
+texture = ExtResource("f_1")
+centered = false
+
+[node name="Shadow_shelf_lower" type="Sprite2D" parent="." unique_id=247305209]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -1
+position = Vector2(838, 589.28)
+scale = Vector2(1.305, 0.576)
+texture = SubResource("shadow_tex")
+
+[node name="Prop_shelf_lower" type="Sprite2D" parent="." unique_id=1290546208]
+position = Vector2(693, 500)
+texture = ExtResource("f_2")
+centered = false
+
+[node name="Shadow_fridge" type="Sprite2D" parent="." unique_id=1049036247]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -1
+position = Vector2(1305, 582.6)
+scale = Vector2(0.828, 0.92)
+texture = SubResource("shadow_tex")
+
+[node name="Prop_fridge" type="Sprite2D" parent="." unique_id=1046658063]
+position = Vector2(1213, 440)
+texture = ExtResource("f_3")
+centered = false
+
+[node name="Shadow_sign" type="Sprite2D" parent="." unique_id=422770085]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -1
+position = Vector2(1452, 553.02)
+scale = Vector2(0.36, 0.484)
+texture = SubResource("shadow_tex")
+
+[node name="Prop_sign" type="Sprite2D" parent="." unique_id=637111028]
+position = Vector2(1412, 478)
+texture = ExtResource("f_4")
+centered = false
+
+[node name="Shadow_buckets" type="Sprite2D" parent="." unique_id=731157140]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -1
+position = Vector2(1186, 607.04)
+scale = Vector2(0.279, 0.768)
+texture = SubResource("shadow_tex")
+
+[node name="Prop_buckets" type="Sprite2D" parent="." unique_id=1648023764]
+position = Vector2(1155, 488)
+texture = ExtResource("f_5")
+centered = false
+
+[node name="Occluder_worktable" type="Sprite2D" parent="." unique_id=597569314]
+visible = false
+z_index = 6
+position = Vector2(249, 414)
+texture = ExtResource("f_0")
+centered = false
+metadata/rect = Rect2(249, 414, 240, 219)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Occluder_shelf_upper" type="Sprite2D" parent="." unique_id=785106221]
+visible = false
+z_index = 6
+position = Vector2(688, 298)
+texture = ExtResource("f_1")
+centered = false
+metadata/rect = Rect2(688, 298, 300, 200)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Occluder_shelf_lower" type="Sprite2D" parent="." unique_id=1676616298]
+visible = false
+z_index = 6
+position = Vector2(693, 500)
+texture = ExtResource("f_2")
+centered = false
+metadata/rect = Rect2(693, 500, 290, 144)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Occluder_fridge" type="Sprite2D" parent="." unique_id=1160243791]
+visible = false
+z_index = 6
+position = Vector2(1213, 440)
+texture = ExtResource("f_3")
+centered = false
+metadata/rect = Rect2(1213, 440, 184, 230)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Occluder_sign" type="Sprite2D" parent="." unique_id=606750786]
+visible = false
+z_index = 6
+position = Vector2(1412, 478)
+texture = ExtResource("f_4")
+centered = false
+metadata/rect = Rect2(1412, 478, 80, 121)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Occluder_buckets" type="Sprite2D" parent="." unique_id=1058652735]
+visible = false
+z_index = 6
+position = Vector2(1155, 488)
+texture = ExtResource("f_5")
+centered = false
+metadata/rect = Rect2(1155, 488, 62, 192)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Item_worktable" type="StaticBody2D" parent="." unique_id=773464188]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_worktable" unique_id=1677829607]
+polygon = PackedVector2Array(336, 418, 372, 429, 438, 454, 441, 534, 437, 580, 394, 612, 362, 613, 296, 580, 293, 535, 296, 455, 304, 440, 320, 425)
+
+[node name="Item_shelf_upper" type="StaticBody2D" parent="." unique_id=1710691204]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_shelf_upper" unique_id=950502627]
+polygon = PackedVector2Array(973, 480, 965, 484, 854, 497, 823, 497, 704, 483, 688, 443, 695, 367, 703, 356, 716, 349, 836, 306, 951, 338, 964, 346, 976, 358, 984, 372, 985, 435)
+
+[node name="Item_shelf_lower" type="StaticBody2D" parent="." unique_id=551414941]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_shelf_lower" unique_id=1108220639]
+polygon = PackedVector2Array(982, 579, 963, 637, 716, 638, 711, 636, 697, 605, 693, 575, 706, 545, 736, 515, 752, 510, 823, 500, 918, 502, 938, 512, 967, 544, 975, 556)
+
+[node name="Item_fridge" type="StaticBody2D" parent="." unique_id=695774655]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_fridge" unique_id=464056935]
+polygon = PackedVector2Array(1390, 440, 1392, 465, 1393, 659, 1386, 662, 1213, 662, 1213, 440)
+
+[node name="Item_sign" type="StaticBody2D" parent="." unique_id=733209888]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_sign" unique_id=1008649582]
+polygon = PackedVector2Array(1430, 478, 1436, 478, 1481, 492, 1489, 571, 1465, 590, 1412, 578, 1427, 483)
+
+[node name="Item_buckets" type="StaticBody2D" parent="." unique_id=1654136112]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_buckets" unique_id=204273458]
+polygon = PackedVector2Array(1216, 488, 1216, 673, 1186, 675, 1181, 672, 1171, 653, 1166, 632, 1155, 556, 1158, 549, 1213, 488)
+
+[node name="Wall_solid_0" type="StaticBody2D" parent="." unique_id=229670703]
+position = Vector2(834, 150)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_0" unique_id=1108493532]
+position = Vector2(0, -5.5)
+shape = SubResource("wall_solid_0")
+
+[node name="Wall_solid_1" type="StaticBody2D" parent="." unique_id=926901944]
+position = Vector2(174, 300)
+
+[node name="Wall_solid_3" type="StaticBody2D" parent="." unique_id=1865959392]
+position = Vector2(1408, 330)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_3" unique_id=1145071544]
+position = Vector2(-109, -4.5)
+shape = SubResource("wall_solid_3")
+
+[node name="Wall_solid_4" type="StaticBody2D" parent="." unique_id=405557092]
+position = Vector2(116, 620)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_4" unique_id=1607738571]
+position = Vector2(0, -12)
+shape = SubResource("wall_solid_4")
+
+[node name="Wall_solid_5" type="StaticBody2D" parent="." unique_id=1966209298]
+position = Vector2(1556, 650)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_5" unique_id=1417047577]
+position = Vector2(22.5, -43.5)
+shape = SubResource("wall_solid_5")
+
+[node name="Wall_solid_11" type="StaticBody2D" parent="." unique_id=338286058]
+position = Vector2(1214, 674)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_11" unique_id=1583292545]
+shape = SubResource("wall_solid_11")
+
+[node name="Wall_solid_12" type="StaticBody2D" parent="." unique_id=751986190]
+position = Vector2(474, 816)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_12" unique_id=514902884]
+shape = SubResource("wall_solid_12")
+
+[node name="Wall_solid_13" type="StaticBody2D" parent="." unique_id=579938789]
+position = Vector2(1200, 816)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_13" unique_id=1617007490]
+position = Vector2(23.5, 0)
+shape = SubResource("wall_solid_13")
+
+[node name="Wall_solid_14" type="StaticBody2D" parent="." unique_id=30269274]
+position = Vector2(946, 818)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_14" unique_id=1605560754]
+shape = SubResource("wall_solid_14")
+
+[node name="Wall_solid_15" type="StaticBody2D" parent="." unique_id=722138524]
+position = Vector2(834, 918)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_solid_15" unique_id=1762687285]
+shape = SubResource("wall_solid_15")

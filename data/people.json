@@ -1,0 +1,18 @@
+{
+  "_note": "Who stands where in each scene (ScenePeople). scene is the scene's SCENE_ID; pos is where the person's feet are, in picture pixels, on open floor. show_if / hide_if are MissionTracker conditions checked when the scene opens, so a person never vanishes while Amelia is talking to them. look: placeholder draws a stand-in figure (PlaceholderPerson) until the character's art exists; none means the scene already draws them (Evelyn in Florist.tscn's script). Talking counts as meeting the character (talked_to), and sets flag when one is given. speaker names the portrait (only Amelia, Oliver and Evelyn have portraits so far). Lines are placeholders until the real words are added; Evelyn stays guarded, as her secret waits for Mission 10.",
+  "people": [
+    {"scene": "town_square", "id": "henry_collins", "name": "Henry", "pos": [760, 560], "label": "Talk", "look": "placeholder", "colour": "#7a4e2d",
+     "hide_if": "mission_complete:M02",
+     "lines": ["Henry smiles and remembers your name. \"You must be the new neighbours!\"",
+               "\"Come by the café any time. I'll keep a seat by the window.\""]},
+    {"scene": "town_square", "id": "rose_west", "name": "Rose", "pos": [1290, 560], "label": "Talk", "look": "placeholder", "colour": "#b5677a",
+     "lines": ["Rose waves from the florist's door. \"Need anything? I'll have it in by Friday.\""]},
+    {"scene": "cafe", "id": "henry_collins", "name": "Henry", "pos": [1120, 400], "label": "Talk", "look": "placeholder", "colour": "#7a4e2d",
+     "show_if": "mission_complete:M02", "speaker": "Henry", "flag": "cafe_welcome_done",
+     "lines": ["You came! Sit anywhere you like. The window seats get the best light in the afternoon.",
+               "First coffee for new neighbours is on the house. Welcome to Evervale."]},
+    {"scene": "florist", "id": "evelyn_hale", "name": "Evelyn", "pos": [1070, 425], "label": "Talk", "look": "none", "speaker": "Evelyn",
+     "lines": [{"text": "Amelia! How are you both settling in?", "emotion": "smile"},
+               {"text": "If anything in the house needs fixing, just tell me. It stood empty for a long time.", "emotion": "neutral"}]}
+  ]
+}

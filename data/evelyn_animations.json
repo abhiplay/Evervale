@@ -1,0 +1,70 @@
+{
+  "_note": "Evelyn's eight-direction walk, one strip sheet per direction (frames of 300 x 667, feet on row 640), built by scripts/walk8/build_oliver.py from his transparent sheets. West directions are mirrors.",
+  "fps": 12,
+  "animations": [
+    {
+      "name": "walk_south",
+      "file": "res://assets/characters/evelyn/walk_south/walk_south.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_north",
+      "file": "res://assets/characters/evelyn/walk_north/walk_north.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_east",
+      "file": "res://assets/characters/evelyn/walk_east/walk_east.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_south_east",
+      "file": "res://assets/characters/evelyn/walk_south_east/walk_south_east.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_north_east",
+      "file": "res://assets/characters/evelyn/walk_north_east/walk_north_east.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_west",
+      "file": "res://assets/characters/evelyn/walk_west/walk_west.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_south_west",
+      "file": "res://assets/characters/evelyn/walk_south_west/walk_south_west.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    },
+    {
+      "name": "walk_north_west",
+      "file": "res://assets/characters/evelyn/walk_north_west/walk_north_west.png",
+      "frames": 8,
+      "frame_width": 300,
+      "frame_height": 667,
+      "anchor_y": 640
+    }
+  ]
+}

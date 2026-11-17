@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsaohknxr2epc"]
+
+[ext_resource type="Script" uid="uid://dmgkopnrudy02" path="res://scripts/bookstore.gd" id="1_script"]
+
+[node name="Bookstore" type="Node2D" unique_id=1281099572]
+script = ExtResource("1_script")

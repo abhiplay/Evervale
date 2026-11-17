@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cudmvkuy1w2b5"]
+
+[ext_resource type="Script" uid="uid://oir560in2qv" path="res://scripts/forest.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bw41uddecia8l" path="res://assets/environments/forest.webp" id="t_0"]
+
+[node name="Forest" type="Node2D" unique_id=55600130]
+script = ExtResource("1_script")
+metadata/static_scene = true
+
+[node name="Sprite_0" type="Sprite2D" parent="." unique_id=489513783]
+z_index = -10
+texture = ExtResource("t_0")
+centered = false
+
+[node name="solid_0" type="StaticBody2D" parent="." unique_id=1449886979]
+
+[node name="Shape" type="CollisionPolygon2D" parent="solid_0" unique_id=1149676201]
+polygon = PackedVector2Array(960, 512, 960, 547, 1019, 547, 1019, 512)
+
+[node name="solid_1" type="StaticBody2D" parent="." unique_id=1959837251]
+
+[node name="Shape_2" type="CollisionPolygon2D" parent="solid_1" unique_id=940063198]
+position = Vector2(0, 12)
+polygon = PackedVector2Array(771, 556, 760, 556, 760, 563, 752, 564, 751, 568, 732, 568, 731, 540, 648, 540, 648, 571, 624, 572, 615, 564, 604, 564, 583, 539, 583, 532, 575, 527, 575, 520, 571, 519, 571, 492, 444, 496, 443, 500, 256, 500, 256, 527, 252, 528, 252, 539, 247, 544, 240, 544, 239, 548, 232, 548, 231, 552, 224, 552, 223, 556, 216, 556, 215, 560, 208, 560, 207, 564, 200, 564, 143, 596, 132, 596, 107, 612, 96, 612, 71, 628, 40, 632, 39, 636, 8, 636, 8, 931, 703, 931, 703, 920, 711, 907, 711, 892, 719, 879, 719, 864, 723, 863, 723, 852, 731, 839, 731, 824, 735, 823, 735, 712, 743, 703, 743, 692, 755, 671, 755, 660, 763, 647, 763, 632, 767, 631, 767, 568, 771, 567)
+
+[node name="solid_2" type="StaticBody2D" parent="." unique_id=1305142928]
+
+[node name="Shape_3" type="CollisionPolygon2D" parent="solid_2" unique_id=748805018]
+position = Vector2(17, 10)
+polygon = PackedVector2Array(1663, 468, 1500, 468, 1499, 464, 1312, 460, 1312, 471, 1324, 480, 1324, 499, 1319, 504, 1268, 504, 1267, 500, 1252, 500, 1251, 496, 1236, 496, 1235, 492, 1220, 492, 1219, 488, 1204, 488, 1203, 484, 1188, 484, 1187, 480, 1144, 484, 1143, 488, 1116, 488, 1115, 492, 1092, 492, 1091, 496, 1064, 496, 1060, 500, 1060, 515, 1056, 516, 1044, 595, 1035, 604, 1028, 604, 971, 636, 952, 636, 939, 624, 932, 624, 927, 616, 920, 616, 915, 608, 908, 608, 903, 600, 892, 600, 884, 655, 880, 656, 880, 679, 876, 680, 845, 808, 849, 825, 860, 855, 851, 865, 852, 931, 1663, 931)
+
+[node name="solid_3" type="StaticBody2D" parent="." unique_id=244966073]
+
+[node name="Shape_4" type="CollisionPolygon2D" parent="solid_3" unique_id=1007176511]
+polygon = PackedVector2Array(8, 440, 8, 555, 19, 555, 20, 551, 31, 551, 32, 547, 43, 547, 44, 543, 55, 543, 56, 539, 67, 539, 68, 535, 79, 535, 80, 531, 91, 531, 92, 527, 103, 527, 116, 519, 131, 519, 132, 515, 147, 515, 148, 511, 163, 511, 164, 507, 179, 507, 180, 503, 195, 503, 196, 499, 231, 499, 231, 488, 220, 488, 211, 480, 180, 472, 159, 452, 152, 452, 143, 440)
+
+[node name="solid_4" type="StaticBody2D" parent="." unique_id=2017817469]
+
+[node name="Shape_5" type="CollisionPolygon2D" parent="solid_4" unique_id=1799368580]
+polygon = PackedVector2Array(552, 428, 552, 439, 631, 439, 631, 428)
+
+[node name="solid_5" type="StaticBody2D" parent="." unique_id=832987406]
+
+[node name="Shape_6" type="CollisionPolygon2D" parent="solid_5" unique_id=1411147156]
+polygon = PackedVector2Array(660, 424, 660, 435, 727, 435, 727, 424)
+
+[node name="solid_6" type="StaticBody2D" parent="." unique_id=551460180]
+
+[node name="Shape_7" type="CollisionPolygon2D" parent="solid_6" unique_id=1200492810]
+polygon = PackedVector2Array(760, 420, 760, 431, 815, 431, 815, 420)
+
+[node name="solid_7" type="StaticBody2D" parent="." unique_id=963533617]
+
+[node name="Shape_8" type="CollisionPolygon2D" parent="solid_7" unique_id=953340785]
+polygon = PackedVector2Array(680, 332, 680, 363, 719, 363, 719, 332)
+
+[node name="solid_8" type="StaticBody2D" parent="." unique_id=1867912816]
+
+[node name="Shape_9" type="CollisionPolygon2D" parent="solid_8" unique_id=1478181300]
+polygon = PackedVector2Array(904, 8, 896, 115, 892, 116, 892, 155, 888, 156, 888, 179, 884, 180, 884, 203, 880, 204, 880, 227, 876, 228, 876, 251, 872, 252, 872, 275, 868, 276, 868, 327, 872, 328, 880, 399, 891, 399, 891, 300, 963, 295, 964, 291, 1007, 291, 1008, 295, 1027, 299, 1028, 363, 1119, 363, 1140, 407, 1247, 403, 1248, 399, 1663, 399, 1663, 8)
+
+[node name="solid_9" type="StaticBody2D" parent="." unique_id=1844166116]
+
+[node name="Shape_10" type="CollisionPolygon2D" parent="solid_9" unique_id=1450893037]
+polygon = PackedVector2Array(8, 8, 8, 339, 31, 339, 32, 343, 51, 343, 52, 347, 67, 347, 68, 351, 123, 359, 124, 363, 143, 367, 168, 383, 179, 383, 196, 395, 211, 395, 212, 399, 227, 399, 228, 403, 243, 403, 244, 407, 259, 407, 260, 411, 275, 411, 276, 415, 291, 415, 292, 419, 379, 427, 380, 379, 455, 371, 456, 367, 483, 367, 484, 363, 523, 363, 536, 391, 547, 391, 547, 356, 551, 355, 551, 332, 555, 331, 560, 299, 663, 299, 664, 295, 803, 299, 807, 295, 807, 264, 811, 263, 815, 204, 819, 203, 819, 176, 823, 175, 823, 48, 819, 47, 819, 8)
+
+[node name="Spawn_from_cave" type="Marker2D" parent="." unique_id=312427660]
+position = Vector2(80, 405)
+
+[node name="Spawn_from_map" type="Marker2D" parent="." unique_id=378327993]
+position = Vector2(790, 850)
+
+[node name="Spawn_default" type="Marker2D" parent="." unique_id=908448111]
+position = Vector2(790, 850)
+
+[node name="Gate" type="Marker2D" parent="." unique_id=1476716449]
+position = Vector2(775, 923)
+metadata/area = Rect2(720, 905, 110, 36)
+
+[node name="Exit_0" type="Marker2D" parent="." unique_id=741828416]
+position = Vector2(25, 405)
+metadata/area = Rect2(0, 360, 50, 90)
+metadata/scene = "res://scenes/CaveEntrance.tscn"
+metadata/spawn = "from_forest"

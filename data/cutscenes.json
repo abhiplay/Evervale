@@ -1,0 +1,11 @@
+{
+  "_note": "Cutscene registry from 03_evervale_missions_cutscenes.md section 4. Each needs an ID, trigger, skip and replay rules, and a save checkpoint.",
+  "cutscenes": [
+    {"id": "CS-001", "title": "Arrival in Evervale", "trigger": "new_game", "duration_sec": [45, 60], "characters": ["amelia_bennett", "oliver_bennett"], "replayable": true, "skippable": true},
+    {"id": "CS-002", "title": "First Step Inside", "trigger": "first_home_entry", "duration_sec": [30, 45], "characters": ["amelia_bennett", "oliver_bennett", "coco", "charlie"], "replayable": true, "skippable": true},
+    {"id": "CS-003", "title": "Our New Home", "trigger": "home_tour_complete", "duration_sec": [30, 30], "characters": ["amelia_bennett", "oliver_bennett"], "replayable": true, "skippable": true},
+    {"id": "CS-004", "title": "The Hidden Box", "trigger": "floorboard_found", "duration_sec": [45, 45], "characters": ["amelia_bennett", "oliver_bennett"], "replayable": true, "skippable": true},
+    {"id": "CS-005", "title": "Margaret Recognises the Photo", "trigger": "photo_shown_to_margaret", "duration_sec": [30, 45], "characters": ["amelia_bennett", "margaret_whitmore"], "replayable": true, "skippable": true},
+    {"id": "CS-006", "title": "Missing Archive Pages", "trigger": "archive_mission_complete", "duration_sec": [60, 60], "characters": ["amelia_bennett", "margaret_whitmore"], "replayable": true, "skippable": true}
+  ]
+}

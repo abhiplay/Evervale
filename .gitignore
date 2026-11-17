@@ -1,0 +1,16 @@
+# Godot's import cache and editor state: rebuilt from the project when it opens.
+.godot/
+
+# Builds
+/build/
+/export/
+*.pck
+*.exe
+
+# Leftover working files from earlier sessions (not used by the game)
+/scratchpad_*
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store

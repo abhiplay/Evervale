@@ -1,0 +1,370 @@
+[gd_scene format=3 uid="uid://wr23ol8jv6i6"]
+
+[ext_resource type="Script" uid="uid://diumltikfhlw0" path="res://scripts/world_map.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cyatqrrwghfyt" path="res://assets/map/town_map.webp" id="t_0"]
+
+[sub_resource type="RectangleShape2D" id="shape_0"]
+size = Vector2(318, 165)
+
+[sub_resource type="RectangleShape2D" id="shape_1"]
+size = Vector2(828, 166)
+
+[sub_resource type="RectangleShape2D" id="shape_2"]
+size = Vector2(209, 165)
+
+[sub_resource type="RectangleShape2D" id="shape_3"]
+size = Vector2(320, 178)
+
+[sub_resource type="RectangleShape2D" id="shape_4"]
+size = Vector2(328, 181)
+
+[sub_resource type="RectangleShape2D" id="shape_5"]
+size = Vector2(264, 181)
+
+[sub_resource type="RectangleShape2D" id="shape_6"]
+size = Vector2(367, 169)
+
+[sub_resource type="RectangleShape2D" id="shape_7"]
+size = Vector2(326, 187)
+
+[sub_resource type="RectangleShape2D" id="shape_8"]
+size = Vector2(580, 183)
+
+[sub_resource type="RectangleShape2D" id="shape_9"]
+size = Vector2(449, 187)
+
+[sub_resource type="RectangleShape2D" id="shape_10"]
+size = Vector2(716, 146)
+
+[sub_resource type="RectangleShape2D" id="shape_11"]
+size = Vector2(1673, 98)
+
+[sub_resource type="RectangleShape2D" id="shape_12"]
+size = Vector2(1673, 38)
+
+[sub_resource type="RectangleShape2D" id="shape_13"]
+size = Vector2(101, 812)
+
+[sub_resource type="RectangleShape2D" id="shape_14"]
+size = Vector2(91, 812)
+
+[sub_resource type="RectangleShape2D" id="shape_beach"]
+size = Vector2(432, 112)
+
+[sub_resource type="ConcavePolygonShape2D" id="shape_terrain_23"]
+segments = PackedVector2Array(32, 100, 32, 103, 32, 103, 28, 104, 28, 104, 28, 167, 28, 167, 31, 167, 31, 167, 32, 171, 32, 171, 35, 171, 35, 171, 36, 167, 36, 167, 47, 167, 47, 167, 48, 171, 48, 171, 51, 171, 51, 171, 52, 175, 52, 175, 56, 176, 56, 176, 56, 183, 56, 183, 52, 184, 52, 184, 51, 188, 51, 188, 40, 188, 40, 188, 40, 199, 40, 199, 43, 199, 43, 199, 44, 203, 44, 203, 48, 204, 48, 204, 48, 223, 48, 223, 52, 224, 52, 224, 52, 235, 52, 235, 48, 236, 48, 236, 48, 239, 48, 239, 44, 240, 44, 240, 44, 243, 44, 243, 40, 244, 40, 244, 40, 247, 40, 247, 36, 248, 36, 248, 36, 251, 36, 251, 32, 252, 32, 252, 31, 256, 31, 256, 28, 256, 28, 256, 28, 343, 28, 343, 39, 343, 39, 343, 40, 339, 40, 339, 47, 339, 47, 339, 48, 335, 48, 335, 59, 335, 59, 335, 60, 339, 60, 339, 64, 340, 64, 340, 64, 343, 64, 343, 71, 343, 71, 343, 72, 347, 72, 347, 76, 348, 76, 348, 76, 355, 76, 355, 72, 356, 72, 356, 71, 360, 71, 360, 64, 360, 64, 360, 63, 356, 63, 356, 59, 355, 59, 355, 59, 352, 59, 352, 52, 352, 52, 352, 52, 367, 52, 367, 55, 367, 55, 367, 56, 371, 56, 371, 63, 371, 63, 371, 64, 375, 64, 375, 68, 376, 68, 376, 68, 391, 68, 391, 64, 392, 64, 392, 63, 396, 63, 396, 56, 396, 56, 396, 55, 392, 55, 392, 51, 391, 51, 391, 51, 388, 51, 388, 44, 388, 44, 388, 44, 399, 44, 399, 40, 400, 40, 400, 40, 403, 40, 403, 36, 404, 36, 404, 36, 407, 36, 407, 32, 408, 32, 408, 31, 412, 31, 412, 28, 412, 28, 412, 28, 515, 28, 515, 32, 516, 32, 516, 32, 527, 32, 527, 28, 528, 28, 528, 28, 571, 28, 571, 31, 571, 31, 571, 32, 575, 32, 575, 39, 575, 39, 575, 40, 579, 40, 579, 44, 580, 44, 580, 44, 583, 44, 583, 40, 584, 40, 584, 39, 588, 39, 588, 32, 588, 32, 588, 32, 591, 32, 591, 28, 592, 28, 592, 28, 663, 28, 663, 31, 663, 31, 663, 32, 667, 32, 667, 51, 667, 51, 667, 52, 671, 52, 671, 56, 672, 56, 672, 56, 679, 56, 679, 52, 680, 52, 680, 51, 684, 51, 684, 36, 684, 36, 684, 36, 687, 36, 687, 32, 688, 32, 688, 32, 691, 32, 691, 36, 692, 36, 692, 36, 707, 36, 707, 39, 707, 39, 707, 40, 711, 40, 711, 44, 712, 44, 712, 44, 715, 44, 715, 51, 715, 51, 715, 52, 719, 52, 719, 56, 720, 56, 720, 56, 731, 56, 731, 60, 732, 60, 732, 60, 739, 60, 739, 67, 739, 67, 739, 68, 743, 68, 743, 75, 743, 75, 743, 76, 747, 76, 747, 80, 748, 80, 748, 80, 755, 80, 755, 76, 756, 76, 756, 75, 760, 75, 760, 72, 760, 72, 760, 72, 767, 72, 767, 75, 767, 75, 767, 76, 771, 76, 771, 79, 771, 79, 771, 80, 767, 80, 767, 87, 767, 87, 767, 88, 763, 88, 763, 99, 763, 99, 763, 100, 767, 100, 767, 104, 768, 104, 768, 104, 775, 104, 775, 100, 776, 100, 776, 100, 779, 100, 779, 96, 780, 96, 780, 96, 783, 96, 783, 92, 784, 92, 784, 92, 787, 92, 787, 88, 788, 88, 788, 87, 792, 87, 792, 84, 792, 84, 792, 84, 799, 84, 799, 91, 799, 91, 799, 92, 795, 92, 795, 103, 795, 103, 795, 103, 792, 103, 792, 107, 791, 107, 791, 108, 787, 108, 787, 115, 787, 115, 787, 116, 791, 116, 791, 120, 792, 120, 792, 120, 799, 120, 799, 116, 800, 116, 800, 116, 803, 116, 803, 112, 804, 112, 804, 111, 808, 111, 808, 108, 808, 108, 808, 108, 811, 108, 811, 111, 811, 111, 811, 112, 815, 112, 815, 119, 815, 119, 815, 120, 819, 120, 819, 124, 820, 124, 820, 124, 831, 124, 831, 120, 832, 120, 832, 120, 839, 120, 839, 123, 839, 123, 839, 124, 843, 124, 843, 127, 843, 127, 843, 128, 847, 128, 847, 132, 848, 132, 848, 132, 851, 132, 851, 139, 851, 139, 851, 140, 855, 140, 855, 147, 855, 147, 855, 148, 863, 148, 863, 152, 864, 152, 864, 152, 871, 152, 871, 155, 871, 155, 871, 156, 875, 156, 875, 159, 875, 159, 875, 160, 871, 160, 871, 167, 871, 167, 871, 167, 868, 167, 868, 171, 867, 171, 867, 171, 848, 171, 848, 152, 848, 152, 848, 151, 844, 151, 844, 140, 844, 140, 844, 139, 840, 139, 840, 135, 839, 135, 839, 135, 820, 135, 820, 139, 819, 139, 819, 139, 812, 139, 812, 143, 811, 143, 811, 144, 807, 144, 807, 151, 807, 151, 807, 151, 796, 151, 796, 155, 795, 155, 795, 155, 784, 155, 784, 151, 783, 151, 783, 151, 776, 151, 776, 155, 775, 155, 775, 155, 768, 155, 768, 159, 767, 159, 767, 159, 764, 159, 764, 155, 763, 155, 763, 155, 756, 155, 756, 159, 755, 159, 755, 160, 751, 160, 751, 163, 751, 163, 751, 164, 755, 164, 755, 168, 756, 168, 756, 168, 763, 168, 763, 164, 764, 164, 764, 164, 767, 164, 767, 167, 767, 167, 767, 168, 771, 168, 771, 175, 771, 175, 771, 176, 775, 176, 775, 180, 776, 180, 776, 180, 779, 180, 779, 187, 779, 187, 779, 188, 775, 188, 775, 195, 775, 195, 775, 196, 779, 196, 779, 200, 780, 200, 780, 200, 795, 200, 795, 196, 796, 196, 796, 196, 807, 196, 807, 199, 807, 199, 807, 200, 811, 200, 811, 207, 811, 207, 811, 207, 808, 207, 808, 211, 807, 211, 807, 211, 800, 211, 800, 207, 799, 207, 799, 207, 784, 207, 784, 211, 783, 211, 783, 211, 748, 211, 748, 215, 747, 215, 747, 216, 743, 216, 743, 235, 743, 235, 743, 235, 736, 235, 736, 208, 736, 208, 736, 207, 740, 207, 740, 196, 740, 196, 740, 195, 736, 195, 736, 176, 736, 176, 736, 175, 740, 175, 740, 164, 740, 164, 740, 163, 736, 163, 736, 136, 736, 136, 736, 135, 740, 135, 740, 100, 740, 100, 740, 99, 736, 99, 736, 95, 735, 95, 735, 95, 724, 95, 724, 91, 723, 91, 723, 91, 716, 91, 716, 87, 715, 87, 715, 87, 704, 87, 704, 91, 703, 91, 703, 91, 692, 91, 692, 95, 691, 95, 691, 95, 652, 95, 652, 91, 651, 91, 651, 91, 644, 91, 644, 87, 643, 87, 643, 87, 636, 87, 636, 91, 635, 91, 635, 91, 628, 91, 628, 95, 627, 95, 627, 95, 520, 95, 520, 92, 520, 92, 520, 91, 516, 91, 516, 87, 515, 87, 515, 87, 492, 87, 492, 91, 491, 91, 491, 91, 484, 91, 484, 95, 483, 95, 483, 95, 444, 95, 444, 91, 443, 91, 443, 91, 428, 91, 428, 95, 427, 95, 427, 95, 400, 95, 400, 91, 399, 91, 399, 91, 392, 91, 392, 87, 391, 87, 391, 87, 380, 87, 380, 91, 379, 91, 379, 91, 360, 91, 360, 87, 359, 87, 359, 87, 324, 87, 324, 91, 323, 91, 323, 91, 316, 91, 316, 95, 315, 95, 315, 95, 256, 95, 256, 91, 255, 91, 255, 91, 248, 91, 248, 87, 247, 87, 247, 87, 232, 87, 232, 91, 231, 91, 231, 92, 227, 92, 227, 95, 227, 95, 227, 95, 200, 95, 200, 91, 199, 91, 199, 91, 188, 91, 188, 87, 187, 87, 187, 87, 168, 87, 168, 91, 167, 91, 167, 92, 163, 92, 163, 95, 163, 95, 163, 95, 140, 95, 140, 91, 139, 91, 139, 91, 132, 91, 132, 87, 131, 87, 131, 87, 120, 87, 120, 91, 119, 91, 119, 91, 100, 91, 100, 32, 100, 188, 751, 191, 751, 191, 751, 192, 755, 192, 755, 196, 756, 196, 756, 196, 763, 196, 763, 192, 764, 192, 764, 191, 768, 191, 768, 188, 768, 188, 768, 187, 764, 187, 764, 183, 763, 183, 763, 183, 756, 183, 756, 187, 755, 187, 755, 188, 751, 75, 675, 76, 679, 76, 679, 80, 680, 80, 680, 80, 687, 80, 687, 76, 688, 76, 688, 75, 692, 75, 692, 72, 692, 72, 692, 72, 699, 72, 699, 76, 700, 76, 700, 76, 711, 76, 711, 72, 712, 72, 712, 71, 716, 71, 716, 60, 716, 60, 716, 59, 712, 59, 712, 55, 711, 55, 711, 55, 692, 55, 692, 59, 691, 59, 691, 59, 684, 59, 684, 63, 683, 63, 683, 63, 680, 63, 680, 67, 679, 67, 679, 68, 675, 68, 675, 75, 675, 60, 207, 63, 207, 63, 207, 64, 211, 64, 211, 68, 212, 68, 212, 68, 219, 68, 219, 64, 220, 64, 220, 63, 224, 63, 224, 60, 224, 60, 224, 59, 220, 59, 220, 55, 219, 55, 219, 55, 212, 55, 212, 59, 211, 59, 211, 60, 207, 76, 183, 79, 183, 79, 183, 80, 187, 80, 187, 84, 188, 84, 188, 84, 195, 84, 195, 80, 196, 80, 196, 79, 200, 79, 200, 76, 200, 76, 200, 75, 196, 75, 196, 71, 195, 71, 195, 71, 188, 71, 188, 75, 187, 75, 187, 76, 183)
+
+
+[node name="WorldMap" type="Node2D" unique_id=42572437]
+script = ExtResource("1_script")
+metadata/static_scene = true
+
+[node name="Sprite_0" type="Sprite2D" parent="." unique_id=990056791]
+z_index = -10
+texture = ExtResource("t_0")
+centered = false
+
+[node name="block_temple" type="StaticBody2D" parent="." unique_id=1784886214]
+position = Vector2(292.5, 198.5)
+
+[node name="Shape" type="CollisionShape2D" parent="block_temple" unique_id=438272393]
+position = Vector2(5.5, 0)
+shape = SubResource("shape_0")
+
+[node name="block_forest" type="StaticBody2D" parent="." unique_id=1948457824]
+position = Vector2(908, 198.5)
+
+[node name="Shape_2" type="CollisionShape2D" parent="block_forest" unique_id=983156672]
+position = Vector2(2, 0.5)
+shape = SubResource("shape_1")
+
+[node name="block_viewpoint" type="StaticBody2D" parent="." unique_id=715216692]
+position = Vector2(1466.5, 198.5)
+
+[node name="Shape_3" type="CollisionShape2D" parent="block_viewpoint" unique_id=2024886962]
+shape = SubResource("shape_2")
+
+[node name="block_lake" type="StaticBody2D" parent="." unique_id=470998932]
+position = Vector2(297, 396)
+
+[node name="Shape_4" type="CollisionShape2D" parent="block_lake" unique_id=1089063489]
+shape = SubResource("shape_3")
+
+[node name="block_home" type="StaticBody2D" parent="." unique_id=452229184]
+position = Vector2(665, 394.5)
+
+[node name="Shape_5" type="CollisionShape2D" parent="block_home" unique_id=1673205298]
+shape = SubResource("shape_4")
+
+[node name="block_greenhouse" type="StaticBody2D" parent="." unique_id=1098104233]
+position = Vector2(1005, 394.5)
+
+[node name="Shape_6" type="CollisionShape2D" parent="block_greenhouse" unique_id=1876103889]
+shape = SubResource("shape_5")
+
+[node name="block_farm" type="StaticBody2D" parent="." unique_id=1162620119]
+position = Vector2(1364.5, 393)
+
+[node name="Shape_7" type="CollisionShape2D" parent="block_farm" unique_id=1543505982]
+position = Vector2(0, 7.5)
+shape = SubResource("shape_6")
+
+[node name="block_library" type="StaticBody2D" parent="." unique_id=1103995355]
+position = Vector2(300, 607.5)
+
+[node name="Shape_8" type="CollisionShape2D" parent="block_library" unique_id=950199214]
+position = Vector2(0, 2)
+shape = SubResource("shape_7")
+
+[node name="block_town" type="StaticBody2D" parent="." unique_id=402610244]
+position = Vector2(788, 603)
+
+[node name="Shape_9" type="CollisionShape2D" parent="block_town" unique_id=726319945]
+position = Vector2(0, 4.5)
+shape = SubResource("shape_8")
+
+[node name="block_riverbank" type="StaticBody2D" parent="." unique_id=1257820363]
+position = Vector2(1323.5, 607.5)
+
+[node name="Shape_10" type="CollisionShape2D" parent="block_riverbank" unique_id=1885084574]
+shape = SubResource("shape_9")
+
+[node name="block_college" type="StaticBody2D" parent="." unique_id=1412560270]
+position = Vector2(1192, 799)
+
+[node name="Shape_11" type="CollisionShape2D" parent="block_college" unique_id=1941596120]
+position = Vector2(0, 4)
+shape = SubResource("shape_10")
+
+[node name="block_beach" type="StaticBody2D" parent="." unique_id=1261114102]
+position = Vector2(560, 805)
+
+[node name="Shape" type="CollisionShape2D" parent="block_beach" unique_id=352956896]
+shape = SubResource("shape_beach")
+
+
+[node name="border_top" type="StaticBody2D" parent="." unique_id=2004285854]
+position = Vector2(836.5, 49)
+
+[node name="Shape_12" type="CollisionShape2D" parent="border_top" unique_id=1419819817]
+shape = SubResource("shape_11")
+
+[node name="border_bottom" type="StaticBody2D" parent="." unique_id=1897324686]
+position = Vector2(836.5, 925)
+
+[node name="Shape_13" type="CollisionShape2D" parent="border_bottom" unique_id=1954547573]
+position = Vector2(0, -4)
+shape = SubResource("shape_12")
+
+[node name="border_left" type="StaticBody2D" parent="." unique_id=731128902]
+position = Vector2(14.5, 504)
+
+[node name="Shape_14" type="CollisionShape2D" parent="border_left" unique_id=1018109114]
+position = Vector2(36, 0)
+shape = SubResource("shape_13")
+
+[node name="border_right" type="StaticBody2D" parent="." unique_id=1161821694]
+position = Vector2(1651, 504)
+
+[node name="Shape_15" type="CollisionShape2D" parent="border_right" unique_id=1640158880]
+position = Vector2(-23.5, 0)
+shape = SubResource("shape_14")
+
+[node name="terrain_0" type="StaticBody2D" parent="." unique_id=795425564]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_0" unique_id=2135525362]
+polygon = PackedVector2Array(224, 900, 224, 907, 247, 907, 247, 900)
+
+[node name="terrain_1" type="StaticBody2D" parent="." unique_id=423946139]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_1" unique_id=947876999]
+polygon = PackedVector2Array(712, 872, 712, 879, 719, 879, 720, 883, 724, 884, 724, 891, 720, 892, 720, 899, 727, 899, 727, 896, 731, 895, 732, 891, 739, 891, 739, 888, 743, 887, 743, 880, 747, 879, 747, 872)
+
+[node name="terrain_2" type="StaticBody2D" parent="." unique_id=1497871144]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_2" unique_id=203694312]
+polygon = PackedVector2Array(304, 907, 571, 907, 571, 904, 575, 903, 576, 899, 579, 899, 579, 892, 583, 891, 584, 887, 587, 887, 588, 891, 591, 891, 592, 895, 596, 896, 596, 903, 603, 903, 604, 907, 683, 907, 683, 904, 687, 903, 688, 899, 691, 899, 691, 892, 688, 892, 687, 888, 652, 888, 651, 884, 648, 884, 647, 880, 644, 880, 643, 876, 639, 875, 639, 872, 344, 872, 344, 875, 340, 876, 339, 880, 336, 880, 336, 895, 332, 896, 331, 900, 304, 900)
+
+[node name="terrain_3" type="StaticBody2D" parent="." unique_id=255555737]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_3" unique_id=1863673106]
+polygon = PackedVector2Array(787, 824, 780, 824, 780, 867, 776, 868, 775, 872, 760, 872, 760, 879, 764, 880, 764, 891, 760, 892, 759, 896, 756, 896, 756, 903, 759, 903, 760, 907, 787, 907, 787, 872, 791, 871, 791, 864, 795, 863, 795, 856, 791, 855, 791, 848, 787, 847)
+
+[node name="terrain_4" type="StaticBody2D" parent="." unique_id=1250797845]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_4" unique_id=302142728]
+polygon = PackedVector2Array(192, 824, 192, 835, 195, 835, 196, 839, 192, 840, 192, 847, 188, 848, 188, 855, 191, 855, 192, 859, 195, 859, 196, 863, 200, 864, 200, 875, 203, 875, 204, 879, 208, 880, 208, 887, 215, 887, 215, 876, 219, 875, 220, 871, 227, 871, 228, 875, 239, 875, 239, 840, 236, 840, 235, 836, 204, 836, 203, 832, 200, 832, 199, 828, 196, 828, 195, 824)
+
+[node name="terrain_5" type="StaticBody2D" parent="." unique_id=885310972]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_5" unique_id=1351527726]
+polygon = PackedVector2Array(780, 796, 780, 799, 787, 799, 787, 796)
+
+[node name="terrain_6" type="StaticBody2D" parent="." unique_id=224551738]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_6" unique_id=2053574602]
+polygon = PackedVector2Array(28, 784, 28, 903, 31, 903, 32, 907, 183, 907, 183, 900, 176, 900, 175, 896, 124, 896, 123, 892, 119, 891, 119, 876, 116, 876, 115, 872, 84, 872, 83, 868, 72, 868, 71, 864, 67, 863, 67, 852, 71, 851, 71, 848, 75, 847, 75, 844, 79, 843, 80, 839, 87, 839, 87, 828, 80, 828, 79, 824, 56, 824, 55, 820, 48, 820, 47, 816, 43, 815, 43, 804, 47, 803, 48, 799, 59, 799, 59, 792, 56, 792, 55, 788, 51, 787, 51, 784)
+
+[node name="terrain_7" type="StaticBody2D" parent="." unique_id=1189709946]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_7" unique_id=561060838]
+polygon = PackedVector2Array(35, 748, 32, 748, 32, 751, 28, 752, 28, 759, 35, 759)
+
+[node name="terrain_8" type="StaticBody2D" parent="." unique_id=180521324]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_8" unique_id=284570285]
+polygon = PackedVector2Array(780, 740, 780, 771, 787, 771, 787, 740)
+
+[node name="terrain_9" type="StaticBody2D" parent="." unique_id=1031247021]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_9" unique_id=998017869]
+polygon = PackedVector2Array(396, 740, 396, 747, 523, 747, 523, 740)
+
+[node name="terrain_10" type="StaticBody2D" parent="." unique_id=250013383]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_10" unique_id=616819858]
+polygon = PackedVector2Array(1548, 536, 1548, 539, 1555, 539, 1555, 536)
+
+[node name="terrain_11" type="StaticBody2D" parent="." unique_id=294804716]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_11" unique_id=1283364967]
+polygon = PackedVector2Array(1603, 392, 1600, 392, 1600, 395, 1596, 396, 1596, 399, 1592, 400, 1591, 404, 1588, 404, 1588, 411, 1584, 412, 1584, 567, 1587, 567, 1588, 571, 1591, 571, 1592, 567, 1599, 567, 1600, 571, 1603, 571, 1604, 575, 1607, 575, 1608, 579, 1612, 580, 1612, 591, 1608, 592, 1607, 596, 1600, 596, 1599, 592, 1588, 592, 1588, 595, 1584, 596, 1584, 607, 1580, 608, 1580, 619, 1595, 619, 1596, 623, 1600, 624, 1600, 631, 1596, 632, 1595, 636, 1588, 636, 1588, 639, 1584, 640, 1584, 743, 1580, 744, 1580, 759, 1584, 760, 1584, 903, 1591, 903, 1591, 900, 1595, 899, 1596, 895, 1607, 895, 1608, 899, 1623, 899, 1623, 896, 1627, 895, 1627, 872, 1616, 872, 1615, 868, 1611, 867, 1611, 860, 1615, 859, 1616, 855, 1623, 855, 1623, 852, 1627, 851, 1627, 788, 1624, 788, 1623, 784, 1620, 784, 1619, 780, 1615, 779, 1615, 764, 1619, 763, 1619, 760, 1623, 759, 1624, 755, 1627, 755, 1627, 736, 1616, 736, 1615, 732, 1611, 731, 1611, 724, 1615, 723, 1615, 720, 1619, 719, 1619, 716, 1623, 715, 1624, 711, 1627, 711, 1627, 704, 1624, 704, 1623, 700, 1616, 700, 1615, 696, 1611, 695, 1611, 676, 1615, 675, 1615, 668, 1619, 667, 1619, 660, 1616, 660, 1615, 656, 1604, 656, 1603, 652, 1599, 651, 1599, 644, 1603, 643, 1604, 639, 1615, 639, 1616, 643, 1623, 643, 1623, 640, 1627, 639, 1627, 596, 1624, 596, 1623, 592, 1619, 591, 1619, 572, 1623, 571, 1623, 564, 1627, 563, 1627, 556, 1624, 556, 1623, 552, 1619, 551, 1619, 540, 1623, 539, 1624, 535, 1627, 535, 1627, 436, 1624, 436, 1623, 432, 1620, 432, 1620, 435, 1616, 436, 1615, 440, 1608, 440, 1607, 436, 1603, 435, 1603, 428, 1607, 427, 1607, 424, 1611, 423, 1612, 419, 1619, 419, 1620, 423, 1627, 423, 1627, 412, 1624, 412, 1623, 408, 1619, 407, 1619, 404, 1612, 404, 1611, 400, 1608, 400, 1607, 396, 1603, 395)
+
+[node name="terrain_12" type="StaticBody2D" parent="." unique_id=1011648019]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_12" unique_id=226938843]
+polygon = PackedVector2Array(132, 260, 132, 275, 139, 275, 139, 260)
+
+[node name="terrain_13" type="StaticBody2D" parent="." unique_id=1875651415]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_13" unique_id=1314302567]
+polygon = PackedVector2Array(1572, 256, 1572, 275, 1568, 276, 1568, 283, 1571, 283, 1572, 287, 1575, 287, 1576, 291, 1580, 292, 1580, 299, 1584, 300, 1584, 319, 1588, 320, 1588, 343, 1592, 344, 1592, 367, 1588, 368, 1588, 383, 1595, 383, 1595, 376, 1599, 375, 1600, 371, 1607, 371, 1608, 375, 1612, 376, 1612, 383, 1615, 383, 1616, 387, 1623, 387, 1623, 384, 1627, 383, 1627, 276, 1624, 276, 1623, 272, 1619, 271, 1619, 268, 1612, 268, 1611, 264, 1584, 264, 1583, 260, 1579, 259, 1579, 256)
+
+[node name="terrain_14" type="StaticBody2D" parent="." unique_id=365862673]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_14" unique_id=2134632750]
+polygon = PackedVector2Array(448, 248, 448, 275, 444, 276, 444, 279, 455, 279, 455, 276, 459, 275, 459, 256, 455, 255, 455, 248)
+
+[node name="terrain_15" type="StaticBody2D" parent="." unique_id=579402028]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_15" unique_id=1454258844]
+polygon = PackedVector2Array(1627, 104, 1608, 104, 1608, 107, 1604, 108, 1604, 171, 1608, 172, 1608, 183, 1604, 184, 1604, 239, 1607, 239, 1608, 243, 1611, 243, 1612, 239, 1619, 239, 1619, 236, 1623, 235, 1624, 231, 1627, 231)
+
+[node name="terrain_16" type="StaticBody2D" parent="." unique_id=1447402586]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_16" unique_id=1351976312]
+polygon = PackedVector2Array(1396, 104, 1396, 111, 1399, 111, 1400, 115, 1539, 115, 1539, 112, 1543, 111, 1543, 104, 1540, 104, 1539, 100, 1400, 100, 1400, 103)
+
+[node name="terrain_17" type="StaticBody2D" parent="." unique_id=2135189460]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_17" unique_id=232847736]
+polygon = PackedVector2Array(1315, 100, 1308, 100, 1308, 103, 1304, 104, 1304, 111, 1311, 111, 1311, 108, 1315, 107)
+
+[node name="terrain_18" type="StaticBody2D" parent="." unique_id=1339319143]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_18" unique_id=1357440634]
+polygon = PackedVector2Array(1108, 100, 1108, 107, 1111, 107, 1111, 100)
+
+[node name="terrain_19" type="StaticBody2D" parent="." unique_id=951864842]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_19" unique_id=206492238]
+polygon = PackedVector2Array(792, 104, 792, 111, 795, 111, 796, 115, 955, 115, 955, 112, 959, 111, 959, 104, 956, 104, 955, 100, 796, 100, 796, 103)
+
+[node name="terrain_20" type="StaticBody2D" parent="." unique_id=574769608]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_20" unique_id=200035544]
+polygon = PackedVector2Array(756, 100, 756, 111, 759, 111, 760, 115, 763, 115, 763, 112, 767, 111, 767, 104, 764, 104, 763, 100)
+
+[node name="terrain_21" type="StaticBody2D" parent="." unique_id=1295428767]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_21" unique_id=1943546981]
+polygon = PackedVector2Array(443, 100, 436, 100, 436, 103, 432, 104, 432, 111, 435, 111, 436, 115, 439, 115, 439, 112, 443, 111, 444, 107, 447, 107, 447, 104, 444, 104)
+
+[node name="terrain_22" type="StaticBody2D" parent="." unique_id=385990742]
+
+[node name="Shape" type="CollisionPolygon2D" parent="terrain_22" unique_id=721931211]
+polygon = PackedVector2Array(224, 104, 224, 107, 227, 107, 228, 111, 232, 112, 232, 115, 359, 115, 360, 111, 367, 111, 367, 108, 371, 107, 371, 100, 228, 100, 228, 103)
+
+[node name="terrain_23" type="StaticBody2D" parent="." unique_id=1000094241]
+
+[node name="Shape" type="CollisionShape2D" parent="terrain_23" unique_id=409785426]
+shape = SubResource("shape_terrain_23")
+
+
+[node name="Zone_home" type="Marker2D" parent="." unique_id=2143149270]
+position = Vector2(678, 490)
+metadata/area = Rect2(650, 488, 70, 18)
+metadata/name = "Home"
+metadata/scene = "res://scenes/ExteriorHome.tscn"
+
+[node name="Zone_town_square" type="Marker2D" parent="." unique_id=705297812]
+position = Vector2(802, 703)
+metadata/area = Rect2(494, 703, 588, 18)
+metadata/name = "Town Square"
+metadata/scene = "res://scenes/TownSquare.tscn"
+
+[node name="Zone_library" type="Marker2D" parent="." unique_id=1199624113]
+position = Vector2(305, 708)
+metadata/area = Rect2(135, 703, 325, 18)
+metadata/name = "Library"
+metadata/scene = ""
+
+[node name="Zone_temple" type="Marker2D" parent="." unique_id=162334455]
+position = Vector2(295, 285)
+metadata/area = Rect2(150, 286, 300, 18)
+metadata/name = "Temple"
+metadata/scene = "res://scenes/TempleCourtyard.tscn"
+
+[node name="Zone_forest" type="Marker2D" parent="." unique_id=1274777036]
+position = Vector2(800, 288)
+metadata/area = Rect2(490, 286, 830, 18)
+metadata/name = "Forest"
+metadata/scene = "res://scenes/Forest.tscn"
+
+[node name="Zone_lake" type="Marker2D" parent="." unique_id=2047111639]
+position = Vector2(318, 496)
+metadata/area = Rect2(135, 488, 325, 18)
+metadata/name = "Lake"
+metadata/scene = ""
+
+[node name="Zone_viewpoint" type="Marker2D" parent="." unique_id=895772482]
+position = Vector2(1481, 287)
+metadata/area = Rect2(1365, 286, 210, 18)
+metadata/name = "Viewpoint"
+metadata/scene = ""
+
+[node name="Zone_farm" type="Marker2D" parent="." unique_id=589564729]
+position = Vector2(1360, 496)
+metadata/area = Rect2(1175, 488, 375, 18)
+metadata/name = "Farm"
+metadata/scene = ""
+
+[node name="Zone_greenhouse" type="Marker2D" parent="." unique_id=1300037577]
+position = Vector2(1014, 489)
+metadata/area = Rect2(865, 488, 275, 18)
+metadata/name = "Greenhouse"
+metadata/scene = ""
+
+[node name="Zone_riverbank" type="Marker2D" parent="." unique_id=1124607132]
+position = Vector2(1322.5, 712)
+metadata/area = Rect2(1095, 703, 455, 18)
+metadata/name = "Riverbank"
+metadata/scene = ""
+
+[node name="Zone_beach" type="Marker2D" parent="." unique_id=478580429]
+position = Vector2(540, 731)
+metadata/area = Rect2(300, 722, 480, 18)
+metadata/name = "Beach"
+metadata/scene = ""
+
+[node name="Zone_lighthouse" type="Marker2D" parent="." unique_id=957116301]
+position = Vector2(285, 805)
+metadata/area = Rect2(240, 780, 90, 50)
+metadata/name = "Lighthouse"
+metadata/scene = "res://scenes/LighthouseFront.tscn"
+
+[node name="Zone_college" type="Marker2D" parent="." unique_id=350191009]
+position = Vector2(1224, 876)
+metadata/area = Rect2(830, 878, 720, 18)
+metadata/name = "College"
+metadata/scene = ""

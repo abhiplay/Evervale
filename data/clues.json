@@ -1,0 +1,49 @@
+{
+  "_note": "Clue journal entries from 01_evervale_story_bible.md section 6 and 04_evervale_world_and_systems.md section 8. Confidence starts at 'uncertain' and the journal shows what was found apart from what it means.",
+  "clues": [
+    {
+      "id": "CLUE-PHOTO-01",
+      "title": "Hidden Photograph",
+      "found_at": "home",
+      "found_by_mission": "M04",
+      "description_found": "A photograph from Arthur's hidden compartment.",
+      "description_meaning": "Someone who knows the town's old records may be able to name the people in it.",
+      "related_characters": ["arthur_hale", "elias_voss", "margaret_whitmore"],
+      "related_clues": ["CLUE-NOTE-01", "CLUE-KEY-01"],
+      "confidence": "uncertain"
+    },
+    {
+      "id": "CLUE-NOTE-01",
+      "title": "Handwritten Note",
+      "found_at": "home",
+      "found_by_mission": "M04",
+      "description_found": "A note with a date and the words \"before the lights go out.\"",
+      "description_meaning": "I don't know yet what the lights refers to.",
+      "related_characters": ["arthur_hale"],
+      "related_clues": ["CLUE-PHOTO-01"],
+      "confidence": "uncertain"
+    },
+    {
+      "id": "CLUE-KEY-01",
+      "title": "Brass Key",
+      "found_at": "home",
+      "found_by_mission": "M04",
+      "description_found": "A brass key.",
+      "description_meaning": "I don't know yet what this key opens.",
+      "related_characters": ["arthur_hale"],
+      "related_clues": ["CLUE-PHOTO-01"],
+      "confidence": "uncertain"
+    },
+    {
+      "id": "CLUE-MAP-01",
+      "title": "Map Fragment",
+      "found_at": "home",
+      "found_by_mission": "M04",
+      "description_found": "A fragment of an old Evervale map.",
+      "description_meaning": "Part of the town is missing from it.",
+      "related_characters": [],
+      "related_clues": [],
+      "confidence": "uncertain"
+    }
+  ]
+}

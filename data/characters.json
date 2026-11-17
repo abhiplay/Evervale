@@ -1,0 +1,30 @@
+{
+  "_note": "Names and roles follow 01_Evervale_Character_Library_and_Personas.docx. presence: in_person = a present-day person the player meets or works with in a mission; events_only = appears only as a voice, photograph or sighting; history_only = a person from the past, shown only in the library's history books. missions: the story bible's numbered missions (section 10) where the person is met in the present; an empty list means no numbered mission names them yet. Home is the workplace where the documents give one (cafe, general store, library, and the florist shop in the Town square); otherwise null.",
+  "characters": [
+    {"id": "amelia_bennett", "name": "Amelia Bennett", "playable": true, "home": "home", "role": "Protagonist; 26; freelance illustrator", "presence": "in_person", "missions": ["all"]},
+    {"id": "oliver_bennett", "name": "Oliver Bennett", "playable": false, "home": "home", "role": "Husband; 28; architect", "presence": "in_person", "missions": ["15"]},
+    {"id": "coco", "name": "Coco", "playable": false, "home": "home", "role": "Pet; orange tabby cat", "presence": "in_person", "missions": ["1"]},
+    {"id": "charlie", "name": "Charlie", "playable": false, "home": "home", "role": "Pet; black Labrador", "presence": "in_person", "missions": ["1"]},
+    {"id": "henry_collins", "name": "Henry Collins", "playable": false, "home": "cafe", "role": "Cafe owner; 34", "presence": "in_person", "missions": []},
+    {"id": "george_miller", "name": "George Miller", "playable": false, "home": "general_store", "role": "General store owner; 46", "presence": "in_person", "missions": []},
+    {"id": "rose_west", "name": "Rose West", "playable": false, "home": "town_square", "role": "Florist assistant; 25", "presence": "in_person", "missions": []},
+    {"id": "nora_ellis", "name": "Nora Ellis", "playable": false, "home": null, "role": "College student; 21", "presence": "in_person", "missions": []},
+    {"id": "margaret_whitmore", "name": "Margaret Whitmore", "playable": false, "home": "library", "role": "Town librarian; 61", "presence": "in_person", "missions": ["6"]},
+    {"id": "thomas_reed", "name": "Thomas Reed", "playable": false, "home": null, "role": "Former lighthouse assistant; 63", "presence": "in_person", "missions": ["19"]},
+    {"id": "evelyn_hale", "name": "Evelyn Hale", "playable": false, "home": "town_square", "role": "Florist; Arthur's daughter; 29", "presence": "in_person", "missions": ["10", "23"]},
+    {"id": "arthur_hale", "name": "Arthur Hale", "playable": false, "home": null, "role": "Former lighthouse keeper; 58", "presence": "in_person", "missions": ["23"]},
+    {"id": "silas_wren", "name": "Professor Silas Wren", "playable": false, "home": null, "role": "Evervale College professor; 48", "presence": "in_person", "missions": ["15", "20"]},
+    {"id": "elias_voss", "name": "Dr. Elias Voss", "playable": false, "home": null, "role": "Neuroscientist; original lead researcher", "presence": "history_only", "missions": []},
+    {"id": "hollow_witch", "name": "The Hollow Witch", "playable": false, "home": null, "role": "Folkloric, possibly supernatural figure", "presence": "events_only", "missions": []},
+    {"id": "walter_brooks", "name": "Walter Brooks", "playable": false, "home": null, "role": "Retired fisherman; 68", "presence": "in_person", "missions": []},
+    {"id": "eleanor_finch", "name": "Eleanor Finch", "playable": false, "home": null, "role": "Elderly resident; retired", "presence": "in_person", "missions": ["9"]},
+    {"id": "samuel_carter", "name": "Samuel Carter", "playable": false, "home": null, "role": "Farmer; 73", "presence": "in_person", "missions": ["16"]},
+    {"id": "clara_westwood", "name": "Clara Westwood", "playable": false, "home": null, "role": "Temple caretaker", "presence": "in_person", "missions": ["8"]},
+    {"id": "daniel_foster", "name": "Daniel Foster", "playable": false, "home": null, "role": "Photographer; 31", "presence": "in_person", "missions": []},
+    {"id": "dr_helen_moore", "name": "Dr. Helen Moore", "playable": false, "home": null, "role": "College historian and lecturer; 39", "presence": "in_person", "missions": []},
+    {"id": "lucas_gray", "name": "Lucas Gray", "playable": false, "home": null, "role": "Research student, sound engineering; 24", "presence": "in_person", "missions": []},
+    {"id": "peter_lawson", "name": "Peter Lawson", "playable": false, "home": null, "role": "College security guard; 52", "presence": "in_person", "missions": []},
+    {"id": "margaret_voss", "name": "Margaret Voss", "playable": false, "home": null, "role": "Elias Voss's wife", "presence": "history_only", "missions": []},
+    {"id": "edward_price", "name": "Edward Price", "playable": false, "home": null, "role": "Laboratory technician", "presence": "history_only", "missions": []}
+  ]
+}

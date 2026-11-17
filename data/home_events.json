@@ -1,0 +1,29 @@
+{
+  "_note": "Amelia's look around the house. Each area says its lines the first time she walks into it. Rectangles are [x, y, width, height] in picture pixels, the same as the house maps. The plank opens once the look around is done and its requires condition holds (MissionTracker), so the box is found after the café. The lines, the box's letter and the photo are placeholders until the real words and pictures are added.",
+  "task_title": "Look around the house",
+  "areas": [
+    {"id": "living_room", "label": "Living room","scene": "home_floor1", "rect": [170, 560, 720, 210], "lines": ["The rug is worn in a few places, but the colours are still warm."]},
+    {"id": "cabinet", "label": "Cabinet","scene": "home_floor1", "rect": [150, 445, 320, 110], "lines": ["This old cabinet is solid. Someone has looked after it for years."]},
+    {"id": "north_room", "label": "By the window","scene": "home_floor1", "rect": [520, 170, 400, 210], "lines": ["This room has the best light. The window looks out over the trees."]},
+    {"id": "entry_hall", "label": "Front door","scene": "home_floor1", "rect": [600, 780, 260, 90], "lines": ["The front door is thick and heavy. It will keep the cold out."]},
+    {"id": "kitchen", "label": "Kitchen","scene": "home_floor1", "rect": [985, 675, 325, 195], "lines": ["The kitchen is spotless, with fresh fruit on the island."]},
+    {"id": "staircase", "label": "Stairs up","scene": "home_floor1", "rect": [975, 455, 140, 100], "lines": ["The stairs go up to the bedroom. The railing is smooth from years of hands."]},
+    {"id": "rune_wall", "label": "Glowing circle","scene": "home_floor1", "rect": [1150, 560, 70, 90], "lines": ["The glowing circle on the wall gives off a soft warmth. I won't touch it yet."]},
+    {"id": "bedroom_stairs", "label": "Stairs down","scene": "bedroom_upstairs", "rect": [190, 880, 185, 170], "lines": ["These stairs lead back down to the living room."]},
+    {"id": "bedroom_bed", "label": "Bare floorboards","scene": "bedroom_upstairs", "rect": [430, 750, 590, 110], "lines": ["The room is empty. There's no bed yet, only bare floorboards."]},
+    {"id": "bedroom_dresser", "label": "Dresser","scene": "bedroom_upstairs", "rect": [295, 615, 150, 110], "lines": ["No dresser stands here yet. Just the bare wall and the floorboards."]},
+    {"id": "bedroom_wardrobe", "label": "Wardrobe","scene": "bedroom_upstairs", "rect": [1015, 480, 130, 320], "lines": ["The wall on this side is bare. There's no wardrobe yet."]}
+  ],
+  "done_lines": ["I've looked in every corner of the house. That loose board by the window can wait."],
+  "plank": {
+    "scene": "home_floor1",
+    "rect": [720, 280, 180, 100],
+    "item_id": "hidden_box",
+    "examine_label": "Examine Floorboards",
+    "glow": {"centre": [812, 325], "half": [88, 26], "angle": 0.29},
+    "requires": "mission_complete:M03",
+    "waiting_lines": ["This board is loose. I'll look around the rest of the house first."],
+    "later_lines": ["This board is loose. I'll take a proper look when I'm back from town."],
+    "found_lines": ["The board lifts up easily. There's a box hidden underneath."]
+  }
+}

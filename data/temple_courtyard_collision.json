@@ -1,0 +1,275 @@
+{
+  "_note": "Solid objects for the temple courtyard, in pixels of assets/environments/temple_courtyard.webp (1672x940). The lawn, the path and the steps are walkable.",
+  "solids": [
+    {
+      "id": "temple_roof",
+      "rect": [
+        480,
+        0,
+        720,
+        170
+      ]
+    },
+    {
+      "id": "temple_wall_left",
+      "rect": [
+        480,
+        170,
+        315,
+        150
+      ]
+    },
+    {
+      "id": "temple_wall_right",
+      "rect": [
+        885,
+        170,
+        315,
+        150
+      ]
+    },
+    {
+      "id": "temple_door",
+      "rect": [
+        795,
+        180,
+        90,
+        125
+      ]
+    },
+    {
+      "id": "porch_pillar_left",
+      "rect": [
+        745,
+        180,
+        28,
+        160
+      ]
+    },
+    {
+      "id": "porch_pillar_right",
+      "rect": [
+        915,
+        180,
+        28,
+        160
+      ]
+    },
+    {
+      "id": "outer_pillar_1",
+      "rect": [
+        690,
+        190,
+        25,
+        120
+      ]
+    },
+    {
+      "id": "outer_pillar_2",
+      "rect": [
+        960,
+        190,
+        25,
+        120
+      ]
+    },
+    {
+      "id": "outer_pillar_3",
+      "rect": [
+        1085,
+        190,
+        25,
+        120
+      ]
+    },
+    {
+      "id": "outer_pillar_4",
+      "rect": [
+        1165,
+        190,
+        25,
+        120
+      ]
+    },
+    {
+      "id": "brazier_left",
+      "rect": [
+        680,
+        320,
+        40,
+        55
+      ]
+    },
+    {
+      "id": "brazier_right",
+      "rect": [
+        962,
+        320,
+        40,
+        55
+      ]
+    },
+    {
+      "id": "fence_left_side",
+      "rect": [
+        85,
+        140,
+        20,
+        580
+      ]
+    },
+    {
+      "id": "fence_right_side",
+      "rect": [
+        1580,
+        140,
+        20,
+        580
+      ]
+    },
+    {
+      "id": "fence_top_left",
+      "rect": [
+        115,
+        140,
+        370,
+        40
+      ]
+    },
+    {
+      "id": "fence_top_right",
+      "rect": [
+        1200,
+        140,
+        380,
+        40
+      ]
+    },
+    {
+      "id": "fence_bottom_left",
+      "rect": [
+        90,
+        760,
+        640,
+        40
+      ]
+    },
+    {
+      "id": "fence_bottom_right",
+      "rect": [
+        955,
+        760,
+        640,
+        40
+      ]
+    },
+    {
+      "id": "gate_post_left",
+      "rect": [
+        735,
+        700,
+        35,
+        110
+      ]
+    },
+    {
+      "id": "gate_post_right",
+      "rect": [
+        915,
+        700,
+        35,
+        110
+      ]
+    },
+    {
+      "id": "tree_trunk_left",
+      "rect": [
+        195,
+        380,
+        50,
+        60
+      ]
+    },
+    {
+      "id": "rock_left",
+      "rect": [
+        240,
+        415,
+        55,
+        40
+      ]
+    },
+    {
+      "id": "tree_trunk_right",
+      "rect": [
+        1425,
+        470,
+        50,
+        60
+      ]
+    },
+    {
+      "id": "rock_right_1",
+      "rect": [
+        1335,
+        470,
+        80,
+        35
+      ]
+    },
+    {
+      "id": "rock_right_2",
+      "rect": [
+        1400,
+        540,
+        35,
+        30
+      ]
+    },
+    {
+      "id": "stone_box",
+      "rect": [
+        195,
+        560,
+        30,
+        45
+      ]
+    },
+    {
+      "id": "boundary_top",
+      "rect": [
+        0,
+        0,
+        1672,
+        30
+      ]
+    },
+    {
+      "id": "boundary_left",
+      "rect": [
+        0,
+        0,
+        30,
+        940
+      ]
+    },
+    {
+      "id": "boundary_right",
+      "rect": [
+        1642,
+        0,
+        30,
+        940
+      ]
+    },
+    {
+      "id": "boundary_bottom",
+      "rect": [
+        0,
+        918,
+        1672,
+        22
+      ]
+    }
+  ]
+}

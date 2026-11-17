@@ -1,0 +1,14 @@
+{
+  "_note": "CS-003 Our New Home: Amelia and Oliver, once the house has been looked around and Coco and Charlie have been met. Same shape as box_talk.json (BoxTalk plays it). Lines are drafts and placeholders until the real words are added. It ends by sending Amelia into town (Mission 2).",
+  "oliver_enters_at": [725, 1010],
+  "oliver_route": [[725, 760]],
+  "oliver_beside_amelia": [[-50, 0], [50, 0], [0, -40], [0, 40]],
+  "steps": [
+    {"say": "Oliver", "lines": [{"text": "There you are. That's the last of the boxes in from the car.", "emotion": "happy"}]},
+    {"say": "Amelia", "lines": [{"text": "I've been round every room. It needs some work, but it already feels like ours.", "emotion": "smile"}]},
+    {"say": "Oliver", "lines": [{"text": "Coco has claimed the window already, and Charlie has found the warmest spot in the house.", "emotion": "happy"}]},
+    {"say": "Amelia", "lines": [{"text": "Then we're home.", "emotion": "happy"}]},
+    {"say": "Oliver", "lines": [{"text": "I'll make a start on the kitchen. Why don't you go and meet the neighbours? Someone should know we've arrived.", "emotion": "happy"}]},
+    {"say": "Amelia", "lines": [{"text": "All right. I'll walk into town and say hello.", "emotion": "determined"}]}
+  ]
+}

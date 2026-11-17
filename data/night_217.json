@@ -1,0 +1,22 @@
+{
+  "_note": "Mission 5, 2:17 AM: Amelia goes to bed once the box talk is over (Mission 4), wakes at 2:17 to static, goes downstairs, and the radio delivers the warning transmission; Oliver comes down after it. The transmission's first line is the story bible's; who or what started the signal stays unresolved, and nothing here says it was Silas. Speaker \"\" is narration, \"Radio\" has no portrait. Other lines are drafts and placeholders until the real words are added. Positions are ground floor picture pixels (the settled house).",
+  "caption": "2:17 AM",
+  "bed_lines": [{"text": "What a first day. Bed, at last.", "emotion": "smile"}],
+  "wake": [
+    {"say": "Amelia", "lines": [{"text": "...What time is it? Oliver's fast asleep.", "emotion": "confused"}, {"text": "There's a sound coming from downstairs. Static.", "emotion": "scared"}]}
+  ],
+  "amelia_walks_to": [560, 840],
+  "downstairs": [
+    {"say": "", "lines": ["The old radio on the coffee table is glowing. Nobody turned it on.", "Coco sits beside it, ears flat, staring at the speaker."]},
+    {"say": "Radio", "lines": ["...if you're hearing this...", "If you're hearing this, don't trust the people who welcomed you."], "static": true},
+    {"say": "", "lines": ["The static cuts out. The room goes quiet."]},
+    {"oliver": true},
+    {"say": "Oliver", "lines": [{"text": "Amelia? What was that noise?", "emotion": "surprised"}]},
+    {"say": "Amelia", "lines": [{"text": "The radio. It switched itself on, and someone was talking.", "emotion": "scared"}]},
+    {"say": "Oliver", "lines": [{"text": "At two in the morning? It must have picked up some old broadcast.", "emotion": "thinking"}]},
+    {"say": "Amelia", "lines": [{"text": "It said not to trust the people who welcomed us. And Arthur's letter said, if the radio speaks when it shouldn't, don't answer it.", "emotion": "worried"}]},
+    {"say": "Oliver", "lines": [{"text": "Then we won't answer it. Come back to bed. We'll look at it properly in the morning.", "emotion": "thinking"}]}
+  ],
+  "oliver_enters_at": [975, 620],
+  "end_card": {"title": "End of Act I", "subtitle": "The Arrival", "note": "The story continues in Act II."}
+}

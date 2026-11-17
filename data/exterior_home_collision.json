@@ -1,0 +1,473 @@
+{
+  "_note": "Solid objects for the home exterior, in pixels of assets/environments/home_exterior.png (1629x965). Each entry is [x, y, width, height] of the object's base, not its whole picture. Lawn, the curved path, steps and the porch floor are walkable and have no entry here. Boundary walls on the picture's edges; the only opening is the gate at the bottom (x 672-838).",
+  "solids": [
+    {
+      "id": "house_upper",
+      "rect": [
+        545,
+        0,
+        680,
+        250
+      ]
+    },
+    {
+      "id": "house_wing_roof",
+      "rect": [
+        1225,
+        0,
+        325,
+        330
+      ]
+    },
+    {
+      "id": "house_left_wall",
+      "rect": [
+        545,
+        250,
+        30,
+        160
+      ]
+    },
+    {
+      "id": "front_door",
+      "rect": [
+        705,
+        250,
+        85,
+        90
+      ]
+    },
+    {
+      "id": "house_wall_left_of_door",
+      "rect": [
+        575,
+        250,
+        130,
+        90
+      ]
+    },
+    {
+      "id": "house_wall_right_of_door",
+      "rect": [
+        790,
+        250,
+        125,
+        90
+      ]
+    },
+    {
+      "id": "house_wall_front_strip",
+      "rect": [
+        915,
+        250,
+        295,
+        55
+      ]
+    },
+    {
+      "id": "porch_column_left",
+      "rect": [
+        608,
+        255,
+        34,
+        145
+      ]
+    },
+    {
+      "id": "porch_column_right",
+      "rect": [
+        853,
+        255,
+        34,
+        145
+      ]
+    },
+    {
+      "id": "wing_ground_front",
+      "rect": [
+        1210,
+        330,
+        120,
+        150
+      ]
+    },
+    {
+      "id": "wing_column",
+      "rect": [
+        1238,
+        340,
+        28,
+        130
+      ]
+    },
+    {
+      "id": "flowerbed_house_front",
+      "rect": [
+        900,
+        305,
+        290,
+        55
+      ]
+    },
+    {
+      "id": "flowerbed_porch_left",
+      "rect": [
+        540,
+        345,
+        60,
+        75
+      ]
+    },
+    {
+      "id": "flowerbed_steps_left",
+      "rect": [
+        600,
+        400,
+        90,
+        30
+      ]
+    },
+    {
+      "id": "flowerbed_steps_right",
+      "rect": [
+        805,
+        400,
+        85,
+        30
+      ]
+    },
+    {
+      "id": "pot_porch_left",
+      "rect": [
+        655,
+        355,
+        40,
+        35
+      ]
+    },
+    {
+      "id": "pot_porch_right",
+      "rect": [
+        795,
+        350,
+        45,
+        40
+      ]
+    },
+    {
+      "id": "lamp_steps_left",
+      "rect": [
+        663,
+        428,
+        20,
+        27
+      ]
+    },
+    {
+      "id": "lamp_steps_right",
+      "rect": [
+        810,
+        428,
+        20,
+        27
+      ]
+    },
+    {
+      "id": "boundary_wall_left",
+      "rect": [
+        50,
+        80,
+        30,
+        740
+      ]
+    },
+    {
+      "id": "boundary_wall_right",
+      "rect": [
+        1550,
+        80,
+        40,
+        740
+      ]
+    },
+    {
+      "id": "boundary_wall_bottom_left",
+      "rect": [
+        40,
+        815,
+        600,
+        100
+      ]
+    },
+    {
+      "id": "boundary_wall_bottom_right",
+      "rect": [
+        890,
+        815,
+        700,
+        100
+      ]
+    },
+    {
+      "id": "gate_post_left",
+      "rect": [
+        615,
+        785,
+        57,
+        130
+      ]
+    },
+    {
+      "id": "gate_post_right",
+      "rect": [
+        838,
+        785,
+        54,
+        130
+      ]
+    },
+    {
+      "id": "shed",
+      "rect": [
+        290,
+        15,
+        140,
+        140
+      ]
+    },
+    {
+      "id": "crate_1",
+      "rect": [
+        450,
+        125,
+        22,
+        40
+      ]
+    },
+    {
+      "id": "crate_2",
+      "rect": [
+        490,
+        115,
+        30,
+        50
+      ]
+    },
+    {
+      "id": "pergola_post_left",
+      "rect": [
+        122,
+        260,
+        18,
+        290
+      ]
+    },
+    {
+      "id": "pergola_post_right",
+      "rect": [
+        335,
+        255,
+        17,
+        295
+      ]
+    },
+    {
+      "id": "patio_table",
+      "rect": [
+        215,
+        445,
+        72,
+        55
+      ]
+    },
+    {
+      "id": "patio_chair_north",
+      "rect": [
+        235,
+        420,
+        30,
+        25
+      ]
+    },
+    {
+      "id": "patio_chair_west",
+      "rect": [
+        180,
+        450,
+        22,
+        70
+      ]
+    },
+    {
+      "id": "patio_chair_east",
+      "rect": [
+        290,
+        440,
+        22,
+        70
+      ]
+    },
+    {
+      "id": "patio_chair_south",
+      "rect": [
+        230,
+        515,
+        40,
+        45
+      ]
+    },
+    {
+      "id": "bbq_grill",
+      "rect": [
+        80,
+        535,
+        50,
+        105
+      ]
+    },
+    {
+      "id": "tree_trunk_top_left",
+      "rect": [
+        120,
+        140,
+        42,
+        60
+      ]
+    },
+    {
+      "id": "hedge_lower_left",
+      "rect": [
+        130,
+        660,
+        170,
+        160
+      ]
+    },
+    {
+      "id": "flowerbed_left_edge",
+      "rect": [
+        85,
+        640,
+        42,
+        120
+      ]
+    },
+    {
+      "id": "tree_ring_right",
+      "rect": [
+        1355,
+        580,
+        145,
+        80
+      ]
+    },
+    {
+      "id": "flowerbed_right_edge",
+      "rect": [
+        1500,
+        610,
+        50,
+        90
+      ]
+    },
+    {
+      "id": "flowerbed_right_pink",
+      "rect": [
+        1470,
+        730,
+        110,
+        80
+      ]
+    },
+    {
+      "id": "bush_bottom_pink",
+      "rect": [
+        510,
+        760,
+        100,
+        70
+      ]
+    },
+    {
+      "id": "bush_bottom_white",
+      "rect": [
+        890,
+        770,
+        100,
+        70
+      ]
+    },
+    {
+      "id": "bush_bottom_green",
+      "rect": [
+        1190,
+        760,
+        100,
+        60
+      ]
+    },
+    {
+      "id": "bench_right",
+      "rect": [
+        1295,
+        650,
+        105,
+        90
+      ]
+    },
+    {
+      "id": "birdbath",
+      "rect": [
+        1440,
+        690,
+        45,
+        55
+      ]
+    },
+    {
+      "id": "boundary_0",
+      "rect": [
+        0,
+        0,
+        1629,
+        30
+      ]
+    },
+    {
+      "id": "boundary_1",
+      "rect": [
+        0,
+        0,
+        30,
+        965
+      ]
+    },
+    {
+      "id": "boundary_2",
+      "rect": [
+        1599,
+        0,
+        30,
+        965
+      ]
+    },
+    {
+      "id": "boundary_3",
+      "rect": [
+        0,
+        935,
+        672,
+        30
+      ]
+    },
+    {
+      "id": "boundary_4",
+      "rect": [
+        838,
+        935,
+        791,
+        30
+      ]
+    }
+  ]
+}

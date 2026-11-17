@@ -1,0 +1,243 @@
+{
+  "_note": "Places on the town map. zone is [x, y, width, height] in image pixels of assets/map/town_map.webp: the road or open area where the character enters the place. Places without a zone are not on the map yet.",
+  "locations": [
+    {
+      "id": "home",
+      "name": "Home",
+      "in_demo": true,
+      "scene": "res://scenes/ExteriorHome.tscn",
+      "zone": [
+        650,
+        488,
+        70,
+        18
+      ],
+      "entry": "south"
+    },
+    {
+      "id": "town_square",
+      "name": "Town Square",
+      "in_demo": true,
+      "scene": "res://scenes/TownSquare.tscn",
+      "zone": [
+        494,
+        703,
+        588,
+        18
+      ],
+      "arrive": [
+        802,
+        740
+      ]
+    },
+    {
+      "id": "cafe",
+      "name": "Café",
+      "in_demo": true,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "bookshop",
+      "name": "Bookshop",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "general_store",
+      "name": "General Store",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "library",
+      "name": "Library",
+      "in_demo": true,
+      "scene": "",
+      "zone": [
+        135,
+        703,
+        325,
+        18
+      ]
+    },
+    {
+      "id": "temple",
+      "name": "Temple",
+      "in_demo": false,
+      "scene": "res://scenes/TempleCourtyard.tscn",
+      "zone": [
+        150,
+        286,
+        300,
+        18
+      ]
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "in_demo": false,
+      "scene": "res://scenes/Forest.tscn",
+      "zone": [
+        490,
+        286,
+        830,
+        18
+      ]
+    },
+    {
+      "id": "lake",
+      "name": "Lake",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        135,
+        488,
+        325,
+        18
+      ]
+    },
+    {
+      "id": "mountain_trail",
+      "name": "Mountain Trail",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "viewpoint",
+      "name": "Viewpoint",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        1365,
+        286,
+        210,
+        18
+      ]
+    },
+    {
+      "id": "campground",
+      "name": "Campground",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "farm",
+      "name": "Farm",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        1175,
+        488,
+        375,
+        18
+      ]
+    },
+    {
+      "id": "greenhouse",
+      "name": "Greenhouse",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        865,
+        488,
+        275,
+        18
+      ]
+    },
+    {
+      "id": "riverbank",
+      "name": "Riverbank",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        1095,
+        703,
+        455,
+        18
+      ]
+    },
+    {
+      "id": "old_mill",
+      "name": "Old Mill",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "beach",
+      "name": "Beach",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        300,
+        722,
+        480,
+        18
+      ]
+    },
+    {
+      "id": "lighthouse",
+      "name": "Lighthouse",
+      "in_demo": false,
+      "scene": "res://scenes/LighthouseFront.tscn",
+      "zone": [
+        240,
+        780,
+        90,
+        50
+      ]
+    },
+    {
+      "id": "college",
+      "name": "College",
+      "in_demo": false,
+      "scene": "",
+      "zone": [
+        830,
+        878,
+        720,
+        18
+      ]
+    },
+    {
+      "id": "school_garden",
+      "name": "School Garden",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "town_hall",
+      "name": "Town Hall",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "hollow_cave",
+      "name": "Hollow Cave",
+      "in_demo": false,
+      "scene": "res://scenes/CaveEntrance.tscn",
+      "zone": null
+    },
+    {
+      "id": "underground_facility",
+      "name": "Underground facility",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    },
+    {
+      "id": "forest_cabin",
+      "name": "Forest cabin",
+      "in_demo": false,
+      "scene": "",
+      "zone": null
+    }
+  ]
+}

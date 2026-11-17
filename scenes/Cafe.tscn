@@ -1,0 +1,201 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/cafe.gd" id="1_cafe"]
+[ext_resource type="Texture2D" path="res://assets/environments/cafe_interior.webp" id="2_pic"]
+[ext_resource type="Texture2D" path="res://assets/environments/furniture/cafe_group_0.png" id="cut_0"]
+[ext_resource type="Texture2D" path="res://assets/environments/furniture/cafe_group_1.png" id="cut_1"]
+[ext_resource type="Texture2D" path="res://assets/environments/furniture/cafe_group_2.png" id="cut_2"]
+[ext_resource type="Texture2D" path="res://assets/environments/furniture/cafe_group_3.png" id="cut_3"]
+
+[sub_resource type="ConcavePolygonShape2D" id="wall_2"]
+segments = PackedVector2Array(8, 8, 8, 931, 8, 931, 1659, 931, 1659, 931, 1659, 8, 1659, 8, 8, 8, 159, 92, 1007, 91, 1007, 91, 1008, 363, 1008, 363, 1467, 363, 1467, 363, 1468, 383, 1468, 383, 1308, 384, 1308, 384, 1307, 688, 1307, 688, 944, 688, 944, 688, 943, 904, 943, 904, 724, 904, 724, 904, 723, 688, 723, 688, 352, 688, 352, 688, 351, 652, 351, 652, 171, 651, 171, 651, 171, 624, 171, 624, 167, 623, 167, 623, 168, 539, 168, 539, 351, 539, 351, 539, 351, 500, 351, 500, 171, 503, 171, 503, 167, 420, 167, 420, 156, 420, 156, 420, 135, 399, 135, 399, 135, 376, 135, 376, 131, 375, 131, 375, 135, 336, 135, 336, 148, 323, 148, 323, 175, 327, 175, 327, 192, 347, 192, 347, 199, 347, 199, 347, 199, 320, 199, 320, 180, 324, 180, 324, 179, 320, 179, 320, 159, 319, 159, 319, 159, 92)
+
+[node name="Cafe" type="Node2D"]
+script = ExtResource("1_cafe")
+
+[node name="Picture" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+centered = false
+z_index = -10
+
+[node name="TableCollider_0" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="TableCollider_0"]
+polygon = PackedVector2Array(729, 385, 732, 391, 731, 488, 592, 488, 589, 486, 586, 458, 586, 393, 601, 378, 621, 368, 700, 368, 719, 376)
+
+[node name="TableCollider_1" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="TableCollider_1"]
+polygon = PackedVector2Array(984, 375, 984, 488, 859, 488, 859, 384, 863, 378, 882, 368, 968, 368)
+
+[node name="TableCollider_2" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="TableCollider_2"]
+polygon = PackedVector2Array(732, 539, 732, 638, 705, 659, 621, 659, 590, 637, 586, 609, 586, 545, 601, 528, 719, 527)
+
+[node name="TableCollider_3" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="TableCollider_3"]
+polygon = PackedVector2Array(984, 528, 984, 648, 970, 659, 883, 659, 859, 639, 859, 536, 865, 529, 869, 527)
+
+[node name="Wall_0" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Wall_0"]
+polygon = PackedVector2Array(460, 168, 479, 175, 479, 168)
+
+[node name="Wall_1" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Wall_1"]
+polygon = PackedVector2Array(479, 248, 476, 263, 460, 268, 459, 272, 412, 276, 408, 303, 403, 308, 392, 308, 391, 312, 364, 308, 351, 291, 355, 276, 328, 276, 332, 291, 340, 300, 340, 307, 336, 308, 336, 339, 299, 360, 295, 356, 264, 352, 255, 339, 251, 316, 247, 315, 247, 300, 251, 299, 255, 268, 272, 251, 295, 255, 291, 251, 291, 184, 303, 168, 288, 168, 288, 247, 244, 248, 244, 383, 204, 384, 204, 391, 211, 391, 212, 387, 351, 387, 339, 383, 339, 340, 431, 339, 431, 288, 479, 287)
+
+[node name="Wall_2" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_2"]
+shape = SubResource("wall_2")
+
+[node name="Item_booth_left_upper" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_booth_left_upper"]
+polygon = PackedVector2Array(168, 390, 352, 388, 354, 500, 170, 502)
+
+[node name="Item_booth_left_lower" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_booth_left_lower"]
+polygon = PackedVector2Array(168, 538, 352, 538, 354, 650, 170, 652)
+
+[node name="Item_booth_right_upper" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_booth_right_upper"]
+polygon = PackedVector2Array(1322, 390, 1500, 390, 1500, 497, 1322, 497)
+
+[node name="Item_booth_right_lower" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_booth_right_lower"]
+polygon = PackedVector2Array(1327, 540, 1500, 540, 1500, 648, 1327, 648)
+
+[node name="Item_sofa" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_sofa"]
+polygon = PackedVector2Array(292, 186, 300, 170, 340, 164, 440, 164, 478, 176, 482, 200, 476, 262, 440, 276, 330, 276, 296, 262, 290, 230)
+
+[node name="Item_armchair" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_armchair"]
+polygon = PackedVector2Array(255, 268, 275, 252, 320, 262, 338, 300, 335, 340, 300, 358, 262, 350, 248, 310)
+
+[node name="Item_side_table" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_side_table"]
+polygon = PackedVector2Array(414, 287, 405, 305, 383, 312, 361, 305, 352, 287, 361, 269, 383, 262, 405, 269)
+
+[node name="Item_bookshelf" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_bookshelf"]
+polygon = PackedVector2Array(178, 212, 235, 205, 238, 318, 180, 322)
+
+[node name="Item_counter" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_counter"]
+polygon = PackedVector2Array(1010, 228, 1485, 228, 1488, 350, 1012, 352)
+
+[node name="Item_cake_cabinet" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_cake_cabinet"]
+polygon = PackedVector2Array(1190, 230, 1465, 230, 1465, 325, 1190, 325)
+
+[node name="Item_plant_left" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_plant_left"]
+polygon = PackedVector2Array(150, 322, 175, 330, 198, 350, 203, 385, 190, 415, 160, 420, 138, 400, 132, 365, 138, 335)
+
+[node name="Item_plant_right" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_plant_right"]
+polygon = PackedVector2Array(1478, 322, 1505, 318, 1530, 330, 1538, 360, 1528, 392, 1500, 402, 1480, 388, 1474, 350)
+
+[node name="Item_window_tables" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionPolygon2D" parent="Item_window_tables"]
+polygon = PackedVector2Array(570, 200, 950, 200, 950, 318, 570, 318)
+
+[node name="Furniture_0" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+region_enabled = true
+region_rect = Rect2(150, 385, 205, 310)
+position = Vector2(150, 385)
+metadata/rect = Rect2(150, 385, 205, 310)
+metadata/origin = Vector2(150, 385)
+metadata/cutout = false
+
+[node name="Furniture_1" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+region_enabled = true
+region_rect = Rect2(1310, 385, 190, 310)
+position = Vector2(1310, 385)
+metadata/rect = Rect2(1310, 385, 190, 310)
+metadata/origin = Vector2(1310, 385)
+metadata/cutout = false
+
+[node name="Furniture_2" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+region_enabled = true
+region_rect = Rect2(290, 170, 190, 120)
+position = Vector2(290, 170)
+metadata/rect = Rect2(290, 170, 190, 120)
+metadata/origin = Vector2(290, 170)
+metadata/cutout = false
+
+[node name="Furniture_3" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+region_enabled = true
+region_rect = Rect2(570, 200, 380, 118)
+position = Vector2(570, 200)
+metadata/rect = Rect2(570, 200, 380, 118)
+metadata/origin = Vector2(570, 200)
+metadata/cutout = false
+
+[node name="Furniture_4" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+region_enabled = true
+region_rect = Rect2(1010, 110, 490, 255)
+position = Vector2(1010, 110)
+metadata/rect = Rect2(1010, 110, 490, 255)
+metadata/origin = Vector2(1010, 110)
+metadata/cutout = false
+
+[node name="Furniture_5" type="Sprite2D" parent="."]
+texture = ExtResource("2_pic")
+region_enabled = true
+region_rect = Rect2(1190, 230, 280, 95)
+position = Vector2(1190, 230)
+metadata/rect = Rect2(1190, 230, 280, 95)
+metadata/origin = Vector2(1190, 230)
+metadata/cutout = false
+
+[node name="Table_0" type="Sprite2D" parent="."]
+texture = ExtResource("cut_0")
+position = Vector2(586, 368)
+metadata/rect = Rect2(586, 368, 149, 137)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Table_1" type="Sprite2D" parent="."]
+texture = ExtResource("cut_1")
+position = Vector2(851, 368)
+metadata/rect = Rect2(851, 368, 149, 137)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Table_2" type="Sprite2D" parent="."]
+texture = ExtResource("cut_2")
+position = Vector2(586, 519)
+metadata/rect = Rect2(586, 519, 149, 141)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true
+
+[node name="Table_3" type="Sprite2D" parent="."]
+texture = ExtResource("cut_3")
+position = Vector2(851, 519)
+metadata/rect = Rect2(851, 519, 149, 141)
+metadata/origin = Vector2(0, 0)
+metadata/cutout = true

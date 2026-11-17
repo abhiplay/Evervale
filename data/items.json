@@ -1,0 +1,49 @@
+{
+  "flashlight": {
+    "name": "Flashlight",
+    "category": "personal",
+    "icon": "res://assets/ui/hud/Icons/icon_flashlight.png"
+  },
+  "hidden_box": {
+    "name": "Hidden Box",
+    "category": "clues",
+    "description": "A strange, handcrafted box concealed beneath the floorboards.",
+    "icon": "res://assets/ui/hud/Icons/hidden_box.png",
+    "contents": ["letter_arthur", "photo_box", "pocket_watch", "key_strange", "doll_rag"]
+  },
+  "letter_arthur": {
+    "name": "A letter",
+    "category": "documents",
+    "description": "A letter from Arthur Hale, October 1991.",
+    "icon": "res://assets/items/letter_arthur.webp",
+    "view": [{"type": "image", "image": "res://assets/items/letter_arthur.webp"}]
+  },
+  "photo_box": {
+    "name": "A photo",
+    "category": "personal",
+    "description": "A photograph from the box.",
+    "icon": "res://assets/items/photo_box_icon.webp",
+    "view": [{"type": "photo", "title": "A photo", "front": "res://assets/items/photo_box_front.webp", "back": "res://assets/items/photo_box_back.webp"}]
+  },
+  "pocket_watch": {
+    "name": "A pocket watch",
+    "category": "personal",
+    "description": "A pocket watch with a lily engraved on the case.",
+    "icon": "res://assets/items/pocket_watch.webp",
+    "view": [{"type": "image", "image": "res://assets/items/pocket_watch.webp"}]
+  },
+  "key_strange": {
+    "name": "A strange key",
+    "category": "clues",
+    "description": "An old key with a crescent moon and a star on its head.",
+    "icon": "res://assets/items/key_strange.webp",
+    "view": [{"type": "image", "image": "res://assets/items/key_strange.webp"}]
+  },
+  "doll_rag": {
+    "name": "A doll",
+    "category": "personal",
+    "description": "A worn cloth doll with button eyes and red ribbons in her hair.",
+    "icon": "res://assets/items/doll_rag.webp",
+    "view": [{"type": "image", "image": "res://assets/items/doll_rag.webp"}]
+  }
+}

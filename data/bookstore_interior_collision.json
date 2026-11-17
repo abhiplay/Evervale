@@ -1,0 +1,21 @@
+{"_note": "Solid areas of assets/environments/bookstore/interior_warm_lit.png, in picture pixels, measured from a labelled grid of the picture. The shelves, counters and display cabinets are solid, and so is the base of each piece of furniture on the floor: a strip one grid cell (32 px) deep, as wide as the piece's drawn base. The rugs and the open floor are walkable. The gap in the lower wall (x 735 to 935) is the way in and out.", "solids": [
+{"id": "back_wall", "rect": [140, 0, 1390, 255]},
+{"id": "checkout_counter", "rect": [1200, 200, 258, 112]},
+{"id": "left_wall", "rect": [60, 90, 150, 610]},
+{"id": "right_wall", "rect": [1465, 90, 160, 610]},
+{"id": "lower_left_cabinets", "rect": [105, 700, 630, 170]},
+{"id": "lower_right_cabinets", "rect": [935, 700, 630, 170]},
+{"id": "bottom_left_edge", "rect": [0, 870, 735, 72]},
+{"id": "bottom_right_edge", "rect": [935, 870, 735, 72]},
+{"id": "left_edge", "rect": [0, 0, 60, 942]},
+{"id": "right_edge", "rect": [1610, 0, 60, 942]},
+{"id": "top_edge", "rect": [0, 0, 1670, 20]},
+{"id": "top_left_pot", "rect": [200, 215, 38, 52]},
+{"id": "reading_corner_base", "rect": [224, 320, 192, 32]},
+{"id": "trailing_shelf_left_base", "rect": [480, 624, 96, 32]},
+{"id": "trailing_shelf_right_base", "rect": [1056, 624, 96, 32]},
+{"id": "display_table_top_base", "rect": [736, 408, 160, 32]},
+{"id": "display_table_bottom_base", "rect": [736, 584, 160, 32]},
+{"id": "reading_table_left_base", "rect": [256, 576, 192, 32]},
+{"id": "reading_table_right_base", "rect": [1216, 576, 192, 32]}
+]}

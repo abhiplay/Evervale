@@ -1,0 +1,10 @@
+{
+  "_note": "Coco and Charlie on the ground floor of the house (home_floor1), once Evelyn has left. Positions are picture pixels of the house map, on open floor away from the routes between the doors, stairs and the loose board; the pets have no collision, so they never block a path. settled_pos is where each pet is once the house is settled (furnished picture, HomeFloor1), on open floor clear of the new furniture. Petting a pet counts as meeting it (talked_to, MissionTracker). Coco uses her idle sheet; Charlie has no art yet, so he is drawn as a placeholder until his sprite exists. The lines are placeholders until the real words are added. our_new_home is the talk (CS-003) that plays once the house has been looked around and both pets have been met.",
+  "pets": [
+    {"id": "coco", "name": "Coco", "pos": [235, 870], "settled_pos": [610, 880], "label": "Pet", "sheet": "res://assets/characters/coco-idle.png", "frames": [6, 4], "fps": 6, "scale": 0.22,
+     "lines": ["Coco blinks slowly at you, then goes back to watching the window."]},
+    {"id": "charlie", "name": "Charlie", "pos": [610, 470], "settled_pos": [760, 520], "label": "Pet", "placeholder_colour": "#2b2522",
+     "lines": ["Charlie thumps his tail on the floor and rolls over for a belly rub."]}
+  ],
+  "our_new_home": "res://data/our_new_home.json"
+}

@@ -1,0 +1,357 @@
+{
+  "_note": "Temple interior, traced from assets/environments/temple_interior.webp (1448x1086). Solids are the walls, altar, benches, shrine tables and pillars; the rug and the floor are walkable. The front opening leads back out to the temple courtyard. The hidden stairs (bottom right) lead down to the Hollow Cave once the temple_stairs_open flag is set.",
+  "image": "res://assets/environments/temple_interior.webp",
+  "size": [
+    1445,
+    1088
+  ],
+  "solids": [
+    {
+      "id": "wall_top",
+      "rect": [
+        100,
+        60,
+        1245,
+        225
+      ]
+    },
+    {
+      "id": "wall_left",
+      "rect": [
+        100,
+        60,
+        45,
+        870
+      ]
+    },
+    {
+      "id": "wall_right",
+      "rect": [
+        1300,
+        60,
+        45,
+        870
+      ]
+    },
+    {
+      "id": "wall_bottom_left",
+      "rect": [
+        100,
+        930,
+        535,
+        60
+      ]
+    },
+    {
+      "id": "wall_bottom_right",
+      "rect": [
+        815,
+        930,
+        530,
+        60
+      ]
+    },
+    {
+      "id": "altar_platform",
+      "rect": [
+        470,
+        285,
+        515,
+        110
+      ]
+    },
+    {
+      "id": "shrine_niche",
+      "rect": [
+        610,
+        120,
+        235,
+        170
+      ]
+    },
+    {
+      "id": "pillar_left",
+      "rect": [
+        520,
+        90,
+        50,
+        200
+      ]
+    },
+    {
+      "id": "pillar_right",
+      "rect": [
+        885,
+        90,
+        50,
+        200
+      ]
+    },
+    {
+      "id": "plant_back_left",
+      "rect": [
+        455,
+        230,
+        60,
+        80
+      ]
+    },
+    {
+      "id": "plant_back_right",
+      "rect": [
+        930,
+        230,
+        65,
+        80
+      ]
+    },
+    {
+      "id": "bench_left_1",
+      "rect": [
+        355,
+        475,
+        230,
+        70
+      ]
+    },
+    {
+      "id": "bench_left_2",
+      "rect": [
+        355,
+        595,
+        230,
+        70
+      ]
+    },
+    {
+      "id": "bench_left_3",
+      "rect": [
+        355,
+        710,
+        230,
+        70
+      ]
+    },
+    {
+      "id": "bench_right_1",
+      "rect": [
+        868,
+        475,
+        232,
+        70
+      ]
+    },
+    {
+      "id": "bench_right_2",
+      "rect": [
+        868,
+        595,
+        232,
+        70
+      ]
+    },
+    {
+      "id": "bench_right_3",
+      "rect": [
+        868,
+        710,
+        232,
+        70
+      ]
+    },
+    {
+      "id": "bell_stand",
+      "rect": [
+        1190,
+        275,
+        85,
+        115
+      ]
+    },
+    {
+      "id": "lamp_stand",
+      "rect": [
+        160,
+        330,
+        40,
+        50
+      ]
+    },
+    {
+      "id": "shrine_table_left_top",
+      "rect": [
+        145,
+        405,
+        55,
+        170
+      ]
+    },
+    {
+      "id": "shrine_table_left_low",
+      "rect": [
+        145,
+        640,
+        55,
+        150
+      ]
+    },
+    {
+      "id": "shrine_table_right_top",
+      "rect": [
+        1250,
+        440,
+        55,
+        140
+      ]
+    },
+    {
+      "id": "shrine_table_right_low",
+      "rect": [
+        1250,
+        640,
+        55,
+        150
+      ]
+    },
+    {
+      "id": "plant_front_left",
+      "rect": [
+        150,
+        800,
+        65,
+        95
+      ]
+    },
+    {
+      "id": "plant_front_right",
+      "rect": [
+        1235,
+        800,
+        65,
+        95
+      ]
+    },
+    {
+      "id": "offering_bowl_left",
+      "rect": [
+        400,
+        315,
+        50,
+        30
+      ]
+    },
+    {
+      "id": "offering_bowl_right",
+      "rect": [
+        1005,
+        315,
+        50,
+        35
+      ]
+    }
+  ],
+  "exits": [
+    {
+      "id": "temple_interior_to_courtyard",
+      "rect": [
+        635,
+        880,
+        180,
+        130
+      ],
+      "to_room": "temple_courtyard",
+      "to_spawn": "from_temple_interior",
+      "prompt": "Go outside"
+    },
+    {
+      "id": "temple_stairs",
+      "rect": [
+        880,
+        835,
+        200,
+        70
+      ],
+      "to_room": "cave_interior",
+      "to_spawn": "from_temple_stairs",
+      "prompt": "Go down the stairs",
+      "requires": "temple_stairs_open"
+    }
+  ],
+  "spawns": {
+    "from_courtyard": [
+      725,
+      850
+    ],
+    "from_cave_stairs": [
+      1000,
+      805
+    ]
+  },
+  "default_spawn": [
+    725,
+    850
+  ],
+  "interactables": [
+    {
+      "id": "buddha",
+      "pos": [
+        725,
+        440
+      ],
+      "label": "Inspect",
+      "kind": "inspect",
+      "text": "A golden statue sits calmly in the shrine. The lamps around it flicker."
+    },
+    {
+      "id": "bell",
+      "pos": [
+        1232,
+        425
+      ],
+      "label": "Ring the bell",
+      "kind": "inspect",
+      "text": "The bell rings out, clear and soft, and the sound settles over the room."
+    },
+    {
+      "id": "bench",
+      "pos": [
+        470,
+        455
+      ],
+      "label": "Sit",
+      "kind": "sit",
+      "text": "You sit on the wooden bench and listen to the quiet."
+    },
+    {
+      "id": "offerings",
+      "pos": [
+        425,
+        365
+      ],
+      "label": "Inspect",
+      "kind": "inspect",
+      "text": "A bowl of offerings, bright with petals."
+    },
+    {
+      "id": "shrine_table",
+      "pos": [
+        215,
+        480
+      ],
+      "label": "Inspect",
+      "kind": "inspect",
+      "text": "A small shrine table with incense and a lit candle."
+    }
+  ],
+  "covers": [
+    {
+      "id": "hidden_stairs",
+      "image": "res://assets/environments/temple_stairs_cover.webp",
+      "pos": [
+        866,
+        816
+      ],
+      "requires": "temple_stairs_open"
+    }
+  ]
+}

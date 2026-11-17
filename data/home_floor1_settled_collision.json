@@ -1,0 +1,59 @@
+{
+ "_note": "Furniture solids added to the ground floor once it is settled (assets/environments/home_floor1.webp), in picture pixels (HomeFloor1.settle). The floor keeps its own walls, stairs, kitchen, stools, the cabinet (now the bookshelf, same footprint) and the coffee table from HomeFloor1.tscn; these are the settled picture's new pieces: dining set, sofa, side table, pouf and the fridge shelf. Small plants by the walls are left walkable.",
+ "solids": [
+  {
+   "id": "dining_set",
+   "rect": [
+    622,
+    180,
+    200,
+    180
+   ]
+  },
+  {
+   "id": "sofa_back",
+   "rect": [
+    220,
+    492,
+    382,
+    126
+   ]
+  },
+  {
+   "id": "sofa_side",
+   "rect": [
+    220,
+    618,
+    112,
+    172
+   ]
+  },
+  {
+   "id": "side_table",
+   "rect": [
+    218,
+    790,
+    78,
+    92
+   ]
+  },
+  {
+   "id": "pouf",
+   "rect": [
+    404,
+    806,
+    98,
+    94
+   ]
+  },
+  {
+   "id": "fridge_shelf",
+   "rect": [
+    1222,
+    662,
+    96,
+    78
+   ]
+  }
+ ]
+}

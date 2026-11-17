@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6vhoxwkf7dp3"]
+
+[ext_resource type="PackedScene" uid="uid://dbbkmqyv6md6e" path="res://scenes/ExteriorHome.tscn" id="1_exterior"]
+
+[node name="Home" type="Node2D" unique_id=525803977]
+
+[node name="ExteriorHome" parent="." instance=ExtResource("1_exterior")]
